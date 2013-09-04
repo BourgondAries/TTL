@@ -10,6 +10,8 @@ namespace ttl
         try
         {
             Logger<true> system_log("system.log", true, std::ios::trunc | std::ios::out);
+
+            retry:
             try
             {
                 if (runnable)
@@ -20,6 +22,11 @@ namespace ttl
 
                     do
                     {
+                        if (cycle_count == std::numeric_limits<std::size_t>::max())
+                        {
+                            cycle_count = 0;
+                            system_log << Timestamp << "Cycle count resetted\n";
+                        }
                         system_log << Timestamp << "Entering cycle " << ++cycle_count << "\n";
                         system_log << Timestamp << "Pointer valid, calling run()\n";
                         holder = runnable->run();
@@ -39,6 +46,11 @@ namespace ttl
                 {
                     system_log << Timestamp << "Pointer invalid, returning\n";
                 }
+            }
+            catch (Runnable *r)
+            {
+                runnable.reset(r);
+                goto retry;
             }
             catch (std::exception &e)
             {
