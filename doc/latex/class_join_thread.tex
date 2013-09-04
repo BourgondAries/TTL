@@ -1,0 +1,38 @@
+\hypertarget{class_join_thread}{\section{Join\-Thread Class Reference}
+\label{class_join_thread}\index{Join\-Thread@{Join\-Thread}}
+}
+
+
+{\ttfamily \#include $<$Join\-Thread.\-hpp$>$}
+
+
+
+\subsection{Detailed Description}
+This class works exactly like std\-::thread since it inherits therefrom and delegates all constructor arguments to std\-::thread\-::thread(...)
+
+
+\begin{DoxyCode}
+*  \textcolor{keywordtype}{int} &n = 0;
+*  \hyperlink{class_join_thread}{JoinThread} thr
+*  (
+*      [](\textcolor{keywordtype}{int} &number)
+*      \{
+*          number++;
+*          std::this\_thread::sleep\_for(std::chrono::seconds(3));
+*      \},
+*      std::ref(n)
+*  );
+*  
+\end{DoxyCode}
+
+
+Don't worry about detaching the thread, a check is performed during destruction to make sure the thread is joinable.
+
+\begin{DoxySeeAlso}{See Also}
+std\-::thread 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+include/\-Join\-Thread/Join\-Thread.\-hpp\end{DoxyCompactItemize}

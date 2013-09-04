@@ -1,0 +1,34 @@
+\hypertarget{classttl_1_1_runnable}{\section{ttl\-:\-:Runnable Class Reference}
+\label{classttl_1_1_runnable}\index{ttl\-::\-Runnable@{ttl\-::\-Runnable}}
+}
+
+
+Class for managing cycles of runnable objects.  
+
+
+
+
+{\ttfamily \#include $<$Runnable.\-hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classttl_1_1_runnable_af6956d428e33c97a44fe01e707f20c49}{virtual \hyperlink{classttl_1_1_runnable}{Runnable} $\ast$ {\bfseries run} ()=0}\label{classttl_1_1_runnable_af6956d428e33c97a44fe01e707f20c49}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classttl_1_1_runnable_aa959aaca8db913584fba289ee9119344}{static void \hyperlink{classttl_1_1_runnable_aa959aaca8db913584fba289ee9119344}{cycle} (std\-::unique\-\_\-ptr$<$ \hyperlink{classttl_1_1_runnable}{Runnable} $>$ runnable)}\label{classttl_1_1_runnable_aa959aaca8db913584fba289ee9119344}
+
+\begin{DoxyCompactList}\small\item\em Handles exceptions and logs times. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for managing cycles of runnable objects. 
+
+Inheriting from this class and overriding its run function will allow you to send such class into \hyperlink{classttl_1_1_runnable_aa959aaca8db913584fba289ee9119344}{ttl\-::\-Runnable\-::cycle} 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+include/\-Runnable/Runnable.\-hpp\end{DoxyCompactItemize}

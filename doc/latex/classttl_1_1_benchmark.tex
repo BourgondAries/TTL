@@ -1,0 +1,246 @@
+\hypertarget{classttl_1_1_benchmark}{\section{ttl\-:\-:Benchmark Class Reference}
+\label{classttl_1_1_benchmark}\index{ttl\-::\-Benchmark@{ttl\-::\-Benchmark}}
+}
+
+
+A benchmarking class.  
+
+
+
+
+{\ttfamily \#include $<$Benchmark.\-hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classttl_1_1_benchmark_a1a14c33331e9b2e7c328a00088a3f4cf}{Benchmark} (const char $\ast$title=\char`\"{}Unnamed benchmark\char`\"{}, const std\-::size\-\_\-t iterations=1)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classttl_1_1_benchmark_abbc410384a29c371b442a74cd9c1e224}{Benchmark} (const std\-::string \&title, const std\-::size\-\_\-t iterations=1)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classttl_1_1_benchmark_a9889968c38f3799960ff1ea768511eb7}{Benchmark} (const std\-::size\-\_\-t iterations=1)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classttl_1_1_benchmark_a94fa0904de8741737e025b00a44bb78f}{Benchmark} (const \hyperlink{classttl_1_1_benchmark}{Benchmark} \&benchmark)
+\begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
+\hyperlink{classttl_1_1_benchmark_a9b27529d09529960ac86adfd5bd0e1d9}{Benchmark} (\hyperlink{classttl_1_1_benchmark}{Benchmark} \&\&benchmark)
+\begin{DoxyCompactList}\small\item\em Move constructor. \end{DoxyCompactList}\item 
+\hyperlink{classttl_1_1_benchmark}{Benchmark} \& \hyperlink{classttl_1_1_benchmark_a69ee7dbcce5b20e84531efcb45798b51}{operator=} (const \hyperlink{classttl_1_1_benchmark}{Benchmark} \&benchmark)
+\begin{DoxyCompactList}\small\item\em Copy assignment. \end{DoxyCompactList}\item 
+\hyperlink{classttl_1_1_benchmark}{Benchmark} \& \hyperlink{classttl_1_1_benchmark_a1d7327984894e6ffce05d70836727e2c}{operator=} (\hyperlink{classttl_1_1_benchmark}{Benchmark} \&\&benchmark)
+\begin{DoxyCompactList}\small\item\em Move assignment. \end{DoxyCompactList}\item 
+\hypertarget{classttl_1_1_benchmark_a194cd9074f96736102831fa818d890a3}{\hyperlink{classttl_1_1_benchmark_a194cd9074f96736102831fa818d890a3}{$\sim$\-Benchmark} ()}\label{classttl_1_1_benchmark_a194cd9074f96736102831fa818d890a3}
+
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename... Args$>$ }\\void \hyperlink{classttl_1_1_benchmark_a5739a5a9d2634d4b74676b70166ef9e1}{run} (Args \&\&...args)
+\begin{DoxyCompactList}\small\item\em Actual running algorithm. \end{DoxyCompactList}\item 
+\hypertarget{classttl_1_1_benchmark_aa24491ab2be4d5d9790883b6c3dde656}{void \hyperlink{classttl_1_1_benchmark_aa24491ab2be4d5d9790883b6c3dde656}{reset\-Average\-Run\-Time} ()}\label{classttl_1_1_benchmark_aa24491ab2be4d5d9790883b6c3dde656}
+
+\begin{DoxyCompactList}\small\item\em Reset the average running time. \end{DoxyCompactList}\item 
+\hypertarget{classttl_1_1_benchmark_a8135ff02ee37bf040b7cb10aa949adf7}{void \hyperlink{classttl_1_1_benchmark_a8135ff02ee37bf040b7cb10aa949adf7}{set\-Iterations} (const std\-::size\-\_\-t amount)}\label{classttl_1_1_benchmark_a8135ff02ee37bf040b7cb10aa949adf7}
+
+\begin{DoxyCompactList}\small\item\em Set the amount of iterations per benchmark. \end{DoxyCompactList}\item 
+float \hyperlink{classttl_1_1_benchmark_ade766a7dd34bbca7039635818edc5a55}{get\-Average\-Run\-Time} () const 
+\begin{DoxyCompactList}\small\item\em Get the average running time per benchmark. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\-::ostream \& \hyperlink{classttl_1_1_benchmark_a2346a28755599b425b019bbda165f9ac}{operator$<$$<$} (std\-::ostream \&lhs, const \hyperlink{classttl_1_1_benchmark}{Benchmark} \&rhs)
+\begin{DoxyCompactList}\small\item\em Overload of the ostream operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A benchmarking class. 
+
+A class designed for handling benchmarks of functions. It is possible to use member functions, lambdas, function pointers and const function pointers (normal functions). 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classttl_1_1_benchmark_a1a14c33331e9b2e7c328a00088a3f4cf}{\index{ttl\-::\-Benchmark@{ttl\-::\-Benchmark}!Benchmark@{Benchmark}}
+\index{Benchmark@{Benchmark}!ttl::Benchmark@{ttl\-::\-Benchmark}}
+\subsubsection[{Benchmark}]{\setlength{\rightskip}{0pt plus 5cm}ttl\-::\-Benchmark\-::\-Benchmark (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{title = {\ttfamily \char`\"{}Unnamed~benchmark\char`\"{}}, }
+\item[{const std\-::size\-\_\-t}]{iterations = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}}\label{classttl_1_1_benchmark_a1a14c33331e9b2e7c328a00088a3f4cf}
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & The title to give this benchmark \\
+\hline
+{\em iterations} & The amount of calls to benchmark \\
+\hline
+\end{DoxyParams}
+\hypertarget{classttl_1_1_benchmark_abbc410384a29c371b442a74cd9c1e224}{\index{ttl\-::\-Benchmark@{ttl\-::\-Benchmark}!Benchmark@{Benchmark}}
+\index{Benchmark@{Benchmark}!ttl::Benchmark@{ttl\-::\-Benchmark}}
+\subsubsection[{Benchmark}]{\setlength{\rightskip}{0pt plus 5cm}ttl\-::\-Benchmark\-::\-Benchmark (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{title, }
+\item[{const std\-::size\-\_\-t}]{iterations = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}}\label{classttl_1_1_benchmark_abbc410384a29c371b442a74cd9c1e224}
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & The title to give this benchmark \\
+\hline
+{\em iterations} & The amount of calls to benchmark \\
+\hline
+\end{DoxyParams}
+\hypertarget{classttl_1_1_benchmark_a9889968c38f3799960ff1ea768511eb7}{\index{ttl\-::\-Benchmark@{ttl\-::\-Benchmark}!Benchmark@{Benchmark}}
+\index{Benchmark@{Benchmark}!ttl::Benchmark@{ttl\-::\-Benchmark}}
+\subsubsection[{Benchmark}]{\setlength{\rightskip}{0pt plus 5cm}ttl\-::\-Benchmark\-::\-Benchmark (
+\begin{DoxyParamCaption}
+\item[{const std\-::size\-\_\-t}]{iterations = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}}\label{classttl_1_1_benchmark_a9889968c38f3799960ff1ea768511eb7}
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em iterations} & The amount of calls to benchmark \\
+\hline
+\end{DoxyParams}
+\hypertarget{classttl_1_1_benchmark_a94fa0904de8741737e025b00a44bb78f}{\index{ttl\-::\-Benchmark@{ttl\-::\-Benchmark}!Benchmark@{Benchmark}}
+\index{Benchmark@{Benchmark}!ttl::Benchmark@{ttl\-::\-Benchmark}}
+\subsubsection[{Benchmark}]{\setlength{\rightskip}{0pt plus 5cm}ttl\-::\-Benchmark\-::\-Benchmark (
+\begin{DoxyParamCaption}
+\item[{const {\bf Benchmark} \&}]{benchmark}
+\end{DoxyParamCaption}
+)}}\label{classttl_1_1_benchmark_a94fa0904de8741737e025b00a44bb78f}
+
+
+Copy constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em benchmark} & The benchmark to copy \\
+\hline
+\end{DoxyParams}
+\hypertarget{classttl_1_1_benchmark_a9b27529d09529960ac86adfd5bd0e1d9}{\index{ttl\-::\-Benchmark@{ttl\-::\-Benchmark}!Benchmark@{Benchmark}}
+\index{Benchmark@{Benchmark}!ttl::Benchmark@{ttl\-::\-Benchmark}}
+\subsubsection[{Benchmark}]{\setlength{\rightskip}{0pt plus 5cm}ttl\-::\-Benchmark\-::\-Benchmark (
+\begin{DoxyParamCaption}
+\item[{{\bf Benchmark} \&\&}]{benchmark}
+\end{DoxyParamCaption}
+)}}\label{classttl_1_1_benchmark_a9b27529d09529960ac86adfd5bd0e1d9}
+
+
+Move constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em benchmark} & The benchmark to move \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classttl_1_1_benchmark_ade766a7dd34bbca7039635818edc5a55}{\index{ttl\-::\-Benchmark@{ttl\-::\-Benchmark}!get\-Average\-Run\-Time@{get\-Average\-Run\-Time}}
+\index{get\-Average\-Run\-Time@{get\-Average\-Run\-Time}!ttl::Benchmark@{ttl\-::\-Benchmark}}
+\subsubsection[{get\-Average\-Run\-Time}]{\setlength{\rightskip}{0pt plus 5cm}float ttl\-::\-Benchmark\-::get\-Average\-Run\-Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classttl_1_1_benchmark_ade766a7dd34bbca7039635818edc5a55}
+
+
+Get the average running time per benchmark. 
+
+\begin{DoxyReturn}{Returns}
+the running time in microseconds 
+\end{DoxyReturn}
+\hypertarget{classttl_1_1_benchmark_a69ee7dbcce5b20e84531efcb45798b51}{\index{ttl\-::\-Benchmark@{ttl\-::\-Benchmark}!operator=@{operator=}}
+\index{operator=@{operator=}!ttl::Benchmark@{ttl\-::\-Benchmark}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Benchmark}\& ttl\-::\-Benchmark\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Benchmark} \&}]{benchmark}
+\end{DoxyParamCaption}
+)}}\label{classttl_1_1_benchmark_a69ee7dbcce5b20e84531efcb45798b51}
+
+
+Copy assignment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em benchmark} & The benchmark to move \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to itself 
+\end{DoxyReturn}
+\hypertarget{classttl_1_1_benchmark_a1d7327984894e6ffce05d70836727e2c}{\index{ttl\-::\-Benchmark@{ttl\-::\-Benchmark}!operator=@{operator=}}
+\index{operator=@{operator=}!ttl::Benchmark@{ttl\-::\-Benchmark}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Benchmark}\& ttl\-::\-Benchmark\-::operator= (
+\begin{DoxyParamCaption}
+\item[{{\bf Benchmark} \&\&}]{benchmark}
+\end{DoxyParamCaption}
+)}}\label{classttl_1_1_benchmark_a1d7327984894e6ffce05d70836727e2c}
+
+
+Move assignment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em benchmark} & The benchmark to move \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to itself 
+\end{DoxyReturn}
+\hypertarget{classttl_1_1_benchmark_a5739a5a9d2634d4b74676b70166ef9e1}{\index{ttl\-::\-Benchmark@{ttl\-::\-Benchmark}!run@{run}}
+\index{run@{run}!ttl::Benchmark@{ttl\-::\-Benchmark}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename... Args$>$ void ttl\-::\-Benchmark\-::run (
+\begin{DoxyParamCaption}
+\item[{Args \&\&...}]{args}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classttl_1_1_benchmark_a5739a5a9d2634d4b74676b70166ef9e1}
+
+
+Actual running algorithm. 
+
+Will loop over the function n times specified by set\-Iterations or by the constructor. The running time will be added to the old running time and then halfed in order to approximate an average.
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & first a function and then optional arguments \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{classttl_1_1_benchmark_a2346a28755599b425b019bbda165f9ac}{\index{ttl\-::\-Benchmark@{ttl\-::\-Benchmark}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!ttl::Benchmark@{ttl\-::\-Benchmark}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{lhs, }
+\item[{const {\bf Benchmark} \&}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classttl_1_1_benchmark_a2346a28755599b425b019bbda165f9ac}
+
+
+Overload of the ostream operator. 
+
+Outputs the name of the benchmark and the time cost per iteration.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & the stream \\
+\hline
+{\em rhs} & the benchmark object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the std\-::ostream object 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+include/\-Benchmark/Benchmark.\-hpp\end{DoxyCompactItemize}

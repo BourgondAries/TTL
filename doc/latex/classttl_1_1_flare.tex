@@ -1,0 +1,117 @@
+\hypertarget{classttl_1_1_flare}{\section{ttl\-:\-:Flare Class Reference}
+\label{classttl_1_1_flare}\index{ttl\-::\-Flare@{ttl\-::\-Flare}}
+}
+
+
+Simple signalling between threads.  
+
+
+
+
+{\ttfamily \#include $<$Flare.\-hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classttl_1_1_flare_a1da87d88f8f5faa5e5ee952227db8874}{Flare} (bool skip\-\_\-on\-\_\-first\-\_\-wait=false)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classttl_1_1_flare}{Flare}'s constructor. \end{DoxyCompactList}\item 
+\hyperlink{classttl_1_1_flare_a9ea08920c3bd56842717c5cf17a1d42b}{$\sim$\-Flare} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{classttl_1_1_flare}{Flare}'s destructor. \end{DoxyCompactList}\item 
+void \hyperlink{classttl_1_1_flare_ae58ef0d0d3e2c39030d90bdf0ee9af86}{notify} ()
+\begin{DoxyCompactList}\small\item\em Alias of \hyperlink{classttl_1_1_flare_a6a643e4c8f80e6f34bb37bf4768dd5fe}{notify\-\_\-one()} \end{DoxyCompactList}\item 
+void \hyperlink{classttl_1_1_flare_a6a643e4c8f80e6f34bb37bf4768dd5fe}{notify\-\_\-one} ()
+\begin{DoxyCompactList}\small\item\em Notifies a single thread. \end{DoxyCompactList}\item 
+void \hyperlink{classttl_1_1_flare_a4d3ffbd8573c2981419c5577b9c4297d}{notify\-\_\-all} ()
+\begin{DoxyCompactList}\small\item\em Notifies all threads in wait. \end{DoxyCompactList}\item 
+void \hyperlink{classttl_1_1_flare_ae42081d40158673f7c7615ada9047eb3}{wait} ()
+\begin{DoxyCompactList}\small\item\em Wait until the next notification. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Simple signalling between threads. 
+
+Works like a mutex, except that it's thread-\/safe when it comes to ownership. It also prevents spurious wakeups. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classttl_1_1_flare_a1da87d88f8f5faa5e5ee952227db8874}{\index{ttl\-::\-Flare@{ttl\-::\-Flare}!Flare@{Flare}}
+\index{Flare@{Flare}!ttl::Flare@{ttl\-::\-Flare}}
+\subsubsection[{Flare}]{\setlength{\rightskip}{0pt plus 5cm}ttl\-::\-Flare\-::\-Flare (
+\begin{DoxyParamCaption}
+\item[{bool}]{skip\-\_\-on\-\_\-first\-\_\-wait = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}}\label{classttl_1_1_flare_a1da87d88f8f5faa5e5ee952227db8874}
+
+
+\hyperlink{classttl_1_1_flare}{Flare}'s constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em skip\-\_\-on\-\_\-first\-\_\-wait} & will skip the first \hyperlink{classttl_1_1_flare_ae42081d40158673f7c7615ada9047eb3}{wait()} if true. This value is normally false. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classttl_1_1_flare_a9ea08920c3bd56842717c5cf17a1d42b}{\index{ttl\-::\-Flare@{ttl\-::\-Flare}!$\sim$\-Flare@{$\sim$\-Flare}}
+\index{$\sim$\-Flare@{$\sim$\-Flare}!ttl::Flare@{ttl\-::\-Flare}}
+\subsubsection[{$\sim$\-Flare}]{\setlength{\rightskip}{0pt plus 5cm}ttl\-::\-Flare\-::$\sim$\-Flare (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classttl_1_1_flare_a9ea08920c3bd56842717c5cf17a1d42b}
+
+
+\hyperlink{classttl_1_1_flare}{Flare}'s destructor. 
+
+Takes care of removing the object of this class. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classttl_1_1_flare_ae58ef0d0d3e2c39030d90bdf0ee9af86}{\index{ttl\-::\-Flare@{ttl\-::\-Flare}!notify@{notify}}
+\index{notify@{notify}!ttl::Flare@{ttl\-::\-Flare}}
+\subsubsection[{notify}]{\setlength{\rightskip}{0pt plus 5cm}void ttl\-::\-Flare\-::notify (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classttl_1_1_flare_ae58ef0d0d3e2c39030d90bdf0ee9af86}
+
+
+Alias of \hyperlink{classttl_1_1_flare_a6a643e4c8f80e6f34bb37bf4768dd5fe}{notify\-\_\-one()} 
+
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{classttl_1_1_flare_a6a643e4c8f80e6f34bb37bf4768dd5fe}{notify\-\_\-one()} 
+\end{DoxySeeAlso}
+\hypertarget{classttl_1_1_flare_a4d3ffbd8573c2981419c5577b9c4297d}{\index{ttl\-::\-Flare@{ttl\-::\-Flare}!notify\-\_\-all@{notify\-\_\-all}}
+\index{notify\-\_\-all@{notify\-\_\-all}!ttl::Flare@{ttl\-::\-Flare}}
+\subsubsection[{notify\-\_\-all}]{\setlength{\rightskip}{0pt plus 5cm}void ttl\-::\-Flare\-::notify\-\_\-all (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classttl_1_1_flare_a4d3ffbd8573c2981419c5577b9c4297d}
+
+
+Notifies all threads in wait. 
+
+Any thread waiting on this object will be freed, and if the threads were not waiting, it will skip wait when it iterates over it. \hypertarget{classttl_1_1_flare_a6a643e4c8f80e6f34bb37bf4768dd5fe}{\index{ttl\-::\-Flare@{ttl\-::\-Flare}!notify\-\_\-one@{notify\-\_\-one}}
+\index{notify\-\_\-one@{notify\-\_\-one}!ttl::Flare@{ttl\-::\-Flare}}
+\subsubsection[{notify\-\_\-one}]{\setlength{\rightskip}{0pt plus 5cm}void ttl\-::\-Flare\-::notify\-\_\-one (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classttl_1_1_flare_a6a643e4c8f80e6f34bb37bf4768dd5fe}
+
+
+Notifies a single thread. 
+
+One thread waiting on this object will be freed, and if the thread was not waiting, it will skip wait when it iterates over it. \hypertarget{classttl_1_1_flare_ae42081d40158673f7c7615ada9047eb3}{\index{ttl\-::\-Flare@{ttl\-::\-Flare}!wait@{wait}}
+\index{wait@{wait}!ttl::Flare@{ttl\-::\-Flare}}
+\subsubsection[{wait}]{\setlength{\rightskip}{0pt plus 5cm}void ttl\-::\-Flare\-::wait (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classttl_1_1_flare_ae42081d40158673f7c7615ada9047eb3}
+
+
+Wait until the next notification. 
+
+If a notification was sent whilst not being inside wait, then wait will simply be skipped. 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+include/\-Flare/Flare.\-hpp\end{DoxyCompactItemize}

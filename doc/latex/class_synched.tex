@@ -1,0 +1,31 @@
+\hypertarget{class_synched}{\section{Synched Class Reference}
+\label{class_synched}\index{Synched@{Synched}}
+}
+
+
+{\ttfamily \#include $<$Synched.\-hpp$>$}
+
+
+
+\subsection{Detailed Description}
+Using \hyperlink{class_synched}{Synched} will allow for multiple readers to read, whilst only a single writer can write at a time. The protective method is the same as the one employed by std\-::weak\-\_\-ptr. This method uses a temporary object.
+
+
+\begin{DoxyCode}
+*  \hyperlink{classttl_1_1_synched}{ttl::Synched<int>} xxx(32);
+* 
+*  \textcolor{comment}{// From thread 1:}
+*  \textcolor{keyword}{auto} x = xxx.getReadAccess(); \textcolor{comment}{// Reader object, multiple can exist simultaneously.}
+*  std::cout << *x << std::endl;
+* 
+*  \textcolor{comment}{// From thread 2:}
+*  \textcolor{keyword}{auto} x = xxx.getWriteAccess(); \textcolor{comment}{// Writer object, no more than 1 can exist simultaneously.}
+*  (*x)++;
+* 
+*  
+\end{DoxyCode}
+ 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+include/\-Synched/Synched.\-hpp\end{DoxyCompactItemize}

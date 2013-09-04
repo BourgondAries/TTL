@@ -1,11 +1,22 @@
 #ifndef RUNNABLE_HPP_INCLUDED
 #define RUNNABLE_HPP_INCLUDED
 
+////////////////////////////////////////////////////////////
+// Headers
+////////////////////////////////////////////////////////////
 #include <memory>
+
 
 namespace ttl
 {
 
+    ////////////////////////////////////////////////////////////
+    /// \brief Class for managing cycles of runnable objects
+    ///
+    /// Inheriting from this class and overriding its run function
+    /// will allow you to send such class into ttl::Runnable::cycle
+    ///
+    ////////////////////////////////////////////////////////////
     class Runnable
     {
     public:
@@ -15,24 +26,11 @@ namespace ttl
 
         virtual Runnable *run() = 0;
 
+        ////////////////////////////////////////////////////////////
+        /// \brief Handles exceptions and logs times.
+        ///
+        ////////////////////////////////////////////////////////////
         static void cycle(std::unique_ptr<Runnable> runnable);
-    };
-
-    class Rexception : public std::exception
-    {
-    public:
-
-        Rexception();
-        Rexception(Runnable *ptr);
-        Rexception(const char *message, Runnable *ptr);
-        virtual ~Rexception();
-        virtual const char *what() const noexcept;
-
-    private:
-
-        const char *m_message;
-        Runnable *m_return_point;
-
     };
 
 } // Namespace ttl

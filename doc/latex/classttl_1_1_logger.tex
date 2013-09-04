@@ -1,0 +1,32 @@
+\hypertarget{classttl_1_1_logger}{\section{ttl\-:\-:Logger$<$ State $>$ Class Template Reference}
+\label{classttl_1_1_logger}\index{ttl\-::\-Logger$<$ State $>$@{ttl\-::\-Logger$<$ State $>$}}
+}
+
+
+Simple logging utility.  
+
+
+
+
+{\ttfamily \#include $<$Logger.\-hpp$>$}
+
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$bool State$>$class ttl\-::\-Logger$<$ State $>$}
+
+Simple logging utility. 
+
+This class will log to a file with an optional timestamp and other data. Changing the template argument turns the logger on and off, thus allowing the programmer to turn off the logger by changing a single argument, whilst leaving the logging code intact. This allows for easy debugging and information fetching.
+
+
+\begin{DoxyCode}
+*  Logger<true> log(\textcolor{stringliteral}{"messages.log"});
+*  log << \textcolor{stringliteral}{"A message"};
+*  
+\end{DoxyCode}
+ 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+include/\-Logger/Logger.\-hpp\end{DoxyCompactItemize}

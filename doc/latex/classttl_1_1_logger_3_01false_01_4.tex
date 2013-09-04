@@ -1,0 +1,41 @@
+\hypertarget{classttl_1_1_logger_3_01false_01_4}{\section{ttl\-:\-:Logger$<$ false $>$ Class Template Reference}
+\label{classttl_1_1_logger_3_01false_01_4}\index{ttl\-::\-Logger$<$ false $>$@{ttl\-::\-Logger$<$ false $>$}}
+}
+
+
+Simple logging utility -\/ False part.  
+
+
+
+
+{\ttfamily \#include $<$Logger.\-hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classttl_1_1_logger_3_01false_01_4_a51ebd004cd57d3f20c074292956909da}{{\bfseries Logger} (const char $\ast$filename=\char`\"{}log.\-log\char`\"{}, bool to\-\_\-clog=true, std\-::ios\-::openmode std\-\_\-ios\-\_\-flags=std\-::ios\-::out$|$std\-::ios\-::app)}\label{classttl_1_1_logger_3_01false_01_4_a51ebd004cd57d3f20c074292956909da}
+
+\item 
+\hypertarget{classttl_1_1_logger_3_01false_01_4_a56b1a3fa243bee87024d96f0f31bde5f}{{\bfseries Logger} (std\-::string \&filename, bool to\-\_\-clog=true, std\-::ios\-::openmode std\-\_\-ios\-\_\-flags=std\-::ios\-::out$|$std\-::ios\-::app)}\label{classttl_1_1_logger_3_01false_01_4_a56b1a3fa243bee87024d96f0f31bde5f}
+
+\item 
+\hypertarget{classttl_1_1_logger_3_01false_01_4_a1f17d7e08362e7f9a1ab661c64468362}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{classttl_1_1_logger}{Logger} \& {\bfseries operator$<$$<$} (T \&\&rhs)}\label{classttl_1_1_logger_3_01false_01_4_a1f17d7e08362e7f9a1ab661c64468362}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$$>$class ttl\-::\-Logger$<$ false $>$}
+
+Simple logging utility -\/ False part. 
+
+The false part is a specialized template that disables all logger functionality. The compiler is likely to optimize away the empty function calls resulting in an object that literally does nothing in running code. There is also no data usage at all.
+
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{classttl_1_1_logger_3_01true_01_4}{Logger$<$true$>$} 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+include/\-Logger/Logger.\-hpp\end{DoxyCompactItemize}

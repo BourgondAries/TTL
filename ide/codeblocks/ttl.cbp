@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="LibOf - Tea Tank Library" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="../../bin/Debug/ttl-d" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="../../obj/Debug/" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-std=c++11" />
+					<Add option="-std=c++0x" />
+					<Add option="-Wextra" />
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add directory="../../include/" />
+					<Add directory="../../ext/" />
+				</Compiler>
+				<Linker>
+					<Add directory="../../ext/" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="../../bin/Release/ttl" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="../../obj/Release/" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O3" />
+					<Add option="-std=c++11" />
+					<Add option="-std=c++0x" />
+					<Add option="-Wextra" />
+					<Add option="-Wall" />
+					<Add directory="../../include/" />
+					<Add directory="../../ext/" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add directory="../../ext/" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="../../include/Benchmark/Benchmark.hpp" />
+		<Unit filename="../../include/File2Str/File2Str.hpp" />
+		<Unit filename="../../include/Flare/Flare.hpp" />
+		<Unit filename="../../include/Ips/Ips.hpp" />
+		<Unit filename="../../include/JoinThread/JoinThread.hpp" />
+		<Unit filename="../../include/Logger/Logger.hpp" />
+		<Unit filename="../../include/Mixin/Mixin.hpp" />
+		<Unit filename="../../include/Runnable/Runnable.hpp" />
+		<Unit filename="../../include/Sleep/Sleep.hpp" />
+		<Unit filename="../../include/Synched/Synched.hpp" />
+		<Unit filename="../../include/Synched/SynchedData.hpp" />
+		<Unit filename="../../include/Synched/SynchedReader.hpp" />
+		<Unit filename="../../include/Synched/SynchedWriter.hpp" />
+		<Unit filename="../../include/TTL.hpp" />
+		<Unit filename="../../include/Timestamp/Timestamp.hpp" />
+		<Unit filename="../../include/Valman/Valman.hpp" />
+		<Unit filename="../../src/Benchmark/Benchmark.cpp" />
+		<Unit filename="../../src/File2Str/File2Str.cpp" />
+		<Unit filename="../../src/Flare/Flare.cpp" />
+		<Unit filename="../../src/Ips/Ips.cpp" />
+		<Unit filename="../../src/JoinThread/JoinThread.cpp" />
+		<Unit filename="../../src/Logger/Logger.cpp" />
+		<Unit filename="../../src/Runnable/Runnable.cpp" />
+		<Unit filename="../../src/Sleep/Sleep.cpp" />
+		<Unit filename="../../src/Synch/SynchedData.cpp" />
+		<Unit filename="../../src/Timestamp/Timestamp.cpp" />
+		<Unit filename="../../src/Valman/Valman.cpp" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+			<envvars />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

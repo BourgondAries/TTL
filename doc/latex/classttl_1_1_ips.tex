@@ -1,0 +1,205 @@
+\hypertarget{classttl_1_1_ips}{\section{ttl\-:\-:Ips Class Reference}
+\label{classttl_1_1_ips}\index{ttl\-::\-Ips@{ttl\-::\-Ips}}
+}
+
+
+Iteration limiter.  
+
+
+
+
+{\ttfamily \#include $<$Ips.\-hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classttl_1_1_ips_ad34a447aea255afcf7f410a5af3a1a82}{Ips} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classttl_1_1_ips_a4977869885cf57fcfbfa006507be9805}{Ips} (const float ips)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hypertarget{classttl_1_1_ips_aa10947317c4de26ef17d7671f0451f51}{\hyperlink{classttl_1_1_ips_aa10947317c4de26ef17d7671f0451f51}{$\sim$\-Ips} ()}\label{classttl_1_1_ips_aa10947317c4de26ef17d7671f0451f51}
+
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \hyperlink{classttl_1_1_ips_aaafc0cf5ad267a76b80d2f621226f2de}{limit} ()
+\begin{DoxyCompactList}\small\item\em Iteration limiter. \end{DoxyCompactList}\item 
+float \hyperlink{classttl_1_1_ips_a50150e4e7db331c971875ee12bff1347}{get\-Ips} () const 
+\begin{DoxyCompactList}\small\item\em Get the internal iterations per second value. \end{DoxyCompactList}\item 
+void \hyperlink{classttl_1_1_ips_adadff39e454290f724115d437f9ba31b}{set\-Ips} (const float ips)
+\begin{DoxyCompactList}\small\item\em Set the internal iterations per second value. \end{DoxyCompactList}\item 
+us \hyperlink{classttl_1_1_ips_a2fa079ee56504917d10ccec9efecf0e1}{get\-Min\-Iteration\-Time} () const 
+\begin{DoxyCompactList}\small\item\em Returns the limit. \end{DoxyCompactList}\item 
+void \hyperlink{classttl_1_1_ips_a8a4677b687a2d209cee8907927e39764}{set\-Min\-Iteration\-Time} (const us \&\hyperlink{classttl_1_1_ips_aaafc0cf5ad267a76b80d2f621226f2de}{limit})
+\begin{DoxyCompactList}\small\item\em Sets a new limit, undoes \hyperlink{classttl_1_1_ips_adadff39e454290f724115d437f9ba31b}{set\-Ips()} \end{DoxyCompactList}\item 
+us \hyperlink{classttl_1_1_ips_ae947ce62e9eca19c0f126fb4b9e07edb}{get\-Delay} () const 
+\begin{DoxyCompactList}\small\item\em Returns the time between the last two limit calls. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\-::ostream \& \hyperlink{classttl_1_1_ips_a39754746cccd2c1c8c451b3798fc9a20}{operator$<$$<$} (std\-::ostream \&lhs, \hyperlink{classttl_1_1_ips}{Ips} \&rhs)
+\begin{DoxyCompactList}\small\item\em Output stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Iteration limiter. 
+
+Class encapsulating an iterative loop to limit its iterations/frames per second. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classttl_1_1_ips_ad34a447aea255afcf7f410a5af3a1a82}{\index{ttl\-::\-Ips@{ttl\-::\-Ips}!Ips@{Ips}}
+\index{Ips@{Ips}!ttl::Ips@{ttl\-::\-Ips}}
+\subsubsection[{Ips}]{\setlength{\rightskip}{0pt plus 5cm}ttl\-::\-Ips\-::\-Ips (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classttl_1_1_ips_ad34a447aea255afcf7f410a5af3a1a82}
+
+
+Constructor. 
+
+Initializes \hyperlink{classttl_1_1_ips}{Ips} with an unlimited framerate \hypertarget{classttl_1_1_ips_a4977869885cf57fcfbfa006507be9805}{\index{ttl\-::\-Ips@{ttl\-::\-Ips}!Ips@{Ips}}
+\index{Ips@{Ips}!ttl::Ips@{ttl\-::\-Ips}}
+\subsubsection[{Ips}]{\setlength{\rightskip}{0pt plus 5cm}ttl\-::\-Ips\-::\-Ips (
+\begin{DoxyParamCaption}
+\item[{const float}]{ips}
+\end{DoxyParamCaption}
+)}}\label{classttl_1_1_ips_a4977869885cf57fcfbfa006507be9805}
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ips} & The amount of iterations per second that this object will allow \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classttl_1_1_ips_ae947ce62e9eca19c0f126fb4b9e07edb}{\index{ttl\-::\-Ips@{ttl\-::\-Ips}!get\-Delay@{get\-Delay}}
+\index{get\-Delay@{get\-Delay}!ttl::Ips@{ttl\-::\-Ips}}
+\subsubsection[{get\-Delay}]{\setlength{\rightskip}{0pt plus 5cm}us ttl\-::\-Ips\-::get\-Delay (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classttl_1_1_ips_ae947ce62e9eca19c0f126fb4b9e07edb}
+
+
+Returns the time between the last two limit calls. 
+
+The delay is the value of time used between two limit calls. This means that the value represents the running time of the loop surrounding the \hyperlink{classttl_1_1_ips}{Ips} object. This can be used to check how much time is used to run the loop.
+
+\begin{DoxyReturn}{Returns}
+the delay in microseconds 
+\end{DoxyReturn}
+\hypertarget{classttl_1_1_ips_a50150e4e7db331c971875ee12bff1347}{\index{ttl\-::\-Ips@{ttl\-::\-Ips}!get\-Ips@{get\-Ips}}
+\index{get\-Ips@{get\-Ips}!ttl::Ips@{ttl\-::\-Ips}}
+\subsubsection[{get\-Ips}]{\setlength{\rightskip}{0pt plus 5cm}float ttl\-::\-Ips\-::get\-Ips (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classttl_1_1_ips_a50150e4e7db331c971875ee12bff1347}
+
+
+Get the internal iterations per second value. 
+
+Method that returns the set iterations per second value.
+
+\begin{DoxyReturn}{Returns}
+the number of iterations per second 
+\end{DoxyReturn}
+\hypertarget{classttl_1_1_ips_a2fa079ee56504917d10ccec9efecf0e1}{\index{ttl\-::\-Ips@{ttl\-::\-Ips}!get\-Min\-Iteration\-Time@{get\-Min\-Iteration\-Time}}
+\index{get\-Min\-Iteration\-Time@{get\-Min\-Iteration\-Time}!ttl::Ips@{ttl\-::\-Ips}}
+\subsubsection[{get\-Min\-Iteration\-Time}]{\setlength{\rightskip}{0pt plus 5cm}us ttl\-::\-Ips\-::get\-Min\-Iteration\-Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classttl_1_1_ips_a2fa079ee56504917d10ccec9efecf0e1}
+
+
+Returns the limit. 
+
+The limit is the minimum amount of time needed between two \hyperlink{classttl_1_1_ips_aaafc0cf5ad267a76b80d2f621226f2de}{limit()} calls in order to not invoke a sleep.
+
+\begin{DoxyReturn}{Returns}
+the limit 
+\end{DoxyReturn}
+\hypertarget{classttl_1_1_ips_aaafc0cf5ad267a76b80d2f621226f2de}{\index{ttl\-::\-Ips@{ttl\-::\-Ips}!limit@{limit}}
+\index{limit@{limit}!ttl::Ips@{ttl\-::\-Ips}}
+\subsubsection[{limit}]{\setlength{\rightskip}{0pt plus 5cm}void ttl\-::\-Ips\-::limit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classttl_1_1_ips_aaafc0cf5ad267a76b80d2f621226f2de}
+
+
+Iteration limiter. 
+
+A call to this function checks the time between this limit and the last limit. If the time is under a specified value, then this function will call sleep. The length of the sleep will be just so long so that the desired iterations per second will be achieved. \hypertarget{classttl_1_1_ips_adadff39e454290f724115d437f9ba31b}{\index{ttl\-::\-Ips@{ttl\-::\-Ips}!set\-Ips@{set\-Ips}}
+\index{set\-Ips@{set\-Ips}!ttl::Ips@{ttl\-::\-Ips}}
+\subsubsection[{set\-Ips}]{\setlength{\rightskip}{0pt plus 5cm}void ttl\-::\-Ips\-::set\-Ips (
+\begin{DoxyParamCaption}
+\item[{const float}]{ips}
+\end{DoxyParamCaption}
+)}}\label{classttl_1_1_ips_adadff39e454290f724115d437f9ba31b}
+
+
+Set the internal iterations per second value. 
+
+A limit is deduced from the passed value since the limit and ips are intertwined. A limit of 33 ms approximates an ips value of 30. Setting either the limit or the ips are two ways of specifying a limit.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ips} & The amount of iterations per second that this object will allow \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See Also}
+set\-Limit(const us \&limit); 
+\end{DoxySeeAlso}
+\hypertarget{classttl_1_1_ips_a8a4677b687a2d209cee8907927e39764}{\index{ttl\-::\-Ips@{ttl\-::\-Ips}!set\-Min\-Iteration\-Time@{set\-Min\-Iteration\-Time}}
+\index{set\-Min\-Iteration\-Time@{set\-Min\-Iteration\-Time}!ttl::Ips@{ttl\-::\-Ips}}
+\subsubsection[{set\-Min\-Iteration\-Time}]{\setlength{\rightskip}{0pt plus 5cm}void ttl\-::\-Ips\-::set\-Min\-Iteration\-Time (
+\begin{DoxyParamCaption}
+\item[{const us \&}]{limit}
+\end{DoxyParamCaption}
+)}}\label{classttl_1_1_ips_a8a4677b687a2d209cee8907927e39764}
+
+
+Sets a new limit, undoes \hyperlink{classttl_1_1_ips_adadff39e454290f724115d437f9ba31b}{set\-Ips()} 
+
+The limit is the minimum amount of time needed between two \hyperlink{classttl_1_1_ips_aaafc0cf5ad267a76b80d2f621226f2de}{limit()} calls in order to not invoke a sleep. The limit and ips are intertwined. A limit of 33 ms approximates an ips value of 30. Setting either the limit or the ips are two ways of specifying a limit.
+
+
+\begin{DoxyParams}{Parameters}
+{\em limit} & the limit \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{classttl_1_1_ips_adadff39e454290f724115d437f9ba31b}{set\-Ips(const float ips)}; 
+\end{DoxySeeAlso}
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{classttl_1_1_ips_a39754746cccd2c1c8c451b3798fc9a20}{\index{ttl\-::\-Ips@{ttl\-::\-Ips}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!ttl::Ips@{ttl\-::\-Ips}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{lhs, }
+\item[{{\bf Ips} \&}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classttl_1_1_ips_a39754746cccd2c1c8c451b3798fc9a20}
+
+
+Output stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & The stream object to stream into \\
+\hline
+{\em rhs} & The amount of iterations per second that this object will allow \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+include/\-Ips/Ips.\-hpp\end{DoxyCompactItemize}

@@ -1,0 +1,63 @@
+\hypertarget{class_flare}{\section{Flare Class Reference}
+\label{class_flare}\index{Flare@{Flare}}
+}
+
+
+{\ttfamily \#include $<$Flare.\-hpp$>$}
+
+
+
+\subsection{Detailed Description}
+With the use of flares, signalling between threads becomes an easy and safe task to perform. The use of condition variables creates an environment in which flares perform very well. The class uses mutexes and locks internally so there is no need for the programmer to be vigilant of writing thread-\/friendly code.
+
+
+\begin{DoxyCode}
+*  \textcolor{comment}{// A simple producer/consumer using flares}
+* 
+*  \textcolor{comment}{// Declare flare objects}
+*  \hyperlink{class_flare}{Flare} consume, produce;
+* 
+*  \textcolor{comment}{// Declare a queue used to communicate our producer/consumer data}
+*  std::queue<int> conveyor;
+* 
+*  \textcolor{comment}{// We use a sum to check if no errors occured}
+*  \textcolor{keywordtype}{int} sum = 0;
+* 
+*  \textcolor{comment}{// A thread that consumes}
+*  std::thread consumer
+*  (
+*      [&]()
+*      \{
+*          \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} consumed = 0; consumed < 100000; ++consumed)
+*          \{
+*              consume.wait(); \textcolor{comment}{// Waits until there is a produced value available}
+* 
+*              sum += conveyor.front();
+*              conveyor.pop();
+* 
+*              produce.notify(); \textcolor{comment}{// Notifies the producer that the consumer has consumed the variable}
+*          \}
+*      \}
+*  );
+* 
+*  \textcolor{comment}{// Main thread produces}
+*  \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} produced = 0; produced < 100000; ++produced)
+*  \{
+*      conveyor.push(1);
+* 
+*      consume.notify(); \textcolor{comment}{// Notifies the consumer that a single number is available}
+*      produce.wait(); \textcolor{comment}{// Waits until the consumer has removed the number from the queue}
+*  \}
+* 
+*  consumer.join();
+* 
+*  \textcolor{comment}{// This should output a value of 100000}
+*  std::cout << sum << std::endl;
+* 
+*  
+\end{DoxyCode}
+ 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+include/\-Flare/Flare.\-hpp\end{DoxyCompactItemize}
