@@ -15,25 +15,9 @@ If you have code::blocks, then you can use the included project file in ide/code
 Simplicity
 ----------
 
-TTL is a very simple to use. Here is an example of a program using Ips: "Iterations Per Second" limiter.
+TTL is a very simple to use.
+Check the documentation for samples.
 
-\code
-#include <TTL.hpp>
-#include <iostream>
-
-int main()
-{
-	ttl::Ips frames(30.f); // Limit the frames to 30 fps.
-	for (int i = 0; i < 60; ++i)
-	{
-		std::cout << i << std::endl;
-		frames.limit(); // Records current time versus previous time
-		// Sleeps an amount based on the time the loop took.
-		// If the loop takes 1 second to get back to frames.limit(),
-		// Then the sleep time will be 0
-	}
-}
-\endcode
 
 
 Author
@@ -42,5 +26,7 @@ Author
 Kevin Robert Stravers
 
 
+Origin
+------
 
 The name has its origin from the creator's excessive consumption of tea during programming (Tea Tanking).
