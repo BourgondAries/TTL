@@ -96,59 +96,291 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">ttl::Valman Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Value manager and loader.  
+ <a href="classttl_1_1_valman.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_valman_8hpp_source.html">Valman.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aef681b474ac0f6f55b8317d64f3d6823"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aef681b474ac0f6f55b8317d64f3d6823"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Valman</b> (const char *filename)</td></tr>
-<tr class="separator:aef681b474ac0f6f55b8317d64f3d6823"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a467695f05563fe7b755e1bb902ab7040"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a467695f05563fe7b755e1bb902ab7040"></a>
-float &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator()</b> (const char *entry)</td></tr>
-<tr class="separator:a467695f05563fe7b755e1bb902ab7040"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac6e80b897fa949022fa5d286a785a31"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aac6e80b897fa949022fa5d286a785a31"></a>
-float &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (const char *entry)</td></tr>
-<tr class="separator:aac6e80b897fa949022fa5d286a785a31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ab23b3471a7510cd31da0f2c660d570"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6ab23b3471a7510cd31da0f2c660d570"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classttl_1_1_valman.html#a6ab23b3471a7510cd31da0f2c660d570">Valman</a> ()</td></tr>
+<tr class="memdesc:a6ab23b3471a7510cd31da0f2c660d570"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a basic object. <br/></td></tr>
+<tr class="separator:a6ab23b3471a7510cd31da0f2c660d570"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69ddad1137e1afe2323ee952d6a9f6a9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classttl_1_1_valman.html#a69ddad1137e1afe2323ee952d6a9f6a9">Valman</a> (const std::string &amp;filename)</td></tr>
+<tr class="memdesc:a69ddad1137e1afe2323ee952d6a9f6a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a basic object and loads a single file.  <a href="#a69ddad1137e1afe2323ee952d6a9f6a9">More...</a><br/></td></tr>
+<tr class="separator:a69ddad1137e1afe2323ee952d6a9f6a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0b5383377f9a28a415a874790169c1e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad0b5383377f9a28a415a874790169c1e"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classttl_1_1_valman.html#ad0b5383377f9a28a415a874790169c1e">~Valman</a> ()</td></tr>
+<tr class="memdesc:ad0b5383377f9a28a415a874790169c1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructs the object. <br/></td></tr>
+<tr class="separator:ad0b5383377f9a28a415a874790169c1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95135c0345df5feb38e510581d994456"><td class="memItemLeft" align="right" valign="top">std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classttl_1_1_valman.html#a95135c0345df5feb38e510581d994456">at</a> (const std::string &amp;str)</td></tr>
+<tr class="memdesc:a95135c0345df5feb38e510581d994456"><td class="mdescLeft">&#160;</td><td class="mdescRight">A range-checked access operator.  <a href="#a95135c0345df5feb38e510581d994456">More...</a><br/></td></tr>
+<tr class="separator:a95135c0345df5feb38e510581d994456"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50f0de1ab7d768fc493217152234176c"><td class="memItemLeft" align="right" valign="top">std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classttl_1_1_valman.html#a50f0de1ab7d768fc493217152234176c">operator[]</a> (const std::string &amp;str)</td></tr>
+<tr class="memdesc:a50f0de1ab7d768fc493217152234176c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access operator.  <a href="#a50f0de1ab7d768fc493217152234176c">More...</a><br/></td></tr>
+<tr class="separator:a50f0de1ab7d768fc493217152234176c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d0d3d70b3d099bd27a153742ea29bc7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4d0d3d70b3d099bd27a153742ea29bc7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classttl_1_1_valman.html#a4d0d3d70b3d099bd27a153742ea29bc7">clear</a> ()</td></tr>
+<tr class="memdesc:a4d0d3d70b3d099bd27a153742ea29bc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all elements. <br/></td></tr>
 <tr class="separator:a4d0d3d70b3d099bd27a153742ea29bc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a792541b4f2864eda9ee35f2478b4890e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a792541b4f2864eda9ee35f2478b4890e"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>load</b> (const char *filename)</td></tr>
-<tr class="separator:a792541b4f2864eda9ee35f2478b4890e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae06bf1be1b34ec62177f79c12e163bba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae06bf1be1b34ec62177f79c12e163bba"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>add</b> (const std::pair&lt; std::string, float &gt; &amp;value)</td></tr>
-<tr class="separator:ae06bf1be1b34ec62177f79c12e163bba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94f8a3ddd50fd4be44997145e06b4ff1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a94f8a3ddd50fd4be44997145e06b4ff1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>add</b> (const std::string &amp;data)</td></tr>
+<tr class="memitem:ae7f92b4e9d4b97180c57c7ea34b040c3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classttl_1_1_valman.html#ae7f92b4e9d4b97180c57c7ea34b040c3">load</a> (const std::string &amp;filename)</td></tr>
+<tr class="memdesc:ae7f92b4e9d4b97180c57c7ea34b040c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads data from a file.  <a href="#ae7f92b4e9d4b97180c57c7ea34b040c3">More...</a><br/></td></tr>
+<tr class="separator:ae7f92b4e9d4b97180c57c7ea34b040c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3683caef3a4f4a0a06097d83ab892599"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classttl_1_1_valman.html#a3683caef3a4f4a0a06097d83ab892599">add</a> (const std::pair&lt; std::string, std::string &gt; &amp;value)</td></tr>
+<tr class="memdesc:a3683caef3a4f4a0a06097d83ab892599"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add data to the hash table.  <a href="#a3683caef3a4f4a0a06097d83ab892599">More...</a><br/></td></tr>
+<tr class="separator:a3683caef3a4f4a0a06097d83ab892599"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94f8a3ddd50fd4be44997145e06b4ff1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classttl_1_1_valman.html#a94f8a3ddd50fd4be44997145e06b4ff1">add</a> (const std::string &amp;data)</td></tr>
+<tr class="memdesc:a94f8a3ddd50fd4be44997145e06b4ff1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add data to the hash table.  <a href="#a94f8a3ddd50fd4be44997145e06b4ff1">More...</a><br/></td></tr>
 <tr class="separator:a94f8a3ddd50fd4be44997145e06b4ff1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add2a2e1e51491ab9d596927d0adb4267"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="add2a2e1e51491ab9d596927d0adb4267"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>erase</b> (const std::string &amp;entry)</td></tr>
+<tr class="memitem:add2a2e1e51491ab9d596927d0adb4267"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classttl_1_1_valman.html#add2a2e1e51491ab9d596927d0adb4267">erase</a> (const std::string &amp;entry)</td></tr>
+<tr class="memdesc:add2a2e1e51491ab9d596927d0adb4267"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erase an entry from the hash table.  <a href="#add2a2e1e51491ab9d596927d0adb4267">More...</a><br/></td></tr>
 <tr class="separator:add2a2e1e51491ab9d596927d0adb4267"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab7accd8bf3f7f2a91882f82cc916c3f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aab7accd8bf3f7f2a91882f82cc916c3f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>store</b> (const char *filename)</td></tr>
-<tr class="separator:aab7accd8bf3f7f2a91882f82cc916c3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75d3a81d06664d1759b1e7170b259a43"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a75d3a81d06664d1759b1e7170b259a43"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>find</b> (const std::string &amp;data)</td></tr>
+<tr class="memitem:add510b6dc8d492fd223b51f3db9dbc0c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classttl_1_1_valman.html#add510b6dc8d492fd223b51f3db9dbc0c">store</a> (const std::string &amp;filename)</td></tr>
+<tr class="memdesc:add510b6dc8d492fd223b51f3db9dbc0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the hash table into a file.  <a href="#add510b6dc8d492fd223b51f3db9dbc0c">More...</a><br/></td></tr>
+<tr class="separator:add510b6dc8d492fd223b51f3db9dbc0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75d3a81d06664d1759b1e7170b259a43"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classttl_1_1_valman.html#a75d3a81d06664d1759b1e7170b259a43">find</a> (const std::string &amp;data)</td></tr>
+<tr class="memdesc:a75d3a81d06664d1759b1e7170b259a43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Look if a key exists.  <a href="#a75d3a81d06664d1759b1e7170b259a43">More...</a><br/></td></tr>
 <tr class="separator:a75d3a81d06664d1759b1e7170b259a43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4099a57f87bd220a24446f70041231be"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4099a57f87bd220a24446f70041231be"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>edit</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classttl_1_1_valman.html#a4099a57f87bd220a24446f70041231be">edit</a> ()</td></tr>
+<tr class="memdesc:a4099a57f87bd220a24446f70041231be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enter the CLI. <br/></td></tr>
 <tr class="separator:a4099a57f87bd220a24446f70041231be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee9df8369fcad995d061b1928d1591d4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aee9df8369fcad995d061b1928d1591d4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>edit</b> (const std::string &amp;command)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classttl_1_1_valman.html#aee9df8369fcad995d061b1928d1591d4">edit</a> (const std::string &amp;command)</td></tr>
+<tr class="memdesc:aee9df8369fcad995d061b1928d1591d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enter the CLI with a single command. <br/></td></tr>
 <tr class="separator:aee9df8369fcad995d061b1928d1591d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaef50349af0a4f80c7c47785e2e4bc5f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaef50349af0a4f80c7c47785e2e4bc5f"></a>
-std::stringstream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>edit</b> (const std::string &amp;command, std::stringstream &amp;output)</td></tr>
+std::stringstream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classttl_1_1_valman.html#aaef50349af0a4f80c7c47785e2e4bc5f">edit</a> (const std::string &amp;command, std::stringstream &amp;output)</td></tr>
+<tr class="memdesc:aaef50349af0a4f80c7c47785e2e4bc5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enter the CLI whilst specifying an output stream. <br/></td></tr>
 <tr class="separator:aaef50349af0a4f80c7c47785e2e4bc5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae64b9d9140407189d74dcb9eada6c5b6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae64b9d9140407189d74dcb9eada6c5b6"></a>
-std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>edit</b> (const std::string &amp;command, std::ostream &amp;output)</td></tr>
+std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classttl_1_1_valman.html#ae64b9d9140407189d74dcb9eada6c5b6">edit</a> (const std::string &amp;command, std::ostream &amp;output)</td></tr>
+<tr class="memdesc:ae64b9d9140407189d74dcb9eada6c5b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enter the CLI whilst specifying an output stream. <br/></td></tr>
 <tr class="separator:ae64b9d9140407189d74dcb9eada6c5b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Value manager and loader. </p>
+<p>Contains a CLI editor that wraps around its core functionality. The loader is a very simple one, it parses using whitespaces as separators. The data is stored in a hash map of strings. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a69ddad1137e1afe2323ee952d6a9f6a9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ttl::Valman::Valman </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructs a basic object and loads a single file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>the file to load from. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a3683caef3a4f4a0a06097d83ab892599"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ttl::Valman::add </td>
+          <td>(</td>
+          <td class="paramtype">const std::pair&lt; std::string, std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add data to the hash table. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>is a pair of data, both strings. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a94f8a3ddd50fd4be44997145e06b4ff1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ttl::Valman::add </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add data to the hash table. </p>
+<p>This add will leave the value empty ("")</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>is the string key to be added </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a95135c0345df5feb38e510581d994456"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string&amp; ttl::Valman::at </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A range-checked access operator. </p>
+<p>This function checks if str exists in the hash table. If it does not, an std::runtime_error is thrown. </p>
+
+</div>
+</div>
+<a class="anchor" id="add2a2e1e51491ab9d596927d0adb4267"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ttl::Valman::erase </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>entry</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Erase an entry from the hash table. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entry</td><td>is the key to erase </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a75d3a81d06664d1759b1e7170b259a43"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ttl::Valman::find </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Look if a key exists. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>is the key to look for </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>wheter this key exists or not </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae7f92b4e9d4b97180c57c7ea34b040c3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ttl::Valman::load </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Loads data from a file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>is the file to load from </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the state of loading, false for failure </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a50f0de1ab7d768fc493217152234176c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string&amp; ttl::Valman::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Access operator. </p>
+<p>This access operator does not perform a range check. </p>
+
+</div>
+</div>
+<a class="anchor" id="add510b6dc8d492fd223b51f3db9dbc0c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ttl::Valman::store </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stores the hash table into a file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>the file to store into </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/Valman/<a class="el" href="_valman_8hpp_source.html">Valman.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Sep 4 2013 23:09:47 for Tea Tank Library by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Sep 7 2013 19:54:36 for Tea Tank Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

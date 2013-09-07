@@ -7,5 +7,6 @@ var searchData=
   ['_7elogger',['~Logger',['../classttl_1_1_logger_3_01true_01_4.html#a353d04b6a0a678a38c3c9ff194cd8486',1,'ttl::Logger&lt; true &gt;']]],
   ['_7esynched',['~Synched',['../classttl_1_1_synched.html#ac8f8ec455e4fcfdabb0dc75d516e79ec',1,'ttl::Synched']]],
   ['_7esynchedreader',['~SynchedReader',['../classttl_1_1_synched_reader.html#a1074be7ecda55d0ed6b729781773d160',1,'ttl::SynchedReader']]],
-  ['_7esynchedwriter',['~SynchedWriter',['../classttl_1_1_synched_writer.html#ad1e6ce98f64b6fe795fc0d494f31e3e6',1,'ttl::SynchedWriter']]]
+  ['_7esynchedwriter',['~SynchedWriter',['../classttl_1_1_synched_writer.html#ad1e6ce98f64b6fe795fc0d494f31e3e6',1,'ttl::SynchedWriter']]],
+  ['_7evalman',['~Valman',['../classttl_1_1_valman.html#ad0b5383377f9a28a415a874790169c1e',1,'ttl::Valman']]]
 ];

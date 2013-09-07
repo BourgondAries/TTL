@@ -15,7 +15,7 @@ namespace ttl
     {}
 
     ////////////////////////////////////////////////////////////
-    Valman::Valman(const char *filename)
+    Valman::Valman(const std::string &filename)
     {
         load(filename);
     }
@@ -28,20 +28,19 @@ namespace ttl
     ////////////////////////////////////////////////////////////
 
     ////////////////////////////////////////////////////////////
-    float &Valman::operator()(const char *entry)
+    std::string &Valman::at(const std::string &str)
     {
         // Check the validity of the m_commandument
-        std::string temp(entry);
-        std::unordered_map<std::string, float>::iterator it = m_registry.find(temp);
+        decltype(m_registry)::iterator it = m_registry.find(str);
         if (it == m_registry.end())
-            throw std::invalid_argument("Valman::operator()(\"" + temp + "\")");
+            throw std::invalid_argument("Valman::at(\"" + str + "\")");
         return it->second;
     }
 
     ////////////////////////////////////////////////////////////
-    float &Valman::operator[](const char *entry)
+    std::string &Valman::operator[](const std::string &str)
     {
-        return m_registry.find(std::string(entry))->second;
+        return m_registry[str];
     }
 
     ////////////////////////////////////////////////////////////
@@ -51,84 +50,35 @@ namespace ttl
     ////////////////////////////////////////////////////////////
     void Valman::clear()
     {
-        if (m_registry.size() > 0)
-        {
-            m_registry.clear();
-            std::cout << "All entries cleared";
-        }
-        else
-        {
-            std::cout << "Registry is already empty";
-        }
+        m_registry.clear();
     }
 
     ////////////////////////////////////////////////////////////
-    bool Valman::load(const char *filename)
+    bool Valman::load(const std::string &filename)
     {
         // Generic loader from file:
-        std::fstream file(filename, std::ios::in);
+        std::fstream file(filename.data(), std::ios::in);
 
-        // Use this as a m_command buffer
-        std::string buffer;
-        buffer.push_back(file.get());
-
-        // Make sure the file exists
-        if (!file.is_open())
+        if (file.is_open())
         {
-            return false;
-        }
-
-        // Iterate over every char in the file
-        while (!file.eof())
-        {
-            // So long there is no \n, add it to the buffer:
-            while (buffer.back() != '\n' && !file.eof())
+            std::pair<std::string, std::string> pr;
+            while (!file.eof())
             {
-                buffer.push_back(file.get());
+                file >> pr.first;
+                if (pr.first == "")
+                {
+                    continue;
+                }
+                file >> pr.second;
+                m_registry.insert(pr);
             }
-
-            if // Check if the m_command doesn't m_m_command a number AND assigner
-            (
-                std::any_of
-                (
-                    buffer.begin(), buffer.end(),
-                    [this](const char &x) -> bool
-                    {
-                        return this->isNumeric(x);
-                    }
-                ) == false
-                ||
-                std::any_of
-                (
-                    buffer.begin(), buffer.end(),
-                    [this](const char &x) -> bool
-                    {
-                        return this->isAssignment(x);
-                    }
-                ) == false
-            )
-            {
-                buffer.clear();
-                buffer.push_back(file.get());
-                continue;
-            }
-
-            // We now have a single, valid m_command, and need to extract the m_command
-            float number = extractFirstNumber(buffer); // modifies the buffer
-            eraseLastAssigns(buffer); // modifies the buffer
-
-            // Add it to the registry
-            m_registry.insert(std::pair<std::string, float>(buffer, number));
-
-            // Get ready for a restart
-            buffer.clear();
-            buffer.push_back(file.get());
+            return true; // Notify the caller that reading succeeded
         }
-        return true; // Notify the caller that reading succeeded
+        return false;
     }
 
     ////////////////////////////////////////////////////////////
-    void Valman::add(const std::pair<std::string, float> &value)
+    void Valman::add(const std::pair<std::string, std::string> &value)
     {
         m_registry.insert(value);
     }
@@ -136,11 +86,7 @@ namespace ttl
     ////////////////////////////////////////////////////////////
     void Valman::add(const std::string &m_command)
     {
-        std::string copy(m_command);
-        float val = extractFirstNumber(copy);
-        eraseLastAssigns(copy);
-
-        m_registry.insert(std::pair<std::string, float>(copy, val));
+        m_registry.insert(std::make_pair(m_command, ""));
     }
 
     ////////////////////////////////////////////////////////////
@@ -150,16 +96,17 @@ namespace ttl
     }
 
     ////////////////////////////////////////////////////////////
-    void Valman::store(const char *filename)
+    void Valman::store(const std::string &filename)
     {
         std::fstream file(filename, std::ios::out | std::ios::trunc);
 
         for (auto &x : m_registry)
         {
-            file << x.first;
-            file << "=";
-            file << x.second;
-            file << std::endl;
+            file
+                << x.first
+                << " "
+                << x.second
+                << "\n";
         }
     }
 
@@ -173,7 +120,7 @@ namespace ttl
     void Valman::edit()
     {
         std::cout
-            << "------------------ Valman v0.5 ------------------"
+            << "------------------ Valman v0.6 ------------------"
             << std::endl
             << "-    Value manager and loader, \".h\" for help    -"
             << std::endl
@@ -245,100 +192,6 @@ namespace ttl
     ////////////////////////////////////////////////////////////
 
     ////////////////////////////////////////////////////////////
-    float Valman::extractFirstNumber(std::string &m_command)
-    {
-        std::stringstream converter;
-        bool hioac = false; // has iterated over assignment char, space, =, : to start looking for numbers only after these. This allows names with numbers in them
-
-        // Find out where the first number begins
-        auto location = std::find_if
-        (
-            m_command.begin(), m_command.end(),
-            [&hioac](const char &check) -> bool
-            {
-                if (hioac)
-                {
-                    return isNumeric(check);
-                }
-                else
-                {
-                    if (isAssignment(check))
-                    {
-                        hioac = true;
-                    }
-                    return false;
-                }
-            }
-        );
-
-        // Create a new string and store the number
-        std::string number;
-        number.resize(std::distance(location, m_command.end()));
-        std::copy(location, m_command.end(), number.begin());
-
-        // Remove the number from the string
-        m_command.erase(location, m_command.end());
-
-        // Convert to a float and return
-        converter << number;
-        float value = 0.f;
-        converter >> value;
-        return value;
-    }
-
-    ////////////////////////////////////////////////////////////
-    void Valman::eraseLastAssigns(std::string &m_command)
-    {
-        // Find the first non-assignment and delete everything after it. in: derp = , out: derp
-        for (auto it = m_command.rbegin(); it != m_command.rend(); ++it)
-        {
-            if (isAssignment(*it) == false)
-            {
-                m_command.erase(std::distance(it, m_command.rend()), std::distance(m_command.begin(), m_command.end()));
-                break;
-            }
-        }
-    }
-
-    ////////////////////////////////////////////////////////////
-    bool Valman::isNumeric(const char in)
-    {
-        switch (in)
-        {
-            case '+':
-            case '-':
-            case '.':
-            case '0':
-            case '1':
-            case '2':
-            case '3':
-            case '4':
-            case '5':
-            case '6':
-            case '7':
-            case '8':
-            case '9':
-                return true;
-            default:
-                return false;
-        }
-    }
-
-    ////////////////////////////////////////////////////////////
-    bool Valman::isAssignment(const char in)
-    {
-        switch (in)
-        {
-            case '=':
-            case ':':
-            case ' ':
-                return true;
-            default:
-                return false;
-        }
-    }
-
-    ////////////////////////////////////////////////////////////
     bool Valman::isOperator(const char in)
     {
         switch (in)
@@ -357,7 +210,6 @@ namespace ttl
     ////////////////////////////////////////////////////////////
     bool Valman::Editor::autoComplete(std::string &to_complete) // Accepts a string and tries to match it
     {
-    //    m_streamref << "autoComplete(" << m_command << ")" << std::endl;
         std::string buffer;
 
         bool at_least_one_entry = false;
@@ -403,12 +255,6 @@ namespace ttl
     ////////////////////////////////////////////////////////////
     bool Valman::Editor::trueAutoComplete()
     {
-        // We need a truly generic expansion system.
-        /*
-            Possible m_commands: (worst case, most chaos)
-            ./whasadsajk dsajdsakdsaj dsajkjlkad|| dsajdsa sad 432
-        */
-
         // First, find if || occurs, if it does not, return true (We're done)
         // return false is for /autoCompletes that can not be interpreted(too many entries, for example)/
         while (m_command.find(shortcut) != std::string::npos)
@@ -455,75 +301,6 @@ namespace ttl
     }
 
     ////////////////////////////////////////////////////////////
-    void Valman::Editor::sqrt()
-    {
-        if (m_last != m_ptr->m_registry.end())
-        {
-            m_last->second = std::sqrt(m_last->second);
-            m_streamref << "Active variable: \"" + m_last->first + "\" = " << m_last->second;
-        }
-        else
-        {
-            m_streamref << "No active variable";
-        }
-    }
-
-    ////////////////////////////////////////////////////////////
-    void Valman::Editor::pow()
-    {
-        m_command.erase(m_command.begin(), m_command.begin() + 4);
-        float num(extractFirstNumber(m_command));
-
-        // Remove all numerals and assignment chars
-        m_command.erase
-        (
-            std::remove_if
-            (
-                m_command.begin(), m_command.end(),
-                [](const char &x) ->  bool
-                {
-                    return isNumeric(x) || isAssignment(x);
-                }
-            ),
-            m_command.end()
-        );
-
-        if (m_command.size() > 0) // We have a name!
-        {
-            decltype(m_ptr->m_registry)::iterator with = m_ptr->m_registry.find(m_command);
-            if (m_last != m_ptr->m_registry.end())
-            {
-                if (with != m_ptr->m_registry.end())
-                {
-                    m_streamref << "Exponentiation by \"" << with->first << "\" (" << with->second << ")\n";
-                    m_last->second = std::pow(m_last->second, with->second);
-                    m_streamref << "Active variable: " << m_last->first << " = " << m_last->second;
-                }
-                else
-                {
-                    m_streamref << "Entry \"" << m_command << "\" could not be found";
-                }
-            }
-            else
-            {
-                m_streamref << "Invalid active entry";
-            }
-        }
-        // Now there's only a number...
-        else if (m_last != m_ptr->m_registry.end()) // Check if the iterator is valid
-        {
-            m_streamref << "Exponentiation by (" << num << ")\n";
-            m_last->second = std::pow(m_last->second, num);
-            m_streamref << "Active variable: " << m_last->first << " = " << m_last->second;
-        }
-        else
-        {
-            m_streamref << "Invalid active entry";
-        }
-
-    }
-
-    ////////////////////////////////////////////////////////////
     void Valman::Editor::clear()
     {
         if (m_ptr->m_registry.size() > 0)
@@ -549,7 +326,7 @@ namespace ttl
         file.resize(m_command.size() - 6);
         std::copy(m_command.begin() + 6, m_command.end(), file.begin());
 
-        if (m_ptr->load(file.data()))
+        if (m_ptr->load(file))
         {
             m_streamref
                 << "Data loaded";
@@ -564,12 +341,17 @@ namespace ttl
     ////////////////////////////////////////////////////////////
     void Valman::Editor::interfaceAdd()
     {
+        // Removes ".add "
         m_command.erase(m_command.begin(), m_command.begin() + 5);
+        // Replace whitespaces...
+        m_command.erase(0, std::distance(m_command.begin(), std::find_if(m_command.begin(), m_command.end(), [](const char &x)-> bool {return x != ' ';})));
+        std::string key = m_command.substr(0, m_command.find(' '));
+        m_command.erase(0, key.size() + 1);
 
-        float val = extractFirstNumber(m_command);
-        eraseLastAssigns(m_command);
+        // replace all whitespaces
+        std::replace_if(m_command.begin(), m_command.end(), [](const char &x) -> bool {return x == ' ';}, '_');
 
-        m_ptr->m_registry.insert(std::pair<std::string, float>(m_command, val));
+        m_ptr->m_registry.insert(std::make_pair(key, m_command));
 
         m_streamref
             << "The data is added";
@@ -578,13 +360,16 @@ namespace ttl
     ////////////////////////////////////////////////////////////
     void Valman::Editor::interfaceErase()
     {
-        m_command.erase(m_command.begin(), m_command.begin() + 7);
-
-        extractFirstNumber(m_command);
-        eraseLastAssigns(m_command);
+        m_command.erase(m_command.begin(), std::find_if(m_command.begin(), m_command.end(), [](const char &x) -> bool {return x == ' ';}));
+        m_command.erase(m_command.begin(), std::find_if(m_command.begin(), m_command.end(), [](const char &x) -> bool {return x != ' ';}));
 
         if (m_command.size() == 0) // If no m_command is given, delete active
         {
+            if (m_last == m_ptr->m_registry.end())
+            {
+                m_streamref << "No active register to erase";
+                return;
+            }
             m_streamref << "Active register unset" << std::endl;
             m_ptr->m_registry.erase(m_last);
             m_last = m_ptr->m_registry.end();
@@ -611,12 +396,40 @@ namespace ttl
     ////////////////////////////////////////////////////////////
     void Valman::Editor::interfaceStore()
     {
-        m_command.erase(m_command.begin(), m_command.begin() + 7);
+        m_command.erase(m_command.begin(), std::find_if(m_command.begin(), m_command.end(), [](const char &x) -> bool {return x == ' ';}));
+        m_command.erase(m_command.begin(), std::find_if(m_command.begin(), m_command.end(), [](const char &x) -> bool {return x != ' ';}));
 
-        m_ptr->store(m_command.data());
+        m_ptr->store(m_command);
 
         m_streamref
             << "The data is stored";
+    }
+
+    ////////////////////////////////////////////////////////////
+    void Valman::Editor::interfaceReg()
+    {
+        m_command.erase(m_command.begin(), m_command.begin() + 5);
+
+        if (m_command.size() == 0)
+        {
+            m_streamref << "No register specified";
+            return;
+        }
+        else
+        {
+            decltype(m_last) it = m_ptr->m_registry.find(m_command);
+            if (it != m_ptr->m_registry.end())
+            {
+                m_last = it;
+                m_streamref << "Active register: " << it->first;
+            }
+            else
+            {
+                m_streamref << "Unable to locate register";
+                return;
+            }
+        }
+
     }
 
     ////////////////////////////////////////////////////////////
@@ -626,199 +439,16 @@ namespace ttl
     ////////////////////////////////////////////////////////////
     void Valman::Editor::change()
     {
-        // What if we have mathematical operations?
-        char math = '\0';
-        if (isOperator(m_command[0]))
+        if (m_last != m_ptr->m_registry.end())
         {
-            math = m_command[0];
-            m_command.erase(m_command.begin());
-
-            // We now may have a string like: reg, 32, num~1
-            // Check if the only iterms are numeric
-            if
-            (
-                std::all_of
-                (
-                    m_command.begin(), m_command.end(),
-                    [](const char &x) -> bool
-                    {
-                        return isNumeric(x);
-                    }
-                )
-            )
-            {
-                m_command.insert(m_command.begin(), '=');
-                float val = extractFirstNumber(m_command);
-                if (m_last != m_ptr->m_registry.end())
-                {
-                    if(math == '*')
-                    {
-                        m_last->second *= val;
-                    }
-                    else if(math == '/')
-                    {
-                        m_last->second /= val;
-                    }
-                    else if(math == '+')
-                    {
-                        m_last->second += val;
-                    }
-                    else if(math == '-')
-                    {
-                        m_last->second -= val;
-                    }
-                    else if(math == '%')
-                    {
-                        m_last->second = static_cast<float>(static_cast<long int>(m_last->second) % static_cast<long int>(val));
-                    }
-                    m_streamref
-                        << m_last->first
-                        << ": " << m_last->second;
-                }
-                else
-                {
-                    m_streamref
-                        << "No active variable";
-                }
-            }
-            else if // What if we ONLY have a m_command issued?
-            (
-                std::none_of
-                (
-                    m_command.begin(), m_command.end(),
-                    [](const char &x) -> bool
-                    {
-                        return isNumeric(x);
-                    }
-                )
-            )
-            {
-                if (m_last == m_ptr->m_registry.end())
-                {
-                    m_streamref << "No active variable";
-                    return;
-                }
-
-                auto val = m_ptr->m_registry.find(m_command);
-
-                if (val == m_ptr->m_registry.end())
-                {
-                    m_streamref << "Unable to locate variable: \"" << m_command << "\"";
-                    return;
-                }
-
-                if(math == '*')
-                {
-                    m_streamref << "Multiplication by \"" << m_command << "\" (" << val->second << ")";
-                    m_last->second *= val->second;
-                }
-                else if(math == '/')
-                {
-                    m_streamref << "Division by \"" << m_command << "\" (" << val->second << ")";
-                    m_last->second /= val->second;
-                }
-                else if(math == '+')
-                {
-                    m_streamref << "Addition by \"" << m_command << "\" (" << val->second << ")";
-                    m_last->second += val->second;
-                }
-                else if(math == '-')
-                {
-                    m_streamref << "Subtraction by \"" << m_command << "\" (" << val->second << ")";
-                    m_last->second -= val->second;
-                }
-                else if(math == '%')
-                {
-                    m_streamref << "Modulus by \"" << m_command << "\" (" << val->second << ")";
-                    m_last->second = static_cast<float>(static_cast<long int>(m_last->second) % static_cast<long int>(val->second));
-                }
-
-                m_streamref
-                    << std::endl
-                    << "Active variable: \"" + m_last->first + "\" = " + std::to_string(m_last->second);
-            }
-            else
-            {
-                m_streamref << "Unable to interpret data";
-            }
+            std::replace_if(m_command.begin(), m_command.end(), [](const char &x) -> bool {return x == ' ';}, '_');
+            m_streamref << "old \"" << m_last->first << "\" = \"" << m_last->second << "\"\n";
+            m_last->second = m_command;
+            m_streamref << "new \"" << m_last->first << "\" = \"" << m_last->second << "\"";
         }
-
-        // If the user issued a pure number, and nothing else
-        // Just edit the m_last iterator, if it's valid
-        else if
-        (
-            std::all_of
-            (
-                m_command.begin(), m_command.end(),
-                [](const char &x) -> bool
-                {
-                    return isNumeric(x);
-                }
-            )
-        )
+        else
         {
-            m_command.insert(m_command.begin(), '=');
-            float val = extractFirstNumber(m_command);
-            if (m_last != m_ptr->m_registry.end())
-            {
-                m_last->second = val;
-                m_streamref
-                    << m_last->first
-                    << ": " << m_last->second;
-
-            }
-            else
-            {
-                m_streamref
-                    << "No active variable";
-            }
-        }
-        else if // What if we ONLY have a m_command issued?
-        (
-            std::none_of
-            (
-                m_command.begin(), m_command.end(),
-                [](const char &x) -> bool
-                {
-                    return isNumeric(x);
-                }
-            )
-        )
-        {
-            eraseLastAssigns(m_command);
-
-            m_last = m_ptr->m_registry.find(m_command);
-
-            if (m_last != m_ptr->m_registry.end())
-            {
-                m_streamref
-                    << "Active variable: \"" + m_command + "\" = " << m_ptr->m_registry[m_command];
-            }
-            else
-            {
-                m_streamref
-                    << "Unable to locate variable";
-            }
-        }
-        else // Both m_command and value
-        {
-            float val = extractFirstNumber(m_command);
-            eraseLastAssigns(m_command);
-
-            m_last = m_ptr->m_registry.find(m_command);
-
-            if (m_last != m_ptr->m_registry.end())
-            {
-                m_streamref
-                    << m_last->first
-                    << ": " << val;
-                m_last->second = val;
-            }
-            else
-            {
-                m_streamref
-                    << "Unable to locate variable";
-            }
+            m_streamref << "No active register to edit";
         }
     }
 
@@ -833,34 +463,23 @@ namespace ttl
     ////////////////////////////////////////////////////////////
     void Valman::Editor::event(bool &run)
     {
-        // Try autocompleting any || statements
-        if (trueAutoComplete() == false)
-        {
-            return;
-        }
-
-        // Builtin m_commands
+        // Built-in commands
         if (m_command[0] == '.')
         {
-            if (m_command == ".list" && m_command.size() < 6)
+            // Try autocompleting any || statements
+            if (trueAutoComplete() == false)
+                return;
+            if (m_command.find(".reg ") == 0)
             {
-                list();
+                interfaceReg();
+            }
+            else if (m_command == ".list")
+            {
+                listAll();
             }
             else if (m_command.find(".list ") == 0)
             {
                 listCommand();
-            }
-            else if (m_command.find(".sqrt") == 0)
-            {
-                sqrt();
-            }
-            else if (m_command.find(".pow ") == 0)
-            {
-                pow();
-            }
-            else if (m_command.find(".pow") == 0)
-            {
-                m_streamref << "Unspecified power value";
             }
             else if (m_command.find(".load ") == 0)
             {
@@ -880,7 +499,6 @@ namespace ttl
             }
             else if (m_command.find(".erase") == 0)
             {
-                m_command += " ";
                 interfaceErase();
             }
             else if (m_command == ".clear")
@@ -909,50 +527,38 @@ namespace ttl
     }
 
     ////////////////////////////////////////////////////////////
-    void Valman::Editor::displayHelp() const
+    void Valman::Editor::displayHelp()
     {
         m_streamref
             << "Enter \".list\" to list all registers"
             << std::endl
-            << "Enter \".list\" + an command to list all registers containing this command (\".list x\")"
+            << "Enter \".list\" + a string to list all registers containing this string (\".list x\")"
             << std::endl
-            << "Enter the register name to activate it (\"number\")"
+            << "Enter \".reg\" and the register name to complete it (\".reg x\")"
             << std::endl
-            << "Enter the start of the register name and append || to expand it (\"nu||\")"
-            << std::endl
-            << "Enter a number to update the active register (\"-.5\")"
-            << std::endl
-            << "Enter an arithmetic operator and a number to modify the active register (\"*-.5\" or \"+32\")"
-            << std::endl
-            << "Enter an arithmetic operator and a register name to perform arithmetic (\"*number\" or \"+x||\")"
-            << std::endl
-            << "Enter a register name and number simultaneously to edit it immediately (\"number -.5\")"
+            << "Enter anything to update the active register (no whitespaces) \"(800,600)\""
             << std::endl
             << "Enter \".clear\" to remove all entries"
             << std::endl
             << "Enter \".add x\" to add entry x"
             << std::endl
-            << "Enter \".add x 3\" to add entry x with the value of 3"
+            << "Enter \".add x y\" to add entry x with the value of y"
             << std::endl
-            << "Enter \".pow x\" to exponentiate the active register by entry x"
-            << std::endl
-            << "Enter \".pow 2\" to exponentiate the active register by 2"
-            << std::endl
-            << "Enter \".sqrt\" to take the square root of the active register"
+            << "Enter \".erase\" to erase the active registry"
             << std::endl
             << "Enter \".erase x\" to erase the entry"
-            << std::endl
-            << "Enter \".erase x||\" to erase the entry starting with x"
             << std::endl
             << "Enter \".load x\" to load file x"
             << std::endl
             << "Enter \".store x\" to store the registry to file x"
             << std::endl
+            << "Enter the start of the register name and append || to invoke auto-complete \".command x||\""
+            << std::endl
             << "Enter \".exit\" to return";
     }
 
     ////////////////////////////////////////////////////////////
-    void Valman::Editor::list()
+    void Valman::Editor::listAll()
     {
         bool at_least_one_entry = false;
 
@@ -1015,9 +621,9 @@ namespace ttl
     ////////////////////////////////////////////////////////////
     Valman::Editor::Editor(Valman *ptr, std::ostream &streamref)
     :
-    m_ptr(ptr),
-    m_streamref(streamref),
-    m_last(ptr->m_registry.end())
+        m_ptr(ptr),
+        m_streamref(streamref),
+        m_last(ptr->m_registry.end())
     {}
 
 } // Namespace ttl

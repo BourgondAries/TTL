@@ -60,7 +60,7 @@ namespace ttl
 /// arguments to std::thread::thread(...)
 ///
 /// \code
-/// int &n = 0;
+/// int n = 0;
 /// JoinThread thr
 /// (
 ///     [](int &number)

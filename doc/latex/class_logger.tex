@@ -1,0 +1,23 @@
+\hypertarget{class_logger}{\section{Logger Class Reference}
+\label{class_logger}\index{Logger@{Logger}}
+}
+
+
+{\ttfamily \#include $<$Logger.\-hpp$>$}
+
+
+
+\subsection{Detailed Description}
+This class will log to a file with an optional timestamp and other data. Changing the template argument turns the logger on and off, thus allowing the programmer to turn off the logger by changing a single argument, whilst leaving the logging code intact. This allows for easy debugging and information fetching.
+
+
+\begin{DoxyCode}
+*  \hyperlink{class_logger}{Logger<true>} log(\textcolor{stringliteral}{"messages.log"});
+*  log << \textcolor{stringliteral}{"A message"};
+*  
+\end{DoxyCode}
+ 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+include/\-Logger/Logger.\-hpp\end{DoxyCompactItemize}

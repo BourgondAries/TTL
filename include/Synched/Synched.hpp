@@ -30,7 +30,7 @@ namespace ttl
     class Synched
     {
     public:
-
+        
         ////////////////////////////////////////////////////////////
         /// \brief Default ctor
         ///

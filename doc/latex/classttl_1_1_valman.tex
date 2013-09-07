@@ -1,51 +1,210 @@
 \hypertarget{classttl_1_1_valman}{\section{ttl\-:\-:Valman Class Reference}
 \label{classttl_1_1_valman}\index{ttl\-::\-Valman@{ttl\-::\-Valman}}
 }
+
+
+Value manager and loader.  
+
+
+
+
+{\ttfamily \#include $<$Valman.\-hpp$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classttl_1_1_valman_aef681b474ac0f6f55b8317d64f3d6823}{{\bfseries Valman} (const char $\ast$filename)}\label{classttl_1_1_valman_aef681b474ac0f6f55b8317d64f3d6823}
+\hypertarget{classttl_1_1_valman_a6ab23b3471a7510cd31da0f2c660d570}{\hyperlink{classttl_1_1_valman_a6ab23b3471a7510cd31da0f2c660d570}{Valman} ()}\label{classttl_1_1_valman_a6ab23b3471a7510cd31da0f2c660d570}
 
-\item 
-\hypertarget{classttl_1_1_valman_a467695f05563fe7b755e1bb902ab7040}{float \& {\bfseries operator()} (const char $\ast$entry)}\label{classttl_1_1_valman_a467695f05563fe7b755e1bb902ab7040}
+\begin{DoxyCompactList}\small\item\em Constructs a basic object. \end{DoxyCompactList}\item 
+\hyperlink{classttl_1_1_valman_a69ddad1137e1afe2323ee952d6a9f6a9}{Valman} (const std\-::string \&filename)
+\begin{DoxyCompactList}\small\item\em Constructs a basic object and loads a single file. \end{DoxyCompactList}\item 
+\hypertarget{classttl_1_1_valman_ad0b5383377f9a28a415a874790169c1e}{\hyperlink{classttl_1_1_valman_ad0b5383377f9a28a415a874790169c1e}{$\sim$\-Valman} ()}\label{classttl_1_1_valman_ad0b5383377f9a28a415a874790169c1e}
 
-\item 
-\hypertarget{classttl_1_1_valman_aac6e80b897fa949022fa5d286a785a31}{float \& {\bfseries operator\mbox{[}$\,$\mbox{]}} (const char $\ast$entry)}\label{classttl_1_1_valman_aac6e80b897fa949022fa5d286a785a31}
+\begin{DoxyCompactList}\small\item\em Destructs the object. \end{DoxyCompactList}\item 
+std\-::string \& \hyperlink{classttl_1_1_valman_a95135c0345df5feb38e510581d994456}{at} (const std\-::string \&str)
+\begin{DoxyCompactList}\small\item\em A range-\/checked access operator. \end{DoxyCompactList}\item 
+std\-::string \& \hyperlink{classttl_1_1_valman_a50f0de1ab7d768fc493217152234176c}{operator\mbox{[}$\,$\mbox{]}} (const std\-::string \&str)
+\begin{DoxyCompactList}\small\item\em Access operator. \end{DoxyCompactList}\item 
+\hypertarget{classttl_1_1_valman_a4d0d3d70b3d099bd27a153742ea29bc7}{void \hyperlink{classttl_1_1_valman_a4d0d3d70b3d099bd27a153742ea29bc7}{clear} ()}\label{classttl_1_1_valman_a4d0d3d70b3d099bd27a153742ea29bc7}
 
-\item 
-\hypertarget{classttl_1_1_valman_a4d0d3d70b3d099bd27a153742ea29bc7}{void {\bfseries clear} ()}\label{classttl_1_1_valman_a4d0d3d70b3d099bd27a153742ea29bc7}
+\begin{DoxyCompactList}\small\item\em Removes all elements. \end{DoxyCompactList}\item 
+bool \hyperlink{classttl_1_1_valman_ae7f92b4e9d4b97180c57c7ea34b040c3}{load} (const std\-::string \&filename)
+\begin{DoxyCompactList}\small\item\em Loads data from a file. \end{DoxyCompactList}\item 
+void \hyperlink{classttl_1_1_valman_a3683caef3a4f4a0a06097d83ab892599}{add} (const std\-::pair$<$ std\-::string, std\-::string $>$ \&value)
+\begin{DoxyCompactList}\small\item\em Add data to the hash table. \end{DoxyCompactList}\item 
+void \hyperlink{classttl_1_1_valman_a94f8a3ddd50fd4be44997145e06b4ff1}{add} (const std\-::string \&data)
+\begin{DoxyCompactList}\small\item\em Add data to the hash table. \end{DoxyCompactList}\item 
+void \hyperlink{classttl_1_1_valman_add2a2e1e51491ab9d596927d0adb4267}{erase} (const std\-::string \&entry)
+\begin{DoxyCompactList}\small\item\em Erase an entry from the hash table. \end{DoxyCompactList}\item 
+void \hyperlink{classttl_1_1_valman_add510b6dc8d492fd223b51f3db9dbc0c}{store} (const std\-::string \&filename)
+\begin{DoxyCompactList}\small\item\em Stores the hash table into a file. \end{DoxyCompactList}\item 
+bool \hyperlink{classttl_1_1_valman_a75d3a81d06664d1759b1e7170b259a43}{find} (const std\-::string \&data)
+\begin{DoxyCompactList}\small\item\em Look if a key exists. \end{DoxyCompactList}\item 
+\hypertarget{classttl_1_1_valman_a4099a57f87bd220a24446f70041231be}{void \hyperlink{classttl_1_1_valman_a4099a57f87bd220a24446f70041231be}{edit} ()}\label{classttl_1_1_valman_a4099a57f87bd220a24446f70041231be}
 
-\item 
-\hypertarget{classttl_1_1_valman_a792541b4f2864eda9ee35f2478b4890e}{bool {\bfseries load} (const char $\ast$filename)}\label{classttl_1_1_valman_a792541b4f2864eda9ee35f2478b4890e}
+\begin{DoxyCompactList}\small\item\em Enter the C\-L\-I. \end{DoxyCompactList}\item 
+\hypertarget{classttl_1_1_valman_aee9df8369fcad995d061b1928d1591d4}{void \hyperlink{classttl_1_1_valman_aee9df8369fcad995d061b1928d1591d4}{edit} (const std\-::string \&command)}\label{classttl_1_1_valman_aee9df8369fcad995d061b1928d1591d4}
 
-\item 
-\hypertarget{classttl_1_1_valman_ae06bf1be1b34ec62177f79c12e163bba}{void {\bfseries add} (const std\-::pair$<$ std\-::string, float $>$ \&value)}\label{classttl_1_1_valman_ae06bf1be1b34ec62177f79c12e163bba}
+\begin{DoxyCompactList}\small\item\em Enter the C\-L\-I with a single command. \end{DoxyCompactList}\item 
+\hypertarget{classttl_1_1_valman_aaef50349af0a4f80c7c47785e2e4bc5f}{std\-::stringstream \& \hyperlink{classttl_1_1_valman_aaef50349af0a4f80c7c47785e2e4bc5f}{edit} (const std\-::string \&command, std\-::stringstream \&output)}\label{classttl_1_1_valman_aaef50349af0a4f80c7c47785e2e4bc5f}
 
-\item 
-\hypertarget{classttl_1_1_valman_a94f8a3ddd50fd4be44997145e06b4ff1}{void {\bfseries add} (const std\-::string \&data)}\label{classttl_1_1_valman_a94f8a3ddd50fd4be44997145e06b4ff1}
+\begin{DoxyCompactList}\small\item\em Enter the C\-L\-I whilst specifying an output stream. \end{DoxyCompactList}\item 
+\hypertarget{classttl_1_1_valman_ae64b9d9140407189d74dcb9eada6c5b6}{std\-::ostream \& \hyperlink{classttl_1_1_valman_ae64b9d9140407189d74dcb9eada6c5b6}{edit} (const std\-::string \&command, std\-::ostream \&output)}\label{classttl_1_1_valman_ae64b9d9140407189d74dcb9eada6c5b6}
 
-\item 
-\hypertarget{classttl_1_1_valman_add2a2e1e51491ab9d596927d0adb4267}{void {\bfseries erase} (const std\-::string \&entry)}\label{classttl_1_1_valman_add2a2e1e51491ab9d596927d0adb4267}
+\begin{DoxyCompactList}\small\item\em Enter the C\-L\-I whilst specifying an output stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
-\item 
-\hypertarget{classttl_1_1_valman_aab7accd8bf3f7f2a91882f82cc916c3f}{void {\bfseries store} (const char $\ast$filename)}\label{classttl_1_1_valman_aab7accd8bf3f7f2a91882f82cc916c3f}
 
-\item 
-\hypertarget{classttl_1_1_valman_a75d3a81d06664d1759b1e7170b259a43}{bool {\bfseries find} (const std\-::string \&data)}\label{classttl_1_1_valman_a75d3a81d06664d1759b1e7170b259a43}
+\subsection{Detailed Description}
+Value manager and loader. 
 
-\item 
-\hypertarget{classttl_1_1_valman_a4099a57f87bd220a24446f70041231be}{void {\bfseries edit} ()}\label{classttl_1_1_valman_a4099a57f87bd220a24446f70041231be}
+Contains a C\-L\-I editor that wraps around its core functionality. The loader is a very simple one, it parses using whitespaces as separators. The data is stored in a hash map of strings. 
 
-\item 
-\hypertarget{classttl_1_1_valman_aee9df8369fcad995d061b1928d1591d4}{void {\bfseries edit} (const std\-::string \&command)}\label{classttl_1_1_valman_aee9df8369fcad995d061b1928d1591d4}
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classttl_1_1_valman_a69ddad1137e1afe2323ee952d6a9f6a9}{\index{ttl\-::\-Valman@{ttl\-::\-Valman}!Valman@{Valman}}
+\index{Valman@{Valman}!ttl::Valman@{ttl\-::\-Valman}}
+\subsubsection[{Valman}]{\setlength{\rightskip}{0pt plus 5cm}ttl\-::\-Valman\-::\-Valman (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{filename}
+\end{DoxyParamCaption}
+)}}\label{classttl_1_1_valman_a69ddad1137e1afe2323ee952d6a9f6a9}
 
-\item 
-\hypertarget{classttl_1_1_valman_aaef50349af0a4f80c7c47785e2e4bc5f}{std\-::stringstream \& {\bfseries edit} (const std\-::string \&command, std\-::stringstream \&output)}\label{classttl_1_1_valman_aaef50349af0a4f80c7c47785e2e4bc5f}
 
-\item 
-\hypertarget{classttl_1_1_valman_ae64b9d9140407189d74dcb9eada6c5b6}{std\-::ostream \& {\bfseries edit} (const std\-::string \&command, std\-::ostream \&output)}\label{classttl_1_1_valman_ae64b9d9140407189d74dcb9eada6c5b6}
+Constructs a basic object and loads a single file. 
 
-\end{DoxyCompactItemize}
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & the file to load from. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classttl_1_1_valman_a3683caef3a4f4a0a06097d83ab892599}{\index{ttl\-::\-Valman@{ttl\-::\-Valman}!add@{add}}
+\index{add@{add}!ttl::Valman@{ttl\-::\-Valman}}
+\subsubsection[{add}]{\setlength{\rightskip}{0pt plus 5cm}void ttl\-::\-Valman\-::add (
+\begin{DoxyParamCaption}
+\item[{const std\-::pair$<$ std\-::string, std\-::string $>$ \&}]{value}
+\end{DoxyParamCaption}
+)}}\label{classttl_1_1_valman_a3683caef3a4f4a0a06097d83ab892599}
+
+
+Add data to the hash table. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & is a pair of data, both strings. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classttl_1_1_valman_a94f8a3ddd50fd4be44997145e06b4ff1}{\index{ttl\-::\-Valman@{ttl\-::\-Valman}!add@{add}}
+\index{add@{add}!ttl::Valman@{ttl\-::\-Valman}}
+\subsubsection[{add}]{\setlength{\rightskip}{0pt plus 5cm}void ttl\-::\-Valman\-::add (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{data}
+\end{DoxyParamCaption}
+)}}\label{classttl_1_1_valman_a94f8a3ddd50fd4be44997145e06b4ff1}
+
+
+Add data to the hash table. 
+
+This add will leave the value empty (\char`\"{}\char`\"{})
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & is the string key to be added \\
+\hline
+\end{DoxyParams}
+\hypertarget{classttl_1_1_valman_a95135c0345df5feb38e510581d994456}{\index{ttl\-::\-Valman@{ttl\-::\-Valman}!at@{at}}
+\index{at@{at}!ttl::Valman@{ttl\-::\-Valman}}
+\subsubsection[{at}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string\& ttl\-::\-Valman\-::at (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{str}
+\end{DoxyParamCaption}
+)}}\label{classttl_1_1_valman_a95135c0345df5feb38e510581d994456}
+
+
+A range-\/checked access operator. 
+
+This function checks if str exists in the hash table. If it does not, an std\-::runtime\-\_\-error is thrown. \hypertarget{classttl_1_1_valman_add2a2e1e51491ab9d596927d0adb4267}{\index{ttl\-::\-Valman@{ttl\-::\-Valman}!erase@{erase}}
+\index{erase@{erase}!ttl::Valman@{ttl\-::\-Valman}}
+\subsubsection[{erase}]{\setlength{\rightskip}{0pt plus 5cm}void ttl\-::\-Valman\-::erase (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{entry}
+\end{DoxyParamCaption}
+)}}\label{classttl_1_1_valman_add2a2e1e51491ab9d596927d0adb4267}
+
+
+Erase an entry from the hash table. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & is the key to erase \\
+\hline
+\end{DoxyParams}
+\hypertarget{classttl_1_1_valman_a75d3a81d06664d1759b1e7170b259a43}{\index{ttl\-::\-Valman@{ttl\-::\-Valman}!find@{find}}
+\index{find@{find}!ttl::Valman@{ttl\-::\-Valman}}
+\subsubsection[{find}]{\setlength{\rightskip}{0pt plus 5cm}bool ttl\-::\-Valman\-::find (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{data}
+\end{DoxyParamCaption}
+)}}\label{classttl_1_1_valman_a75d3a81d06664d1759b1e7170b259a43}
+
+
+Look if a key exists. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & is the key to look for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+wheter this key exists or not 
+\end{DoxyReturn}
+\hypertarget{classttl_1_1_valman_ae7f92b4e9d4b97180c57c7ea34b040c3}{\index{ttl\-::\-Valman@{ttl\-::\-Valman}!load@{load}}
+\index{load@{load}!ttl::Valman@{ttl\-::\-Valman}}
+\subsubsection[{load}]{\setlength{\rightskip}{0pt plus 5cm}bool ttl\-::\-Valman\-::load (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{filename}
+\end{DoxyParamCaption}
+)}}\label{classttl_1_1_valman_ae7f92b4e9d4b97180c57c7ea34b040c3}
+
+
+Loads data from a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & is the file to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the state of loading, false for failure 
+\end{DoxyReturn}
+\hypertarget{classttl_1_1_valman_a50f0de1ab7d768fc493217152234176c}{\index{ttl\-::\-Valman@{ttl\-::\-Valman}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!ttl::Valman@{ttl\-::\-Valman}}
+\subsubsection[{operator[]}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string\& ttl\-::\-Valman\-::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{str}
+\end{DoxyParamCaption}
+)}}\label{classttl_1_1_valman_a50f0de1ab7d768fc493217152234176c}
+
+
+Access operator. 
+
+This access operator does not perform a range check. \hypertarget{classttl_1_1_valman_add510b6dc8d492fd223b51f3db9dbc0c}{\index{ttl\-::\-Valman@{ttl\-::\-Valman}!store@{store}}
+\index{store@{store}!ttl::Valman@{ttl\-::\-Valman}}
+\subsubsection[{store}]{\setlength{\rightskip}{0pt plus 5cm}void ttl\-::\-Valman\-::store (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{filename}
+\end{DoxyParamCaption}
+)}}\label{classttl_1_1_valman_add510b6dc8d492fd223b51f3db9dbc0c}
+
+
+Stores the hash table into a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & the file to store into \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
