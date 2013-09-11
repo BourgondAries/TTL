@@ -12,5 +12,6 @@
     #include "Sleep/Sleep.hpp"
     #include "Synched/Synched.hpp"
     #include "Valman/Valman.hpp"
+    #include "Utilities/Utilities.hpp"
 
 #endif // TTL_HPP_INCLUDED

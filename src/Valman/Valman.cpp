@@ -111,9 +111,9 @@ namespace ttl
     }
 
     ////////////////////////////////////////////////////////////
-    bool Valman::find(const std::string &m_command)
+    const std::unordered_map<std::string, std::string>::const_iterator Valman::find(const std::string &key) const
     {
-        return m_registry.find(m_command) != m_registry.end();
+        return m_registry.find(key);
     }
 
     ////////////////////////////////////////////////////////////
@@ -294,8 +294,6 @@ namespace ttl
             std::size_t first_of(m_command.find_first_of(shortcut));
             m_command.erase(m_command.begin() + first_of, m_command.begin() + first_of + 2);
         }
-
-    //    m_streamref << "Result: " << m_command << std::endl;
 
         return true;
     }
@@ -627,10 +625,3 @@ namespace ttl
     {}
 
 } // Namespace ttl
-
-
-
-
-
-
-

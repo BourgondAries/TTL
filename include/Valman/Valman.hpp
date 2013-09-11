@@ -120,11 +120,11 @@ namespace ttl
         ////////////////////////////////////////////////////////////
         /// \brief Look if a key exists
         ///
-        /// \param data is the key to look for
-        /// \return wheter this key exists or not
+        /// \param key is the key to look for
+        /// \return an iterator to either end or the valid data pair
         ///
         ////////////////////////////////////////////////////////////
-        bool find(const std::string &data);
+        const std::unordered_map<std::string, std::string>::const_iterator find(const std::string &key) const;
 
         ////////////////////////////////////////////////////////////
         /// \brief Enter the CLI

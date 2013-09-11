@@ -241,10 +241,10 @@
 1378333057 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\timestamp\timestamp.cpp
 	<Timestamp/Timestamp.hpp>
 
-1378578372 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\valman\valman.cpp
+1378838260 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\valman\valman.cpp
 	"Valman/Valman.hpp"
 
-1378578388 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\valman\valman.hpp
+1378899653 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\valman\valman.hpp
 	<fstream>
 	<string>
 	<unordered_map>
@@ -280,4 +280,18 @@
 	<mutex>
 	<atomic>
 	"Flare/Flare.hpp"
+
+1378398186 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\synched\synched.hpp
+	<mutex>
+	"SynchedWriter.hpp"
+	"SynchedReader.hpp"
+	"SynchedData.hpp"
+
+1378333058 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\synched\synchedwriter.hpp
+	<mutex>
+	"SynchedData.hpp"
+
+1378333058 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\synched\synchedreader.hpp
+	<mutex>
+	"SynchedData.hpp"
 
