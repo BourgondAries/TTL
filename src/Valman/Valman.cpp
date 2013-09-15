@@ -117,6 +117,12 @@ namespace ttl
     }
 
     ////////////////////////////////////////////////////////////
+    const std::unordered_map<std::string, std::string>::const_iterator Valman::end() const
+    {
+        return m_registry.end();
+    }
+
+    ////////////////////////////////////////////////////////////
     void Valman::edit()
     {
         std::cout

@@ -241,10 +241,10 @@
 1378333057 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\timestamp\timestamp.cpp
 	<Timestamp/Timestamp.hpp>
 
-1378838260 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\valman\valman.cpp
+1379260714 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\valman\valman.cpp
 	"Valman/Valman.hpp"
 
-1378899653 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\valman\valman.hpp
+1379260792 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\valman\valman.hpp
 	<fstream>
 	<string>
 	<unordered_map>
@@ -253,12 +253,13 @@
 	<stdexcept>
 	<algorithm>
 
-1378333057 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\runnable\runnable.cpp
+1379250963 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\runnable\runnable.cpp
 	"Runnable/Runnable.hpp"
 	"Logger/Logger.hpp"
 
-1378333057 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\runnable\runnable.hpp
+1379250983 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\runnable\runnable.hpp
 	<memory>
+	"Logger/Logger.hpp"
 
 1378333057 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\sleep\sleep.cpp
 	<thread>
@@ -294,4 +295,11 @@
 1378333058 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\synched\synchedreader.hpp
 	<mutex>
 	"SynchedData.hpp"
+
+1379260867 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\utilities\utilities.cpp
+	"Utilities/Utilities.hpp"
+
+1379261011 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\utilities\utilities.hpp
+	"Synched/Synched.hpp"
+	"Valman/Valman.hpp"
 

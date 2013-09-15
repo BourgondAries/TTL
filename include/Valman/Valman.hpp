@@ -127,6 +127,14 @@ namespace ttl
         const std::unordered_map<std::string, std::string>::const_iterator find(const std::string &key) const;
 
         ////////////////////////////////////////////////////////////
+        /// \brief Get the iterator to the end
+        ///
+        /// \return an iterator past the last element
+        ///
+        ////////////////////////////////////////////////////////////
+        const std::unordered_map<std::string, std::string>::const_iterator end() const;
+
+        ////////////////////////////////////////////////////////////
         /// \brief Enter the CLI
         ///
         ////////////////////////////////////////////////////////////

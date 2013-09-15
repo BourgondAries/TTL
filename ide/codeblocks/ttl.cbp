@@ -64,6 +64,7 @@
 		<Unit filename="../../include/Synched/SynchedWriter.hpp" />
 		<Unit filename="../../include/TTL.hpp" />
 		<Unit filename="../../include/Timestamp/Timestamp.hpp" />
+		<Unit filename="../../include/Utilities/Utilities.hpp" />
 		<Unit filename="../../include/Valman/Valman.hpp" />
 		<Unit filename="../../src/Benchmark/Benchmark.cpp" />
 		<Unit filename="../../src/File2Str/File2Str.cpp" />
@@ -75,6 +76,7 @@
 		<Unit filename="../../src/Sleep/Sleep.cpp" />
 		<Unit filename="../../src/Synch/SynchedData.cpp" />
 		<Unit filename="../../src/Timestamp/Timestamp.cpp" />
+		<Unit filename="../../src/Utilities/Utilities.cpp" />
 		<Unit filename="../../src/Valman/Valman.cpp" />
 		<Extensions>
 			<code_completion />
