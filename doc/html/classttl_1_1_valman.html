@@ -24,7 +24,7 @@
   <td id="projectlogo"><img alt="Logo" src="gear.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">Tea Tank Library
-   &#160;<span id="projectnumber">2</span>
+   &#160;<span id="projectnumber">2.1</span>
    </div>
    <div id="projectbrief">A natural supplement to daily programming needs</div>
   </td>
@@ -140,9 +140,16 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:add510b6dc8d492fd223b51f3db9dbc0c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classttl_1_1_valman.html#add510b6dc8d492fd223b51f3db9dbc0c">store</a> (const std::string &amp;filename)</td></tr>
 <tr class="memdesc:add510b6dc8d492fd223b51f3db9dbc0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the hash table into a file.  <a href="#add510b6dc8d492fd223b51f3db9dbc0c">More...</a><br/></td></tr>
 <tr class="separator:add510b6dc8d492fd223b51f3db9dbc0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75d3a81d06664d1759b1e7170b259a43"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classttl_1_1_valman.html#a75d3a81d06664d1759b1e7170b259a43">find</a> (const std::string &amp;data)</td></tr>
-<tr class="memdesc:a75d3a81d06664d1759b1e7170b259a43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Look if a key exists.  <a href="#a75d3a81d06664d1759b1e7170b259a43">More...</a><br/></td></tr>
-<tr class="separator:a75d3a81d06664d1759b1e7170b259a43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5c64b2c8cc10a8143831130fe051048"><td class="memItemLeft" align="right" valign="top">const std::unordered_map<br class="typebreak"/>
+&lt; std::string, std::string &gt;<br class="typebreak"/>
+::const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classttl_1_1_valman.html#ac5c64b2c8cc10a8143831130fe051048">find</a> (const std::string &amp;key) const </td></tr>
+<tr class="memdesc:ac5c64b2c8cc10a8143831130fe051048"><td class="mdescLeft">&#160;</td><td class="mdescRight">Look if a key exists.  <a href="#ac5c64b2c8cc10a8143831130fe051048">More...</a><br/></td></tr>
+<tr class="separator:ac5c64b2c8cc10a8143831130fe051048"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3677bf33ca1e1be881dfb6b4f408adab"><td class="memItemLeft" align="right" valign="top">const std::unordered_map<br class="typebreak"/>
+&lt; std::string, std::string &gt;<br class="typebreak"/>
+::const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classttl_1_1_valman.html#a3677bf33ca1e1be881dfb6b4f408adab">end</a> () const </td></tr>
+<tr class="memdesc:a3677bf33ca1e1be881dfb6b4f408adab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the iterator to the end.  <a href="#a3677bf33ca1e1be881dfb6b4f408adab">More...</a><br/></td></tr>
+<tr class="separator:a3677bf33ca1e1be881dfb6b4f408adab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4099a57f87bd220a24446f70041231be"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4099a57f87bd220a24446f70041231be"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classttl_1_1_valman.html#a4099a57f87bd220a24446f70041231be">edit</a> ()</td></tr>
 <tr class="memdesc:a4099a57f87bd220a24446f70041231be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enter the CLI. <br/></td></tr>
@@ -257,6 +264,24 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="
 
 </div>
 </div>
+<a class="anchor" id="a3677bf33ca1e1be881dfb6b4f408adab"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::unordered_map&lt;std::string, std::string&gt;::const_iterator ttl::Valman::end </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the iterator to the end. </p>
+<dl class="section return"><dt>Returns</dt><dd>an iterator past the last element </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="add2a2e1e51491ab9d596927d0adb4267"></a>
 <div class="memitem">
 <div class="memproto">
@@ -281,16 +306,16 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="
 
 </div>
 </div>
-<a class="anchor" id="a75d3a81d06664d1759b1e7170b259a43"></a>
+<a class="anchor" id="ac5c64b2c8cc10a8143831130fe051048"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool ttl::Valman::find </td>
+          <td class="memname">const std::unordered_map&lt;std::string, std::string&gt;::const_iterator ttl::Valman::find </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>data</em></td><td>)</td>
-          <td></td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -298,11 +323,11 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="
 <p>Look if a key exists. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">data</td><td>is the key to look for </td></tr>
+    <tr><td class="paramname">key</td><td>is the key to look for </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>wheter this key exists or not </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>an iterator to either end or the valid data pair </dd></dl>
 
 </div>
 </div>
@@ -380,7 +405,7 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Sep 8 2013 08:52:31 for Tea Tank Library by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Sep 22 2013 15:30:32 for Tea Tank Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

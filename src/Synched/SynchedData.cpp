@@ -1,0 +1,19 @@
+////////////////////////////////////////////////////////////
+// Headers
+////////////////////////////////////////////////////////////
+#include <mutex>
+#include <atomic>
+#include "Flare/Flare.hpp"
+#include "Synched/SynchedData.hpp"
+
+
+namespace ttl
+{
+
+    ////////////////////////////////////////////////////////////
+    SynchedData::SynchedData()
+    :
+        writer_activation(true), readers(0)
+        {}
+
+} // Namespace ttl

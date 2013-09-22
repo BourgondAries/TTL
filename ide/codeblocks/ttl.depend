@@ -190,7 +190,7 @@
 	<chrono>
 	<ctime>
 
-1378333057 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\benchmark\benchmark.cpp
+1379858283 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\benchmark\benchmark.cpp
 	"Benchmark/Benchmark.hpp"
 
 1378333057 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\benchmark\benchmark.hpp
@@ -206,7 +206,7 @@
 	<mutex>
 	<condition_variable>
 
-1378333057 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\ips\ips.cpp
+1379268974 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\ips\ips.cpp
 	"Ips/Ips.hpp"
 
 1378333057 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\ips\ips.hpp
@@ -241,10 +241,10 @@
 1378333057 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\timestamp\timestamp.cpp
 	<Timestamp/Timestamp.hpp>
 
-1379260714 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\valman\valman.cpp
+1379856004 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\valman\valman.cpp
 	"Valman/Valman.hpp"
 
-1379260792 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\valman\valman.hpp
+1379855990 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\valman\valman.hpp
 	<fstream>
 	<string>
 	<unordered_map>
@@ -302,4 +302,16 @@
 1379261011 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\utilities\utilities.hpp
 	"Synched/Synched.hpp"
 	"Valman/Valman.hpp"
+
+1378333057 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\synched\syncheddata.cpp
+	<mutex>
+	<atomic>
+	"Flare/Flare.hpp"
+	"Synched/SynchedData.hpp"
+
+1379858369 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\scopedfunction\scopedfunction.cpp
+	"ScopedFunction/ScopedFunction.hpp"
+
+1379858653 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\scopedfunction\scopedfunction.hpp
+	<functional>
 

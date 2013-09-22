@@ -9,6 +9,7 @@
     #include "Logger/Logger.hpp"
     #include "Mixin/Mixin.hpp"
     #include "Runnable/Runnable.hpp"
+    #include "ScopedFunction/ScopedFunction.hpp"
     #include "Sleep/Sleep.hpp"
     #include "Synched/Synched.hpp"
     #include "Valman/Valman.hpp"

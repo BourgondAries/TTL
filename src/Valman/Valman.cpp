@@ -198,20 +198,20 @@ namespace ttl
     ////////////////////////////////////////////////////////////
 
     ////////////////////////////////////////////////////////////
-    bool Valman::isOperator(const char in)
-    {
-        switch (in)
-        {
-            case '*':
-            case '+':
-            case '-':
-            case '/':
-            case '%':
-                return true;
-            default:
-                return false;
-        }
-    }
+//    bool Valman::isOperator(const char in)
+//    {
+//        switch (in)
+//        {
+//            case '*':
+//            case '+':
+//            case '-':
+//            case '/':
+//            case '%':
+//                return true;
+//            default:
+//                return false;
+//        }
+//    }
 
     ////////////////////////////////////////////////////////////
     bool Valman::Editor::autoComplete(std::string &to_complete) // Accepts a string and tries to match it
@@ -271,7 +271,7 @@ namespace ttl
 
             for (signed int i(static_cast<signed int>(std::distance(m_command.begin(), m_command.begin() + m_command.find_first_of(shortcut)))); i >= 0; --i)
             {
-                if (m_command[i] == ' ' || isOperator(m_command[i])) // If there's a space, or a mathematical operator
+                if (m_command[i] == ' '/* || isOperator(m_command[i])*/) // If there's a space, or a mathematical operator
                 {
                     // We copy all m_command from the start of the word up til ||:
                     insert_location = m_command.begin() + i + 1;

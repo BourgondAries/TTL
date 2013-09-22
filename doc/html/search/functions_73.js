@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['scopedfunction',['ScopedFunction',['../classttl_1_1_scoped_function.html#a24ebe31d085200e2d55098c57576fa93',1,'ttl::ScopedFunction::ScopedFunction()'],['../classttl_1_1_scoped_function.html#aed82cab381814166c5c58e9b7bb3fd9f',1,'ttl::ScopedFunction::ScopedFunction(const ScopedFunction &amp;scopedfunction)'],['../classttl_1_1_scoped_function.html#a2c0d4468002ff084d8849c811466c884',1,'ttl::ScopedFunction::ScopedFunction(ScopedFunction &amp;&amp;scopedfunction)'],['../classttl_1_1_scoped_function.html#a9056d0fc86869e5f8b7d710c9150173d',1,'ttl::ScopedFunction::ScopedFunction(Args &amp;&amp;...args)']]],
   ['setips',['setIps',['../classttl_1_1_ips.html#adadff39e454290f724115d437f9ba31b',1,'ttl::Ips']]],
   ['setiterations',['setIterations',['../classttl_1_1_benchmark.html#a8135ff02ee37bf040b7cb10aa949adf7',1,'ttl::Benchmark']]],
   ['setminiterationtime',['setMinIterationTime',['../classttl_1_1_ips.html#a8a4677b687a2d209cee8907927e39764',1,'ttl::Ips']]],

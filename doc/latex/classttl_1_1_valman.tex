@@ -38,8 +38,14 @@ void \hyperlink{classttl_1_1_valman_add2a2e1e51491ab9d596927d0adb4267}{erase} (c
 \begin{DoxyCompactList}\small\item\em Erase an entry from the hash table. \end{DoxyCompactList}\item 
 void \hyperlink{classttl_1_1_valman_add510b6dc8d492fd223b51f3db9dbc0c}{store} (const std\-::string \&filename)
 \begin{DoxyCompactList}\small\item\em Stores the hash table into a file. \end{DoxyCompactList}\item 
-bool \hyperlink{classttl_1_1_valman_a75d3a81d06664d1759b1e7170b259a43}{find} (const std\-::string \&data)
+const std\-::unordered\-\_\-map\\*
+$<$ std\-::string, std\-::string $>$\\*
+\-::const\-\_\-iterator \hyperlink{classttl_1_1_valman_ac5c64b2c8cc10a8143831130fe051048}{find} (const std\-::string \&key) const 
 \begin{DoxyCompactList}\small\item\em Look if a key exists. \end{DoxyCompactList}\item 
+const std\-::unordered\-\_\-map\\*
+$<$ std\-::string, std\-::string $>$\\*
+\-::const\-\_\-iterator \hyperlink{classttl_1_1_valman_a3677bf33ca1e1be881dfb6b4f408adab}{end} () const 
+\begin{DoxyCompactList}\small\item\em Get the iterator to the end. \end{DoxyCompactList}\item 
 \hypertarget{classttl_1_1_valman_a4099a57f87bd220a24446f70041231be}{void \hyperlink{classttl_1_1_valman_a4099a57f87bd220a24446f70041231be}{edit} ()}\label{classttl_1_1_valman_a4099a57f87bd220a24446f70041231be}
 
 \begin{DoxyCompactList}\small\item\em Enter the C\-L\-I. \end{DoxyCompactList}\item 
@@ -124,7 +130,21 @@ This add will leave the value empty (\char`\"{}\char`\"{})
 
 A range-\/checked access operator. 
 
-This function checks if str exists in the hash table. If it does not, an std\-::runtime\-\_\-error is thrown. \hypertarget{classttl_1_1_valman_add2a2e1e51491ab9d596927d0adb4267}{\index{ttl\-::\-Valman@{ttl\-::\-Valman}!erase@{erase}}
+This function checks if str exists in the hash table. If it does not, an std\-::runtime\-\_\-error is thrown. \hypertarget{classttl_1_1_valman_a3677bf33ca1e1be881dfb6b4f408adab}{\index{ttl\-::\-Valman@{ttl\-::\-Valman}!end@{end}}
+\index{end@{end}!ttl::Valman@{ttl\-::\-Valman}}
+\subsubsection[{end}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::unordered\-\_\-map$<$std\-::string, std\-::string$>$\-::const\-\_\-iterator ttl\-::\-Valman\-::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classttl_1_1_valman_a3677bf33ca1e1be881dfb6b4f408adab}
+
+
+Get the iterator to the end. 
+
+\begin{DoxyReturn}{Returns}
+an iterator past the last element 
+\end{DoxyReturn}
+\hypertarget{classttl_1_1_valman_add2a2e1e51491ab9d596927d0adb4267}{\index{ttl\-::\-Valman@{ttl\-::\-Valman}!erase@{erase}}
 \index{erase@{erase}!ttl::Valman@{ttl\-::\-Valman}}
 \subsubsection[{erase}]{\setlength{\rightskip}{0pt plus 5cm}void ttl\-::\-Valman\-::erase (
 \begin{DoxyParamCaption}
@@ -140,24 +160,24 @@ Erase an entry from the hash table.
 {\em entry} & is the key to erase \\
 \hline
 \end{DoxyParams}
-\hypertarget{classttl_1_1_valman_a75d3a81d06664d1759b1e7170b259a43}{\index{ttl\-::\-Valman@{ttl\-::\-Valman}!find@{find}}
+\hypertarget{classttl_1_1_valman_ac5c64b2c8cc10a8143831130fe051048}{\index{ttl\-::\-Valman@{ttl\-::\-Valman}!find@{find}}
 \index{find@{find}!ttl::Valman@{ttl\-::\-Valman}}
-\subsubsection[{find}]{\setlength{\rightskip}{0pt plus 5cm}bool ttl\-::\-Valman\-::find (
+\subsubsection[{find}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::unordered\-\_\-map$<$std\-::string, std\-::string$>$\-::const\-\_\-iterator ttl\-::\-Valman\-::find (
 \begin{DoxyParamCaption}
-\item[{const std\-::string \&}]{data}
+\item[{const std\-::string \&}]{key}
 \end{DoxyParamCaption}
-)}}\label{classttl_1_1_valman_a75d3a81d06664d1759b1e7170b259a43}
+) const}}\label{classttl_1_1_valman_ac5c64b2c8cc10a8143831130fe051048}
 
 
 Look if a key exists. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em data} & is the key to look for \\
+{\em key} & is the key to look for \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-wheter this key exists or not 
+an iterator to either end or the valid data pair 
 \end{DoxyReturn}
 \hypertarget{classttl_1_1_valman_ae7f92b4e9d4b97180c57c7ea34b040c3}{\index{ttl\-::\-Valman@{ttl\-::\-Valman}!load@{load}}
 \index{load@{load}!ttl::Valman@{ttl\-::\-Valman}}

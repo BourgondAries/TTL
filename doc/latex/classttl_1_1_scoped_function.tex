@@ -1,0 +1,132 @@
+\hypertarget{classttl_1_1_scoped_function}{\section{ttl\-:\-:Scoped\-Function Class Reference}
+\label{classttl_1_1_scoped_function}\index{ttl\-::\-Scoped\-Function@{ttl\-::\-Scoped\-Function}}
+}
+
+
+Executes the function upon scope exit.  
+
+
+
+
+{\ttfamily \#include $<$Scoped\-Function.\-hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classttl_1_1_scoped_function_a24ebe31d085200e2d55098c57576fa93}{Scoped\-Function} ()
+\begin{DoxyCompactList}\small\item\em Empty Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classttl_1_1_scoped_function_aed82cab381814166c5c58e9b7bb3fd9f}{Scoped\-Function} (const \hyperlink{classttl_1_1_scoped_function}{Scoped\-Function} \&scopedfunction)
+\begin{DoxyCompactList}\small\item\em Copy Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classttl_1_1_scoped_function_a2c0d4468002ff084d8849c811466c884}{Scoped\-Function} (\hyperlink{classttl_1_1_scoped_function}{Scoped\-Function} \&\&scopedfunction)
+\begin{DoxyCompactList}\small\item\em Move Constructor. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename... Args$>$ }\\\hyperlink{classttl_1_1_scoped_function_a9056d0fc86869e5f8b7d710c9150173d}{Scoped\-Function} (Args \&\&...args)
+\begin{DoxyCompactList}\small\item\em Constructor that takes a function. \end{DoxyCompactList}\item 
+\hyperlink{classttl_1_1_scoped_function}{Scoped\-Function} \& \hyperlink{classttl_1_1_scoped_function_ab125f3042dcfcc167511339fb0e69a21}{operator=} (const \hyperlink{classttl_1_1_scoped_function}{Scoped\-Function} \&scopedfunction)
+\begin{DoxyCompactList}\small\item\em Copy Assignment. \end{DoxyCompactList}\item 
+\hyperlink{classttl_1_1_scoped_function}{Scoped\-Function} \& \hyperlink{classttl_1_1_scoped_function_abd180a6ef68fb7c5a548bd82cb732fc8}{operator=} (\hyperlink{classttl_1_1_scoped_function}{Scoped\-Function} \&\&scopedfunction)
+\begin{DoxyCompactList}\small\item\em Move Assignment. \end{DoxyCompactList}\item 
+\hypertarget{classttl_1_1_scoped_function_a5457436d376b27efb49c3d661e9ca774}{void {\bfseries reset} ()}\label{classttl_1_1_scoped_function_a5457436d376b27efb49c3d661e9ca774}
+
+\item 
+\hypertarget{classttl_1_1_scoped_function_a140f40b3fe23dd467feffd6cffb699ca}{{\footnotesize template$<$typename... Args$>$ }\\void {\bfseries reset} (Args \&\&...args)}\label{classttl_1_1_scoped_function_a140f40b3fe23dd467feffd6cffb699ca}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Executes the function upon scope exit. 
+
+This R\-A\-I\-I wrapper of functions executes a function on scope exit. This can be used ensure exception safety. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classttl_1_1_scoped_function_a24ebe31d085200e2d55098c57576fa93}{\index{ttl\-::\-Scoped\-Function@{ttl\-::\-Scoped\-Function}!Scoped\-Function@{Scoped\-Function}}
+\index{Scoped\-Function@{Scoped\-Function}!ttl::ScopedFunction@{ttl\-::\-Scoped\-Function}}
+\subsubsection[{Scoped\-Function}]{\setlength{\rightskip}{0pt plus 5cm}ttl\-::\-Scoped\-Function\-::\-Scoped\-Function (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classttl_1_1_scoped_function_a24ebe31d085200e2d55098c57576fa93}
+
+
+Empty Constructor. 
+
+Will construct an empty function. \hypertarget{classttl_1_1_scoped_function_aed82cab381814166c5c58e9b7bb3fd9f}{\index{ttl\-::\-Scoped\-Function@{ttl\-::\-Scoped\-Function}!Scoped\-Function@{Scoped\-Function}}
+\index{Scoped\-Function@{Scoped\-Function}!ttl::ScopedFunction@{ttl\-::\-Scoped\-Function}}
+\subsubsection[{Scoped\-Function}]{\setlength{\rightskip}{0pt plus 5cm}ttl\-::\-Scoped\-Function\-::\-Scoped\-Function (
+\begin{DoxyParamCaption}
+\item[{const {\bf Scoped\-Function} \&}]{scopedfunction}
+\end{DoxyParamCaption}
+)}}\label{classttl_1_1_scoped_function_aed82cab381814166c5c58e9b7bb3fd9f}
+
+
+Copy Constructor. 
+
+Will copy the function. \hypertarget{classttl_1_1_scoped_function_a2c0d4468002ff084d8849c811466c884}{\index{ttl\-::\-Scoped\-Function@{ttl\-::\-Scoped\-Function}!Scoped\-Function@{Scoped\-Function}}
+\index{Scoped\-Function@{Scoped\-Function}!ttl::ScopedFunction@{ttl\-::\-Scoped\-Function}}
+\subsubsection[{Scoped\-Function}]{\setlength{\rightskip}{0pt plus 5cm}ttl\-::\-Scoped\-Function\-::\-Scoped\-Function (
+\begin{DoxyParamCaption}
+\item[{{\bf Scoped\-Function} \&\&}]{scopedfunction}
+\end{DoxyParamCaption}
+)}}\label{classttl_1_1_scoped_function_a2c0d4468002ff084d8849c811466c884}
+
+
+Move Constructor. 
+
+Will copy the function. \hypertarget{classttl_1_1_scoped_function_a9056d0fc86869e5f8b7d710c9150173d}{\index{ttl\-::\-Scoped\-Function@{ttl\-::\-Scoped\-Function}!Scoped\-Function@{Scoped\-Function}}
+\index{Scoped\-Function@{Scoped\-Function}!ttl::ScopedFunction@{ttl\-::\-Scoped\-Function}}
+\subsubsection[{Scoped\-Function}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename... Args$>$ ttl\-::\-Scoped\-Function\-::\-Scoped\-Function (
+\begin{DoxyParamCaption}
+\item[{Args \&\&...}]{args}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classttl_1_1_scoped_function_a9056d0fc86869e5f8b7d710c9150173d}
+
+
+Constructor that takes a function. 
+
+Can take bind expressions as well. Function is executed at scope exit unless reset.
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & Arguments to the bind expression. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classttl_1_1_scoped_function_ab125f3042dcfcc167511339fb0e69a21}{\index{ttl\-::\-Scoped\-Function@{ttl\-::\-Scoped\-Function}!operator=@{operator=}}
+\index{operator=@{operator=}!ttl::ScopedFunction@{ttl\-::\-Scoped\-Function}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Scoped\-Function}\& ttl\-::\-Scoped\-Function\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Scoped\-Function} \&}]{scopedfunction}
+\end{DoxyParamCaption}
+)}}\label{classttl_1_1_scoped_function_ab125f3042dcfcc167511339fb0e69a21}
+
+
+Copy Assignment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scopedfunction} & The \hyperlink{classttl_1_1_scoped_function}{Scoped\-Function} to copy \\
+\hline
+\end{DoxyParams}
+\hypertarget{classttl_1_1_scoped_function_abd180a6ef68fb7c5a548bd82cb732fc8}{\index{ttl\-::\-Scoped\-Function@{ttl\-::\-Scoped\-Function}!operator=@{operator=}}
+\index{operator=@{operator=}!ttl::ScopedFunction@{ttl\-::\-Scoped\-Function}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Scoped\-Function}\& ttl\-::\-Scoped\-Function\-::operator= (
+\begin{DoxyParamCaption}
+\item[{{\bf Scoped\-Function} \&\&}]{scopedfunction}
+\end{DoxyParamCaption}
+)}}\label{classttl_1_1_scoped_function_abd180a6ef68fb7c5a548bd82cb732fc8}
+
+
+Move Assignment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scopedfunction} & The \hyperlink{classttl_1_1_scoped_function}{Scoped\-Function} to move from \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+include/\-Scoped\-Function/Scoped\-Function.\-hpp\end{DoxyCompactItemize}

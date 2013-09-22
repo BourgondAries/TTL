@@ -196,7 +196,7 @@ namespace ttl
             std::unordered_map<std::string, std::string>::iterator m_last;
         };
 
-        static bool isOperator(const char in);
+//        static bool isOperator(const char in);
         static constexpr const char *shortcut = "||";
 
         std::unordered_map<std::string, std::string> m_registry;

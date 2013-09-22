@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['scopedfunction',['ScopedFunction',['../classttl_1_1_scoped_function.html',1,'ttl']]],
   ['synched',['Synched',['../classttl_1_1_synched.html',1,'ttl']]],
   ['synched',['Synched',['../class_synched.html',1,'']]],
   ['syncheddata',['SynchedData',['../structttl_1_1_synched_data.html',1,'ttl']]],
