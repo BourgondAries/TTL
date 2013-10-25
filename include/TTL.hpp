@@ -8,6 +8,7 @@
     #include "JoinThread/JoinThread.hpp"
     #include "Logger/Logger.hpp"
     #include "Mixin/Mixin.hpp"
+    #include "Rit/Rit.hpp"
     #include "Runnable/Runnable.hpp"
     #include "ScopedFunction/ScopedFunction.hpp"
     #include "Sleep/Sleep.hpp"

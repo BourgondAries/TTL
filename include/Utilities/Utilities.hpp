@@ -29,6 +29,19 @@ namespace ttl
     ////////////////////////////////////////////////////////////
     std::string sread(const Synched<Valman> &arg, const std::string &key);
 
+    ////////////////////////////////////////////////////////////
+    /// \brief a convenience function to read from synched valmans
+    ///
+    /// This function also checks for the key's validity
+    /// If the check fails, this function throws.
+    ///
+    /// \param arg The synched value manager to read from
+    /// \param key The index to retrieve data from
+    /// \return A string containing the data
+    ///
+    ////////////////////////////////////////////////////////////
+    std::string tread(const Synched<Valman> &arg, const std::string &key);
+
 }
 
 #endif // UTILITIES_HPP_INCLUDED

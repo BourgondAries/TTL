@@ -74,7 +74,7 @@
 		<Unit filename="../../src/Logger/Logger.cpp" />
 		<Unit filename="../../src/Runnable/Runnable.cpp" />
 		<Unit filename="../../src/Sleep/Sleep.cpp" />
-		<Unit filename="../../src/Synch/SynchedData.cpp" />
+		<Unit filename="../../src/Synched/SynchedData.cpp" />
 		<Unit filename="../../src/Timestamp/Timestamp.cpp" />
 		<Unit filename="../../src/Utilities/Utilities.cpp" />
 		<Unit filename="../../src/Valman/Valman.cpp" />

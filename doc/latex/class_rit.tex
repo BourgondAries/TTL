@@ -1,0 +1,39 @@
+\hypertarget{class_rit}{\section{Rit Class Reference}
+\label{class_rit}\index{Rit@{Rit}}
+}
+
+
+{\ttfamily \#include $<$Rit.\-hpp$>$}
+
+
+
+\subsection{Detailed Description}
+Class used for managing 2 loops. One can run say at 60 ips, whilst the other runs at 15 ips. It will alternate between the two in such a way that it accomplishes this exact distribution.
+
+
+\begin{DoxyCode}
+*  \hyperlink{classttl_1_1_rit}{ttl::Rit} rit(1, 10);
+*  rit.setDistribution(23, 32);
+*  std::size\_t log(0), ren(0);
+*  \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 50000000; ++i)
+*  \{
+*      \textcolor{keywordflow}{while} (rit.isFirstReady())
+*      \{
+*          ++log;
+*      \}
+*      \textcolor{keywordflow}{while} (rit.isSecondReady())
+*      \{
+*          ++ren;
+*      \}
+*  \}
+* 
+*  std::cout << \textcolor{stringliteral}{"For 23 of first, run 32 of second: "} << \textcolor{stringliteral}{"\(\backslash\)nfirst: "} << log << \textcolor{stringliteral}{"\(\backslash\)nsecond: "} << ren << \textcolor{stringliteral}{"\(\backslash\)n
+      (First / 23) * 32: "} << 32 * (log / \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(23)) << std::endl;
+*  std::cout << \textcolor{stringliteral}{"Ratio: should be 23/32 = "} << log / \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(ren) << std::endl;
+*  
+\end{DoxyCode}
+ 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+include/\-Rit/Rit.\-hpp\end{DoxyCompactItemize}
