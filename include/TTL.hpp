@@ -1,6 +1,7 @@
 #ifndef TTL_HPP_INCLUDED
 #define TTL_HPP_INCLUDED
 
+    #include "BatchWorker/BatchWorker.hpp"
     #include "Benchmark/Benchmark.hpp"
     #include "File2Str/File2Str.hpp"
     #include "Flare/Flare.hpp"
@@ -15,5 +16,6 @@
     #include "Synched/Synched.hpp"
     #include "Valman/Valman.hpp"
     #include "Utilities/Utilities.hpp"
+    #include "Worker/Worker.hpp"
 
 #endif // TTL_HPP_INCLUDED

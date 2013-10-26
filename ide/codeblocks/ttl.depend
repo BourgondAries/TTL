@@ -315,10 +315,29 @@
 1379859802 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\scopedfunction\scopedfunction.hpp
 	<functional>
 
-1382737781 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\rit\rit.cpp
+1382757319 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\rit\rit.cpp
 	"Rit/Rit.hpp"
 	<limits>
 
 1382729644 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\rit\rit.hpp
 	<cstddef>
+
+1382808562 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\worker\worker.cpp
+	"Worker/Worker.hpp"
+
+1382808875 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\worker\worker.hpp
+	"Flare/Flare.hpp"
+	"JoinThread/JoinThread.hpp"
+	<functional>
+
+1382815402 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\batchworker\batchworker.cpp
+	"BatchWorker/BatchWorker.hpp"
+
+1382815392 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\batchworker\batchworker.hpp
+	<thread>
+	<cstddef>
+	<atomic>
+	<vector>
+	"Flare/Flare.hpp"
+	"Worker/Worker.hpp"
 
