@@ -15,7 +15,7 @@ namespace ttl
         m_dist2(1),
         m_requested_ratio(1 / static_cast<float>(1)),
         m_recorded_ratio(0.f),
-        m_ia(0),
+        m_ia(1),
         m_ib(1)
     {}
 
@@ -26,7 +26,7 @@ namespace ttl
         m_dist2(distribution_2),
         m_requested_ratio(distribution_1 / static_cast<float>(distribution_2)),
         m_recorded_ratio(0.f),
-        m_ia(0),
+        m_ia(1),
         m_ib(1)
     {}
 
@@ -40,7 +40,7 @@ namespace ttl
         m_dist2 = distribution_2;
         m_requested_ratio = distribution_1 / static_cast<float>(distribution_2);
         m_recorded_ratio = 0.f;
-        m_ia = 0;
+        m_ia = 1;
         m_ib = 1;
     }
 
