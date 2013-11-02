@@ -9,10 +9,10 @@
 
 
 #ifdef NDEBUG
-    #define TTL_DEBUG_THROW(x) ((void)0)
-    #define TTL_DEBUG_IF(x) ((void)0);
-    #define TTL_DEBUG_ELSE ((void)0);
-    #define TTL_DEBUG_EXE(x) ((void)0)
+    #define TTL_DEBUG_THROW(x)
+    #define TTL_DEBUG_IF(x)
+    #define TTL_DEBUG_ELSE
+    #define TTL_DEBUG_SCOPE(x)
 #else
     #define TTL_DEBUG_THROW(x)                          \
         throw std::runtime_error                        \
@@ -30,7 +30,7 @@
         )
     #define TTL_DEBUG_IF(x) if(x)
     #define TTL_DEBUG_ELSE else
-    #define TTL_DEBUG_EXE(x) x()
+    #define TTL_DEBUG_SCOPE(x) x
 #endif // NDEBUG
 
 
