@@ -2,6 +2,7 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include "BatchWorker/BatchWorker.hpp"
+#include "Debug/Debug.hpp"
 
 
 namespace ttl
@@ -11,7 +12,8 @@ namespace ttl
     BatchWorker::BatchWorker()
     :
         m_actively_working(0)
-    {}
+    {
+    }
 
     ////////////////////////////////////////////////////////////
     BatchWorker::~BatchWorker()

@@ -49,13 +49,16 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="../../include/BatchWorker/BatchWorker.hpp" />
 		<Unit filename="../../include/Benchmark/Benchmark.hpp" />
+		<Unit filename="../../include/Bool/Bool.hpp" />
 		<Unit filename="../../include/File2Str/File2Str.hpp" />
 		<Unit filename="../../include/Flare/Flare.hpp" />
 		<Unit filename="../../include/Ips/Ips.hpp" />
 		<Unit filename="../../include/JoinThread/JoinThread.hpp" />
 		<Unit filename="../../include/Logger/Logger.hpp" />
 		<Unit filename="../../include/Mixin/Mixin.hpp" />
+		<Unit filename="../../include/Rit/Rit.hpp" />
 		<Unit filename="../../include/Runnable/Runnable.hpp" />
 		<Unit filename="../../include/Sleep/Sleep.hpp" />
 		<Unit filename="../../include/Synched/Synched.hpp" />
@@ -66,18 +69,23 @@
 		<Unit filename="../../include/Timestamp/Timestamp.hpp" />
 		<Unit filename="../../include/Utilities/Utilities.hpp" />
 		<Unit filename="../../include/Valman/Valman.hpp" />
+		<Unit filename="../../include/Worker/Worker.hpp" />
+		<Unit filename="../../src/BatchWorker/BatchWorker.cpp" />
 		<Unit filename="../../src/Benchmark/Benchmark.cpp" />
+		<Unit filename="../../src/Bool/Bool.cpp" />
 		<Unit filename="../../src/File2Str/File2Str.cpp" />
 		<Unit filename="../../src/Flare/Flare.cpp" />
 		<Unit filename="../../src/Ips/Ips.cpp" />
 		<Unit filename="../../src/JoinThread/JoinThread.cpp" />
 		<Unit filename="../../src/Logger/Logger.cpp" />
+		<Unit filename="../../src/Rit/Rit.cpp" />
 		<Unit filename="../../src/Runnable/Runnable.cpp" />
 		<Unit filename="../../src/Sleep/Sleep.cpp" />
 		<Unit filename="../../src/Synched/SynchedData.cpp" />
 		<Unit filename="../../src/Timestamp/Timestamp.cpp" />
 		<Unit filename="../../src/Utilities/Utilities.cpp" />
 		<Unit filename="../../src/Valman/Valman.cpp" />
+		<Unit filename="../../src/Worker/Worker.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />

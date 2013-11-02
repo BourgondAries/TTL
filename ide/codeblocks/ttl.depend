@@ -190,41 +190,41 @@
 	<chrono>
 	<ctime>
 
-1379858283 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\benchmark\benchmark.cpp
+1379854683 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\benchmark\benchmark.cpp
 	"Benchmark/Benchmark.hpp"
 
-1378333057 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\benchmark\benchmark.hpp
+1378329457 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\benchmark\benchmark.hpp
 	<utility>
 	<chrono>
 	<ostream>
 	<functional>
 
-1378333057 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\flare\flare.cpp
+1378329457 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\flare\flare.cpp
 	"Flare/Flare.hpp"
 
-1378333057 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\flare\flare.hpp
+1378329457 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\flare\flare.hpp
 	<mutex>
 	<condition_variable>
 
-1379268974 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\ips\ips.cpp
+1379265374 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\ips\ips.cpp
 	"Ips/Ips.hpp"
 
-1378333057 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\ips\ips.hpp
+1378329457 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\ips\ips.hpp
 	<chrono>
 	<thread>
 	<ostream>
 
-1378333057 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\jointhread\jointhread.cpp
+1378329457 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\jointhread\jointhread.cpp
 	"JoinThread/JoinThread.hpp"
 
-1378512572 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\jointhread\jointhread.hpp
+1378508972 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\jointhread\jointhread.hpp
 	<thread>
 	<functional>
 
-1378333057 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\logger\logger.cpp
+1378329457 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\logger\logger.cpp
 	"Logger/Logger.hpp"
 
-1378332989 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\logger\logger.hpp
+1378329389 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\logger\logger.hpp
 	<fstream>
 	<functional>
 	<iostream>
@@ -233,18 +233,18 @@
 	<chrono>
 	<Timestamp/Timestamp.hpp>
 
-1378333057 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\timestamp\timestamp.hpp
+1378329457 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\timestamp\timestamp.hpp
 	<string>
 	<chrono>
 	<ctime>
 
-1378333057 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\timestamp\timestamp.cpp
+1378329457 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\timestamp\timestamp.cpp
 	<Timestamp/Timestamp.hpp>
 
-1379856004 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\valman\valman.cpp
+1379852404 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\valman\valman.cpp
 	"Valman/Valman.hpp"
 
-1379855990 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\valman\valman.hpp
+1379852390 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\valman\valman.hpp
 	<fstream>
 	<string>
 	<unordered_map>
@@ -253,20 +253,20 @@
 	<stdexcept>
 	<algorithm>
 
-1379250963 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\runnable\runnable.cpp
+1379247363 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\runnable\runnable.cpp
 	"Runnable/Runnable.hpp"
 	"Logger/Logger.hpp"
 
-1379250983 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\runnable\runnable.hpp
+1379247383 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\runnable\runnable.hpp
 	<memory>
 	"Logger/Logger.hpp"
 
-1378333057 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\sleep\sleep.cpp
+1378329457 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\sleep\sleep.cpp
 	<thread>
 	<chrono>
 	<cstddef>
 
-1378333057 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\file2str\file2str.cpp
+1378329457 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\file2str\file2str.cpp
 	<string>
 	<fstream>
 	<sstream>
@@ -277,33 +277,33 @@
 	"Flare/Flare.hpp"
 	"Synched/SynchedData.hpp"
 
-1378333057 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\synched\syncheddata.hpp
+1378329457 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\synched\syncheddata.hpp
 	<mutex>
 	<atomic>
 	"Flare/Flare.hpp"
 
-1378398186 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\synched\synched.hpp
+1378394586 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\synched\synched.hpp
 	<mutex>
 	"SynchedWriter.hpp"
 	"SynchedReader.hpp"
 	"SynchedData.hpp"
 
-1378333058 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\synched\synchedwriter.hpp
+1378329458 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\synched\synchedwriter.hpp
 	<mutex>
 	"SynchedData.hpp"
 
-1380093598 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\synched\synchedreader.hpp
+1380089998 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\synched\synchedreader.hpp
 	<mutex>
 	"SynchedData.hpp"
 
-1379866693 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\utilities\utilities.cpp
+1379863093 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\utilities\utilities.cpp
 	"Utilities/Utilities.hpp"
 
-1379866499 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\utilities\utilities.hpp
+1379862899 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\utilities\utilities.hpp
 	"Synched/Synched.hpp"
 	"Valman/Valman.hpp"
 
-1381630181 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\synched\syncheddata.cpp
+1381626581 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\synched\syncheddata.cpp
 	<mutex>
 	<atomic>
 	"Flare/Flare.hpp"
@@ -315,29 +315,34 @@
 1379859802 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\scopedfunction\scopedfunction.hpp
 	<functional>
 
-1382757319 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\rit\rit.cpp
+1382753719 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\rit\rit.cpp
 	"Rit/Rit.hpp"
 	<limits>
 
-1382729644 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\rit\rit.hpp
+1382726044 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\rit\rit.hpp
 	<cstddef>
 
-1382808562 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\worker\worker.cpp
+1382804962 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\worker\worker.cpp
 	"Worker/Worker.hpp"
 
-1382808875 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\worker\worker.hpp
+1382805275 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\worker\worker.hpp
 	"Flare/Flare.hpp"
 	"JoinThread/JoinThread.hpp"
 	<functional>
 
-1382815402 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\batchworker\batchworker.cpp
+1382811802 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\batchworker\batchworker.cpp
 	"BatchWorker/BatchWorker.hpp"
 
-1382815392 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\batchworker\batchworker.hpp
+1382811792 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\batchworker\batchworker.hpp
 	<thread>
 	<cstddef>
 	<atomic>
 	<vector>
 	"Flare/Flare.hpp"
 	"Worker/Worker.hpp"
+
+1382994980 source:c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\src\bool\bool.cpp
+	"Bool/Bool.hpp"
+
+1382994986 c:\users\admin\documents\programmering\tea tank library\libof - tea tank library\include\\bool\bool.hpp
 

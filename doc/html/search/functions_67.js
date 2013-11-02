@@ -9,5 +9,6 @@ var searchData=
   ['getreadaccess',['getReadAccess',['../classttl_1_1_synched.html#a88e58e2776f408481de37ae8ce89c6b1',1,'ttl::Synched']]],
   ['getreadercount',['getReaderCount',['../classttl_1_1_synched.html#aa6694d8a6541730ea80a8844c4d267e3',1,'ttl::Synched::getReaderCount()'],['../classttl_1_1_synched_reader.html#a5bf67d186e49a9dc45f93379b6cf474c',1,'ttl::SynchedReader::getReaderCount()'],['../classttl_1_1_synched_writer.html#ae9251cbb08ac342528365c8103db30ee',1,'ttl::SynchedWriter::getReaderCount()']]],
   ['getseconddistribution',['getSecondDistribution',['../classttl_1_1_rit.html#aaa0bcfb07bac9e53d1cd0a13a61f042d',1,'ttl::Rit']]],
+  ['getworkercount',['getWorkerCount',['../classttl_1_1_batch_worker.html#afb6f8ca6a57d946787e3d38db1791406',1,'ttl::BatchWorker']]],
   ['getwriteaccess',['getWriteAccess',['../classttl_1_1_synched.html#a913a8d279fad4d94649dee596278a3dd',1,'ttl::Synched']]]
 ];

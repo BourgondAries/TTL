@@ -3,6 +3,7 @@
 
     #include "BatchWorker/BatchWorker.hpp"
     #include "Benchmark/Benchmark.hpp"
+    #include "Bool/Bool.hpp"
     #include "File2Str/File2Str.hpp"
     #include "Flare/Flare.hpp"
     #include "Ips/Ips.hpp"
