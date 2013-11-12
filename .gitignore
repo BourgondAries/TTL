@@ -14,3 +14,10 @@
 
 #executables
 *.exe
+
+doc
+ext
+ide
+.gitignore
+ABOUT
+Doxyfile
