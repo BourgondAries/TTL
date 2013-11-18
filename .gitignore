@@ -1,0 +1,13 @@
+bin
+doc
+ext
+ide
+obj
+res
+ABOUT
+Doxyfile
+header_file
+prepend_license.sh
+tmpfile
+*~
+*.cbTemp

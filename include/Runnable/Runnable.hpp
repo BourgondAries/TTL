@@ -21,11 +21,9 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef RUNNABLE_HPP_INCLUDED
 #define RUNNABLE_HPP_INCLUDED
 
-////////////////////////////////////////////////////////////
 // Headers
-////////////////////////////////////////////////////////////
 #include <memory>
-#include "Logger/Logger.hpp"
+#include <TTL/Logger/Logger.hpp>
 
 
 namespace ttl

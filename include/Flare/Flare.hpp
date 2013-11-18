@@ -21,9 +21,7 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef FLARE_HPP_INCLUDED
 #define FLARE_HPP_INCLUDED
 
-////////////////////////////////////////////////////////////
 // Headers
-////////////////////////////////////////////////////////////
 #include <mutex> // std::unique_lock, std::mutex
 #include <condition_variable> // std::condition_variable
 

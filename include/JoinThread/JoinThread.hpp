@@ -21,9 +21,7 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef JOINTHREAD_HPP_INCLUDED
 #define JOINTHREAD_HPP_INCLUDED
 
-////////////////////////////////////////////////////////////
 // Headers
-////////////////////////////////////////////////////////////
 #include <thread>
 #include <functional>
 

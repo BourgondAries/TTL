@@ -21,6 +21,7 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef TTL_HPP_INCLUDED
 #define TTL_HPP_INCLUDED
 
+    #include "Argument/Argument.hpp"
     #include "BatchWorker/BatchWorker.hpp"
     #include "Benchmark/Benchmark.hpp"
     #include "Bool/Bool.hpp"

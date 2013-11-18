@@ -21,9 +21,7 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef VALMAN_HPP_INCLUDED
 #define VALMAN_HPP_INCLUDED
 
-////////////////////////////////////////////////////////////
 // Headers
-////////////////////////////////////////////////////////////
 #include <fstream>
 #include <string>
 #include <unordered_map>

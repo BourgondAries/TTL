@@ -21,9 +21,7 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef TIMESTAMP_HPP_INCLUDED
 #define TIMESTAMP_HPP_INCLUDED
 
-////////////////////////////////////////////////////////////
 // Headers
-////////////////////////////////////////////////////////////
 #include <string>
 #include <chrono>
 #include <ctime>

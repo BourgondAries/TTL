@@ -21,9 +21,7 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef BENCHMARK_HPP_INCLUDED
 #define BENCHMARK_HPP_INCLUDED
 
-////////////////////////////////////////////////////////////
 // Headers
-////////////////////////////////////////////////////////////
 #include <utility>
 #include <chrono>
 #include <ostream>
@@ -46,6 +44,7 @@ namespace ttl
     {
     private:
 
+        typedef std::chrono::nanoseconds ns;
         typedef std::chrono::microseconds us;
         typedef std::chrono::milliseconds ms;
         typedef std::chrono::seconds s;
@@ -145,7 +144,7 @@ namespace ttl
     //            fnc(std::forward<Args>(args)...); // Does not work with methods
                 fnc(); // Works with methods
             after = hre::now();
-            m_average = (m_average + std::chrono::duration_cast<us>(after - before).count()) / static_cast<float>(m_iterations);
+            m_average = ns(static_cast<long int>(((std::chrono::duration_cast<ns>(m_average).count() + std::chrono::duration_cast<ns>(after - before).count() / static_cast<float>(m_iterations))) / 2.f));
         }
 
         ////////////////////////////////////////////////////////////
@@ -166,7 +165,7 @@ namespace ttl
         /// \return the running time in microseconds
         ///
         ////////////////////////////////////////////////////////////
-        float getAverageRunTime() const;
+        Benchmark::ns getAverageRunTime() const;
 
         ////////////////////////////////////////////////////////////
         /// \brief Overload of the ostream operator
@@ -184,7 +183,7 @@ namespace ttl
     private:
 
         std::size_t m_iterations; ///< Iterations per run
-        float m_average; ///< Average running time per call
+        std::chrono::nanoseconds m_average; ///< Average running time per call
         std::string m_name; ///< Title of this benchmark
     };
 

@@ -21,9 +21,7 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef MIXIN_HPP_INCLUDED
 #define MIXIN_HPP_INCLUDED
 
-////////////////////////////////////////////////////////////
 // Headers
-////////////////////////////////////////////////////////////
 #include <cstddef>
 #include <tuple>
 #include <type_traits>

@@ -21,9 +21,7 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef SYNCHED_HPP_INCLUDED
 #define SYNCHED_HPP_INCLUDED
 
-////////////////////////////////////////////////////////////
 // Headers
-////////////////////////////////////////////////////////////
 #include <mutex>
 #include "SynchedWriter.hpp"
 #include "SynchedReader.hpp"
@@ -50,7 +48,7 @@ namespace ttl
     class Synched
     {
     public:
-        
+
         ////////////////////////////////////////////////////////////
         /// \brief Default ctor
         ///

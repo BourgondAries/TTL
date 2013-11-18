@@ -21,16 +21,14 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef LOGGER_HPP_INCLUDED
 #define LOGGER_HPP_INCLUDED
 
-////////////////////////////////////////////////////////////
 // Headers
-////////////////////////////////////////////////////////////
 #include <fstream>
 #include <functional>
 #include <iostream>
 #include <thread>
 #include <sstream>
 #include <chrono>
-#include <Timestamp/Timestamp.hpp>
+#include <TTL/Timestamp/Timestamp.hpp>
 
 
 namespace ttl

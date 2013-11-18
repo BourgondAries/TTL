@@ -18,9 +18,7 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 
-////////////////////////////////////////////////////////////
 // Headers
-////////////////////////////////////////////////////////////
 #include "Benchmark/Benchmark.hpp"
 
 
@@ -31,21 +29,21 @@ namespace ttl
     Benchmark::Benchmark(const char *title, const std::size_t iterations)
     :
         m_iterations(iterations),
-        m_average(0.f),
+//        m_average(nullptr),
         m_name(title){}
 
     ////////////////////////////////////////////////////////////
     Benchmark::Benchmark(const std::string &title, const std::size_t iterations)
     :
         m_iterations(iterations),
-        m_average(0.f),
+//        m_average(0.f),
         m_name(title){}
 
     ////////////////////////////////////////////////////////////
     Benchmark::Benchmark(const std::size_t iterations)
     :
         m_iterations(iterations),
-        m_average(0.f),
+//        m_average(0.f),
         m_name("Unnamed Benchmark"){}
 
     ////////////////////////////////////////////////////////////
@@ -63,7 +61,7 @@ namespace ttl
         m_name(benchmark.m_name)
     {
         benchmark.m_iterations = 1;
-        benchmark.m_average = 0.f;
+        benchmark.m_average = ns();
         benchmark.m_name = "Unnamed Benchmark";
     }
 
@@ -85,7 +83,7 @@ namespace ttl
         m_name = benchmark.m_name;
 
         benchmark.m_iterations = 1;
-        benchmark.m_average = 0.f;
+        benchmark.m_average = ns();
         benchmark.m_name = "Unnamed Benchmark";
 
         return std::ref(*this);
@@ -97,7 +95,7 @@ namespace ttl
     ////////////////////////////////////////////////////////////
     void Benchmark::resetAverageRunTime()
     {
-        m_average = 0.f;
+        m_average = ns();
     }
 
     ////////////////////////////////////////////////////////////
@@ -107,7 +105,7 @@ namespace ttl
     }
 
     ////////////////////////////////////////////////////////////
-    float Benchmark::getAverageRunTime() const
+    Benchmark::ns Benchmark::getAverageRunTime() const
     {
         return m_average;
     }
@@ -125,16 +123,18 @@ namespace ttl
             << rhs.m_name << ":" << std::endl
             << "\tT = ";
 
-        if (rhs.m_average > std::chrono::duration_cast<us>(h(1)).count())
-            lhs << rhs.m_average / (1E6f * 3600.f) << " h" << std::endl;
-        else if (rhs.m_average > std::chrono::duration_cast<us>(m(1)).count())
-            lhs << rhs.m_average / (1E6f * 60.f) << " min" << std::endl;
-        else if (rhs.m_average > std::chrono::duration_cast<us>(s(1)).count())
-            lhs << rhs.m_average / 1E6f << " s" << std::endl;
-        else if (rhs.m_average > std::chrono::duration_cast<us>(ms(1)).count())
-            lhs << rhs.m_average / 1E3f << " ms" << std::endl;
+        if (rhs.m_average > h(1))
+            lhs << rhs.m_average.count() / (1E9f * 3600.f) << " h" << std::endl;
+        else if (rhs.m_average > m(1))
+            lhs << rhs.m_average.count() / (1E9f * 60.f) << " min" << std::endl;
+        else if (rhs.m_average > s(1))
+            lhs << rhs.m_average.count() / 1E9f << " s" << std::endl;
+        else if (rhs.m_average > ms(1))
+            lhs << rhs.m_average.count() / 1E6f << " ms" << std::endl;
+        else if (rhs.m_average > us(1))
+            lhs << rhs.m_average.count() / 1E3f << " µs" << std::endl;
         else
-            lhs << rhs.m_average << " µs" << std::endl;
+            lhs << rhs.m_average.count() << " ns" << std::endl;
 
         return lhs;
     }

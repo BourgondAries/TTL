@@ -21,11 +21,9 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef WORKER_HPP_INCLUDED
 #define WORKER_HPP_INCLUDED
 
-////////////////////////////////////////////////////////////
 // Headers
-////////////////////////////////////////////////////////////
-#include "Flare/Flare.hpp"
-#include "JoinThread/JoinThread.hpp"
+#include <TTL/Flare/Flare.hpp>
+#include <TTL/JoinThread/JoinThread.hpp>
 #include <functional>
 
 

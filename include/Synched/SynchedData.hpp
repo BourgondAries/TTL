@@ -21,12 +21,10 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef SYNCHEDDATA_HPP_INCLUDED
 #define SYNCHEDDATA_HPP_INCLUDED
 
-////////////////////////////////////////////////////////////
 // Headers
-////////////////////////////////////////////////////////////
 #include <mutex>
 #include <atomic>
-#include "Flare/Flare.hpp"
+#include <TTL/Flare/Flare.hpp>
 
 
 namespace ttl
