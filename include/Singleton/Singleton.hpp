@@ -82,41 +82,4 @@ namespace ttl
 * std::cout << Singleton<int>::get() << "\n"; // Basically Singleton<int, 0>
 * std::cout << Singleton<float, 42>::get() << "std::endl";
 * \endcode
-*
-* For virtual functions and non-lambda functions;
-* the syntax that goes into run is forwarded into
-* std::bind(...), so the argument order is the same.
-*
-* \code
-* // Declare and define a base and derived class
-* class Base{public: virtual void fnc(volatile int &num){} virtual ~Base(){}};
-* class Derived : public Base{public:virtual void fnc(volatile int &num) override{num++;}};
-*
-* // Declare a number volatile to avoid compiler optimizations
-* volatile int number = 0;
-*
-* // Create an object of the class
-* Base *bptr = new Derived;
-*
-* // Declare a benchmarking object, 100k iterations
-* Benchmark virtual_call("Virtual method call", 10000000);
-*
-* // Run the benchmark
-* virtual_call.run
-* (
-*     &Base::fnc, // use this function
-*     bptr, // and this object pointer (this)
-*     std::ref(number) // with this argument, must explicitly use std::ref
-* );
-*
-* // Delete the pointer
-* delete bptr;
-*
-* // Output the data to our console window
-* std::cout << virtual_call;
-*
-* // Now we know for sure if the virtual function was delegated or not:
-* std::cout << "number: " << number << std::endl;
-* \endcode
-*
 */
