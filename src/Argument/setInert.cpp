@@ -52,7 +52,7 @@ namespace ttl
     ////////////////////////////////////////////////////////////
     void Argument::setInert(const char flag)
     {
-        std::string tmp;
+        std::string tmp("-");
         tmp.push_back(flag);
         this->setInert(tmp);
     }
