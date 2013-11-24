@@ -16,7 +16,6 @@ Installing
 
 You will need to build all sources into a static or dynamic library and link it in your program.
 You will need to include "TTL.hpp", which includes all other sub-parts.
-If you have code::blocks, then you can use the included project file in ide/codeblocks/project.cbp
 
 Simplicity
 ----------
