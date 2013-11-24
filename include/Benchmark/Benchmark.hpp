@@ -204,7 +204,7 @@ namespace ttl
 ///
 /// \code
 /// // Declare a new benchmarking unit
-/// Benchmark ben("If statement", 10000);
+/// ttl::Benchmark ben("If statement", 10000);
 ///
 /// // Run the benchmark
 /// ben.run

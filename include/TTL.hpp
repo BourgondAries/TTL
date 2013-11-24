@@ -34,6 +34,7 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
     #include "Mixin/Mixin.hpp"
     #include "Rit/Rit.hpp"
     #include "Runnable/Runnable.hpp"
+    #include "Singleton/Singleton.hpp"
     #include "ScopedFunction/ScopedFunction.hpp"
     #include "Sleep/Sleep.hpp"
     #include "Synched/Synched.hpp"

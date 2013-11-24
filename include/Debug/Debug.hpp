@@ -21,9 +21,7 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef DEBUG_HPP_INCLUDED
 #define DEBUG_HPP_INCLUDED
 
-////////////////////////////////////////////////////////////
 // Headers
-////////////////////////////////////////////////////////////
 #include <exception>
 #include <string>
 
