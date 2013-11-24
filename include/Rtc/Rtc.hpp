@@ -83,3 +83,27 @@ namespace ttl
 } // Namespace ttl
 
 #endif // RTC_HPP_INCLUDED
+
+
+/**
+* \class Rtc
+*
+* Sample:
+* \code
+* int main(int argc, char *argv[])
+* {
+*     using ttl::Rtc;
+*     using ttl::Argument;
+*     using ttl::Singleton;
+*     auto &a = Singleton<Rtc<Argument>>::get();
+*     a.write().setInert('h');
+*     a.write().pass(argc, argv);
+*     a.turnConst();
+*
+*     beginMagic();
+* }
+* \endcode
+*
+* What does this allow? A global argument list accessible from anywhere.
+* The arguments can not be modified, but the options can be set in the start.
+*/
