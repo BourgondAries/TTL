@@ -29,6 +29,7 @@ Author
 ------
 
 Kevin Robert Stravers
+"A retarded population needs censorship because they can't think critically."
 
 
 Origin

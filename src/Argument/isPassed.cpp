@@ -34,7 +34,7 @@ namespace ttl
     ////////////////////////////////////////////////////////////
     bool Argument::isPassed(const char argument) const
     {
-        std::string tmp;
+        std::string tmp("-");
         tmp.push_back(argument);
         return this->isPassed(tmp);
     }

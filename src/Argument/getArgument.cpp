@@ -34,7 +34,7 @@ namespace ttl
     ////////////////////////////////////////////////////////////
     const std::string &Argument::getArgument(const char flag) const
     {
-        std::string tmp;
+        std::string tmp("-");
         tmp.push_back(flag);
         return this->getArgument(tmp);
     }
