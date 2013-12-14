@@ -42,7 +42,13 @@ namespace ttl
     }
 
     ////////////////////////////////////////////////////////////
-    bool Bool::fetch_and_enable()
+    void Bool::set(bool state)
+    {
+        m_b = state;
+    }
+
+    ////////////////////////////////////////////////////////////
+    bool Bool::fetchAndEnable()
     {
         if (m_b)
         {
@@ -56,7 +62,7 @@ namespace ttl
     }
 
     ////////////////////////////////////////////////////////////
-    bool Bool::fetch_and_disable()
+    bool Bool::fetchAndDisable()
     {
         if (m_b)
         {
@@ -70,7 +76,7 @@ namespace ttl
     }
 
     ////////////////////////////////////////////////////////////
-    bool Bool::fetch_and_flip()
+    bool Bool::fetchAndFlip()
     {
         if (m_b)
         {
@@ -85,7 +91,7 @@ namespace ttl
     }
 
     ////////////////////////////////////////////////////////////
-    bool Bool::fetch_and_set(bool state)
+    bool Bool::fetchAndSet(bool state)
     {
         if (m_b)
         {

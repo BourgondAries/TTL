@@ -21,6 +21,7 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 // Headers
 #include "Rit/Rit.hpp"
 #include <limits>
+#include <algorithm>
 
 
 namespace ttl
@@ -83,7 +84,7 @@ namespace ttl
     ////////////////////////////////////////////////////////////
     bool Rit::isFirstReady()
     {
-        if (m_recorded_ratio < m_requested_ratio)
+        if (m_recorded_ratio <= m_requested_ratio)
         {
             ++m_ia;
             if (m_ia >= std::numeric_limits<decltype(m_ia)>::max() - 1)
@@ -120,6 +121,17 @@ namespace ttl
             return true;
         }
         return false;
+    }
+
+    ////////////////////////////////////////////////////////////
+    void Rit::swapInternalRatios()
+    {
+        std::swap(m_dist1, m_dist2);
+
+        m_ia = 1;
+        m_ib = 1;
+        m_recorded_ratio = static_cast<float>(m_ia) / static_cast<float>(m_ib);
+        m_requested_ratio = m_dist1 / static_cast<float>(m_dist2);
     }
 
 } // Namespace ttl

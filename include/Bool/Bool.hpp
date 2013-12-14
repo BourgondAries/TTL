@@ -27,86 +27,94 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 namespace ttl
 {
 
-    ////////////////////////////////////////////////////////////
-    /// \brief Simple boolean with methods
-    ///
-    ////////////////////////////////////////////////////////////
+    /**
+        \brief Simple boolean with methods
+
+    **/
     class Bool
     {
     public:
 
-        ////////////////////////////////////////////////////////////
-        /// \brief Constructor
-        ///
-        /// Does not initialize the boolean
-        ///
-        ////////////////////////////////////////////////////////////
+        /**
+            \brief Constructor
+
+            Does not initialize the boolean
+
+        */
         Bool();
 
-        ////////////////////////////////////////////////////////////
-        /// \brief Constructor
-        ///
-        /// Initializes the boolean
-        ///
-        ////////////////////////////////////////////////////////////
+        /**
+            \brief Constructor
+
+            Initializes the boolean
+
+        */
         Bool(const bool arg);
 
-        ////////////////////////////////////////////////////////////
-        /// \brief Sets the boolean to a value
-        ///
-        /// \param state The state that it will be set to
-        ///
-        ////////////////////////////////////////////////////////////
+        /**
+            \brief Sets the boolean to a value
+
+            \param state The state that it will be set to
+
+        */
         void reset(bool state = true);
 
-        ////////////////////////////////////////////////////////////
-        /// \brief Fetches the bool, then sets it to true
-        ///
-        /// \return the bool from before the set to true
-        ///
-        ////////////////////////////////////////////////////////////
-        bool fetch_and_enable();
+        /**
+            \brief Set the boolean state
 
-        ////////////////////////////////////////////////////////////
-        /// \brief Fetches the bool, then sets it to false
-        ///
-        /// \return the bool from before the set to false
-        ///
-        ////////////////////////////////////////////////////////////
-        bool fetch_and_disable();
+            \param state The state that it will be set to
 
-        ////////////////////////////////////////////////////////////
-        /// \brief Fetches the bool, then flips the state
-        ///
-        /// \return the bool from before it was flipped
-        ///
-        ////////////////////////////////////////////////////////////
-        bool fetch_and_flip();
+        */
+        void set(bool state);
 
-        ////////////////////////////////////////////////////////////
-        /// \brief Fetches the bool, then sets it to a state
-        ///
-        /// \param state The state the bool wil be set to
-        /// \return the bool from before the set to state
-        ///
-        ////////////////////////////////////////////////////////////
-        bool fetch_and_set(bool state);
+        /**
+            \brief Fetches the bool, then sets it to true
 
-        ////////////////////////////////////////////////////////////
-        /// \brief Fetches the bool
-        ///
-        /// \return The raw bool
-        ///
-        ////////////////////////////////////////////////////////////
+            \return the bool from before the set to true
+
+        */
+        bool fetchAndEnable();
+
+        /**
+            \brief Fetches the bool, then sets it to false
+
+            \return the bool from before the set to false
+
+        */
+        bool fetchAndDisable();
+
+        /**
+            \brief Fetches the bool, then flips the state
+
+            \return the bool from before it was flipped
+
+        */
+        bool fetchAndFlip();
+
+        /**
+            \brief Fetches the bool, then sets it to a state
+
+            \param state The state the bool wil be set to
+            \return the bool from before the set to state
+
+        */
+        bool fetchAndSet(bool state);
+
+        /**
+            \brief Fetches the bool
+
+            \return The raw bool
+
+        */
         operator bool();
 
-        ////////////////////////////////////////////////////////////
-        /// \brief Fetches the bool, then sets it to a state
-        ///
-        /// \param state The state the bool wil be set to
-        /// \return the bool from before the set to state
-        ///
-        ////////////////////////////////////////////////////////////
+        /**
+            \brief Fetches the bool, then sets it to a state
+
+            \param state The state the bool wil be set to
+            \return the bool from before the set to state
+
+        */
         template <typename T>
         Bool &operator=(T &&a)
         {

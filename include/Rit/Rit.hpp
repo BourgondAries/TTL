@@ -108,6 +108,8 @@ namespace ttl
         ////////////////////////////////////////////////////////////
         bool isSecondReady();
 
+        void swapInternalRatios();
+
     private:
 
         std::size_t m_dist1, m_dist2; ///< Ratio given by a rational
@@ -150,4 +152,35 @@ namespace ttl
 /// std::cout << "Ratio: should be 23/32 = " << log / static_cast<float>(ren) << std::endl;
 /// \endcode
 ///
+/// Note: The isFirstReady and isSecondReady methods increment
+/// their internal counters whilst returning a true.
+/// If they return a false, the counter is not updated.
+///
+/// Another use may be to use this class in a counter of some
+/// sort. Say we want a sprite to flicker for 10 iterations,
+/// whilst showing itself for 10 iterations afterwards.
+///
+/// \code
+/// if (r.isFirstReady())
+/// {
+///     if (!b.fetch_and_enable())
+///         r.swapInternalRatios();
+/// }
+/// if (r.isSecondReady())
+/// {
+///     if (b.fetch_and_disable())
+///         r.swapInternalRatios();
+/// }
+/// \endcode
+///
+/// Where r is a ttl::Rit(10, 1) object, and b is a
+/// ttl::Bool(true) object. Putting these in a Mixin
+/// is a very clean solution:
+/// ttl::Mixin<ttl::Bool, ttl::Rit> persisted_distribution;
+/// auto &x = persisted_distribution;
+/// x.ttl::Bool::fetch_and_set(true);
+/// x.ttl::Rit::setDistribution(10, 1);
+///
+/// Or one can use a struct:
+/// struct {ttl::Rit r; ttl::Bool b} persisted_distribution;
 ////////////////////////////////////////////////////////////
