@@ -26,7 +26,7 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 #include <string>
 
 
-#ifdef NDEBUG && !TTL_DEBUG
+#if !defined(TTL_DEBUG) && defined(NDEBUG)
     #define TTL_DEBUG_THROW(x)
     #define TTL_DEBUG_IF(x)
     #define TTL_DEBUG_ELSE
