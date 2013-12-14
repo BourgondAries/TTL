@@ -43,7 +43,7 @@ namespace ttl
         Runnable() = default;
         virtual ~Runnable() = default;
 
-        virtual Runnable *run() = 0;
+        virtual std::unique_ptr<Runnable> run() = 0;
 
         ////////////////////////////////////////////////////////////
         /// \brief Handles exceptions and logs times.
@@ -63,7 +63,7 @@ namespace ttl
                         if (runnable)
                         {
                             std::size_t cycle_count = 0;
-                            Runnable *holder;
+                            std::unique_ptr<Runnable> holder;
                             system_log << Timestamp << "Created temporary\n";
 
                             do
@@ -77,12 +77,13 @@ namespace ttl
                                 system_log << Timestamp << "Pointer valid, calling run()\n";
                                 holder = runnable->run();
                                 system_log << Timestamp << "Returned from run()\n";
-                                if (holder == runnable.get())
+                                if (holder.get() == runnable.get())
                                 {
+                                    holder.release();
                                     system_log << Timestamp << "this returned, recalling run()\n";
                                     continue;
                                 }
-                                runnable.reset(holder);
+                                runnable = std::move(holder);
                                 system_log << Timestamp << "Resetted, checking validity\n";
                             }
                             while (runnable);

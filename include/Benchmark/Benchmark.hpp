@@ -144,7 +144,7 @@ namespace ttl
     //            fnc(std::forward<Args>(args)...); // Does not work with methods
                 fnc(); // Works with methods
             after = hre::now();
-            m_average = ns(static_cast<long int>(((std::chrono::duration_cast<ns>(m_average).count() + std::chrono::duration_cast<ns>(after - before).count() / static_cast<float>(m_iterations))) / 2.f));
+            m_average = ns(static_cast<std::size_t>(((std::chrono::duration_cast<ns>(m_average).count() + std::chrono::duration_cast<ns>(after - before).count() / static_cast<float>(m_iterations))) / 2.f));
         }
 
         ////////////////////////////////////////////////////////////

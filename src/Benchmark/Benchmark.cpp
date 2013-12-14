@@ -29,21 +29,21 @@ namespace ttl
     Benchmark::Benchmark(const char *title, const std::size_t iterations)
     :
         m_iterations(iterations),
-//        m_average(nullptr),
+        m_average(0),
         m_name(title){}
 
     ////////////////////////////////////////////////////////////
     Benchmark::Benchmark(const std::string &title, const std::size_t iterations)
     :
         m_iterations(iterations),
-//        m_average(0.f),
+        m_average(0),
         m_name(title){}
 
     ////////////////////////////////////////////////////////////
     Benchmark::Benchmark(const std::size_t iterations)
     :
         m_iterations(iterations),
-//        m_average(0.f),
+        m_average(0),
         m_name("Unnamed Benchmark"){}
 
     ////////////////////////////////////////////////////////////
