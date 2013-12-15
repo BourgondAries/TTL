@@ -27,7 +27,7 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 #include <set>
 #include <vector>
 #include <stack>
-#include <cstddef>
+#include "Ttldef/Ttldef.hpp"
 
 
 namespace ttl
@@ -37,11 +37,11 @@ namespace ttl
     public:
 
         Argument();
-        Argument(const std::size_t argc, char **argv);
+        Argument(const sti argc, char **argv);
         Argument(const std::string &argument);
         ~Argument();
 
-        void pass(const std::size_t argc, char **argv);
+        void pass(const sti argc, char **argv);
         void pass(const std::string &argument);
 
         bool isPassed(const std::string &flag) const;
@@ -58,8 +58,8 @@ namespace ttl
         bool isInert(const std::string &flag) const;
         bool isInert(const char flag) const;
 
-        const std::string &getOperand(const std::size_t id) const;
-        std::size_t getOperandCount() const;
+        const std::string &getOperand(const sti id) const;
+        sti getOperandCount() const;
 
         friend ::std::ostream &operator<<(::std::ostream &out, const ttl::Argument &argument);
 
@@ -92,7 +92,7 @@ namespace ttl
         std::string parseEqualArgument
         (
             const std::string &argument,
-            std::size_t x
+            sti x
         );
 
         void parseEqualArgument

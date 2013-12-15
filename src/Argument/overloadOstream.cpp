@@ -30,8 +30,8 @@ namespace ttl
     std::ostream &operator<<(std::ostream &out, const ttl::Argument &argument)
     {
         // Find the longest flag:
-        std::size_t longest_flag = 0;
-        std::size_t longest_argument = 0;
+        sti longest_flag = 0;
+        sti longest_argument = 0;
         for (auto &x : argument.m_flags_and_parameters)
         {
             if (longest_flag < x.first.size())

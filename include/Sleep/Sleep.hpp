@@ -22,7 +22,7 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 #define SLEEP_HPP_INCLUDED
 
 // Headers
-#include <cstddef>
+#include "Ttldef/Ttldef.hpp"
 
 
 namespace ttl
@@ -31,17 +31,17 @@ namespace ttl
     ////////////////////////////////////////////////////////////
     /// \brief sleep for specified seconds
     ////////////////////////////////////////////////////////////
-    extern void sleep(std::size_t sec);
+    extern void sleep(sti sec);
 
     ////////////////////////////////////////////////////////////
     /// \brief sleep for specified milliseconds
     ////////////////////////////////////////////////////////////
-    extern void msleep(std::size_t msec);
+    extern void msleep(sti msec);
 
     ////////////////////////////////////////////////////////////
     /// \brief sleep for specified microseconds
     ////////////////////////////////////////////////////////////
-    extern void usleep(std::size_t usec);
+    extern void usleep(sti usec);
 
 } // Namespace ttl
 

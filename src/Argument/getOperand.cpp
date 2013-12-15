@@ -26,7 +26,7 @@ namespace ttl
 {
 
     ////////////////////////////////////////////////////////////
-    const std::string &Argument::getOperand(const std::size_t id) const
+    const std::string &Argument::getOperand(const sti id) const
     {
         return m_operands[id];
     }

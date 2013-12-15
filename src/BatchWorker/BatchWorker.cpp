@@ -34,7 +34,7 @@ namespace ttl
     }
 
     ////////////////////////////////////////////////////////////
-    BatchWorker::BatchWorker(const std::size_t worker_count)
+    BatchWorker::BatchWorker(const sti worker_count)
     :
         m_actively_working(0)
     {
@@ -46,7 +46,7 @@ namespace ttl
     {}
 
     ////////////////////////////////////////////////////////////
-    void BatchWorker::setWorkerCount(const std::size_t workers)
+    void BatchWorker::setWorkerCount(const sti workers)
     {
         if (m_thread_pool.size() > workers)
         {
@@ -60,7 +60,7 @@ namespace ttl
     }
 
     ////////////////////////////////////////////////////////////
-    std::size_t BatchWorker::getWorkerCount() const
+    sti BatchWorker::getWorkerCount() const
     {
         return m_thread_pool.size();
     }

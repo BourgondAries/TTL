@@ -97,7 +97,7 @@ namespace ttl
         /// \return the amount of readers currently reading the data.
         ///
         ////////////////////////////////////////////////////////////
-        std::size_t getReaderCount() const
+        sti getReaderCount() const
         {
             return m_synch.readers.load();
         }

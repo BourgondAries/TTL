@@ -23,7 +23,7 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 
 // Headers
 #include <thread>
-#include <cstddef>
+#include "Ttldef/Ttldef.hpp"
 #include <atomic>
 #include <vector>
 #include <TTL/Flare/Flare.hpp>
@@ -51,7 +51,7 @@ namespace ttl
         /// \brief Constructor with worker count initialization
         ///
         ////////////////////////////////////////////////////////////
-        BatchWorker(const std::size_t worker_count);
+        BatchWorker(const sti worker_count);
 
         ////////////////////////////////////////////////////////////
         /// \brief Destructor
@@ -63,13 +63,13 @@ namespace ttl
         /// \brief Set the amount of workers
         ///
         ////////////////////////////////////////////////////////////
-        void setWorkerCount(const std::size_t workers);
+        void setWorkerCount(const sti workers);
 
         ////////////////////////////////////////////////////////////
         /// \brief Get the amount of workers
         ///
         ////////////////////////////////////////////////////////////
-        std::size_t getWorkerCount() const;
+        sti getWorkerCount() const;
 
         ////////////////////////////////////////////////////////////
         /// \brief Send work to a specified worker
@@ -79,7 +79,7 @@ namespace ttl
         ///
         ////////////////////////////////////////////////////////////
         template <typename T>
-        void issueWork(T t, const std::size_t thread)
+        void issueWork(T t, const sti thread)
         {
             ++m_actively_working;
             m_thread_pool[thread]->issueWork
@@ -115,8 +115,8 @@ namespace ttl
         template <typename ITERATOR, typename FUNCTION>
         void fer(ITERATOR begin, ITERATOR end, FUNCTION fun)
         {
-            std::size_t thread_pool_size(m_thread_pool.size());
-            for (std::size_t i(0); i < thread_pool_size; ++i)
+            sti thread_pool_size(m_thread_pool.size());
+            for (sti i(0); i < thread_pool_size; ++i)
             {
                 this->issueWork
                 (
@@ -161,7 +161,7 @@ namespace ttl
     private:
 
         std::vector<std::unique_ptr<Worker>> m_thread_pool; ///< Collection of workers
-        std::atomic<std::size_t> m_actively_working; ///< Counter of actively working workers
+        std::atomic<sti> m_actively_working; ///< Counter of actively working workers
         ttl::Flare m_threads_done; ///< Notified when all threads have finished.
     };
 

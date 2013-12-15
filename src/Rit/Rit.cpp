@@ -39,7 +39,7 @@ namespace ttl
     {}
 
     ////////////////////////////////////////////////////////////
-    Rit::Rit(const std::size_t distribution_1, const std::size_t distribution_2)
+    Rit::Rit(const sti distribution_1, const sti distribution_2)
     :
         m_dist1(distribution_1),
         m_dist2(distribution_2),
@@ -53,7 +53,7 @@ namespace ttl
     Rit::~Rit(){}
 
     ////////////////////////////////////////////////////////////
-    void Rit::setDistribution(const std::size_t distribution_1, const std::size_t distribution_2)
+    void Rit::setDistribution(const sti distribution_1, const sti distribution_2)
     {
         m_dist1 = distribution_1;
         m_dist2 = distribution_2;
@@ -64,13 +64,13 @@ namespace ttl
     }
 
     ////////////////////////////////////////////////////////////
-    std::size_t Rit::getFirstDistribution() const
+    sti Rit::getFirstDistribution() const
     {
         return m_dist1;
     }
 
     ////////////////////////////////////////////////////////////
-    std::size_t Rit::getSecondDistribution() const
+    sti Rit::getSecondDistribution() const
     {
         return m_dist2;
     }

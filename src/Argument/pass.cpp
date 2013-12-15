@@ -30,13 +30,13 @@ namespace ttl
 {
 
     ////////////////////////////////////////////////////////////
-    void Argument::pass(const std::size_t argc, char *argv[])
+    void Argument::pass(const sti argc, char *argv[])
     {
         m_path = argv[0];
 
         std::stack<std::pair<decltype(m_flags_and_parameters)::iterator, bool>> unset_flags;
 
-        std::size_t i = 1;
+        sti i = 1;
 
         for (; i < argc; ++i)
         {

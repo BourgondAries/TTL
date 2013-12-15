@@ -28,7 +28,7 @@ namespace ttl
     std::string Argument::parseEqualArgument
     (
         const std::string &argument,
-        std::size_t x
+        sti x
     )
     {
         return std::string(argument.begin() + x + 1u, argument.end());

@@ -22,7 +22,7 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 #define RIT_HPP_INCLUDED
 
 // Headers
-#include <cstddef>
+#include "Ttldef/Ttldef.hpp"
 
 
 namespace ttl
@@ -49,7 +49,7 @@ namespace ttl
         /// Constructor that uses a dist1/dist2 distribution.
         ///
         ////////////////////////////////////////////////////////////
-        Rit(const std::size_t distribution_1, const std::size_t distribution_2);
+        Rit(const sti distribution_1, const sti distribution_2);
 
         ////////////////////////////////////////////////////////////
         /// \brief Destructor
@@ -66,7 +66,7 @@ namespace ttl
         /// \param distribution_2 distribution for Second function
         ///
         ////////////////////////////////////////////////////////////
-        void setDistribution(const std::size_t distribution_1, const std::size_t distribution_2);
+        void setDistribution(const sti distribution_1, const sti distribution_2);
 
         ////////////////////////////////////////////////////////////
         /// \brief Gets the set distribution
@@ -74,7 +74,7 @@ namespace ttl
         /// \return the First distribution.
         ///
         ////////////////////////////////////////////////////////////
-        std::size_t getFirstDistribution() const;
+        sti getFirstDistribution() const;
 
         ////////////////////////////////////////////////////////////
         /// \brief Gets the set distribution
@@ -82,7 +82,7 @@ namespace ttl
         /// \return the Second distribution.
         ///
         ////////////////////////////////////////////////////////////
-        std::size_t getSecondDistribution() const;
+        sti getSecondDistribution() const;
 
         ////////////////////////////////////////////////////////////
         /// \brief Gets the set ratio
@@ -112,10 +112,10 @@ namespace ttl
 
     private:
 
-        std::size_t m_dist1, m_dist2; ///< Ratio given by a rational
+        sti m_dist1, m_dist2; ///< Ratio given by a rational
         float m_requested_ratio; ///< The ratio requested by the user
         float m_recorded_ratio; ///< The ratio that is being recorded
-        std::size_t m_ia, m_ib; ///< Iteration counters
+        sti m_ia, m_ib; ///< Iteration counters
 
     };
 
@@ -135,7 +135,7 @@ namespace ttl
 /// \code
 /// ttl::Rit rit(1, 10);
 /// rit.setDistribution(23, 32);
-/// std::size_t log(0), ren(0);
+/// sti log(0), ren(0);
 /// for (int i = 0; i < 50000000; ++i)
 /// {
 ///     while (rit.isFirstReady())

@@ -33,7 +33,7 @@ namespace ttl
     )
     {
         std::string tmp("--");
-        for (std::size_t x = 2u; x < argument.size(); ++x)
+        for (sti x = 2u; x < argument.size(); ++x)
         {
             if (argument[x] == '=')
             {

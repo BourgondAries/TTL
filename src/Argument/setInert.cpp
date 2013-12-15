@@ -28,7 +28,7 @@ namespace ttl
     ////////////////////////////////////////////////////////////
     void Argument::setInert(const std::string &flag)
     {
-        const std::size_t sz = flag.size();
+        const sti sz = flag.size();
         if (sz > 0)
         {
             if (flag[0] == '-')
@@ -39,7 +39,7 @@ namespace ttl
                 }
                 else
                 {
-                    for (std::size_t i = 1; i < sz; ++i)
+                    for (sti i = 1; i < sz; ++i)
                     {
                         m_inert_flags.insert(std::string("-") + flag[i]);
                     }

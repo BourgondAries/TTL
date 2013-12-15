@@ -25,6 +25,7 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 #include <mutex>
 #include <atomic>
 #include <TTL/Flare/Flare.hpp>
+#include "Ttldef/Ttldef.hpp"
 
 
 namespace ttl
@@ -41,7 +42,7 @@ namespace ttl
 
         std::mutex  entry_mutex;
         ttl::Flare  writer_activation;
-        std::atomic<std::size_t> readers;
+        std::atomic<sti> readers;
     };
 
 } // Namespace ttl

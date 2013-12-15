@@ -26,7 +26,7 @@ namespace ttl
 {
 
     ////////////////////////////////////////////////////////////
-    std::size_t Argument::getOperandCount() const
+    sti Argument::getOperandCount() const
     {
         return m_operands.size();
     }

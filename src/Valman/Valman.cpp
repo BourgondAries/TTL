@@ -20,6 +20,7 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 
 // Headers
 #include "Valman/Valman.hpp"
+#include "Ttldef/Ttldef.hpp"
 
 
 namespace ttl
@@ -315,7 +316,7 @@ namespace ttl
             m_command.insert(insert_location, pure.begin(), pure.end());
 
             // Then we remove our first shortcut ||
-            std::size_t first_of(m_command.find_first_of(shortcut));
+            sti first_of(m_command.find_first_of(shortcut));
             m_command.erase(m_command.begin() + first_of, m_command.begin() + first_of + 2);
         }
 

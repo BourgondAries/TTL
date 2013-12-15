@@ -21,26 +21,26 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 // Headers
 #include <thread>
 #include <chrono>
-#include <cstddef>
+#include "Ttldef/Ttldef.hpp"
 
 
 namespace ttl
 {
 
     ////////////////////////////////////////////////////////////
-    void sleep(const std::size_t sec)
+    void sleep(const sti sec)
     {
         std::this_thread::sleep_for(std::chrono::seconds(sec));
     }
 
     ////////////////////////////////////////////////////////////
-    void msleep(const std::size_t msec)
+    void msleep(const sti msec)
     {
         std::this_thread::sleep_for(std::chrono::milliseconds(msec));
     }
 
     ////////////////////////////////////////////////////////////
-    void usleep(const std::size_t usec)
+    void usleep(const sti usec)
     {
         std::this_thread::sleep_for(std::chrono::microseconds(usec));
     }
