@@ -68,6 +68,14 @@ namespace ttl
         void set(bool state);
 
         ////////////////////////////////////////////////////////////
+        /// \brief Get the boolean state
+        ///
+        /// \return The state that the internal boolean has
+        ///
+        ////////////////////////////////////////////////////////////
+        bool get();
+
+        ////////////////////////////////////////////////////////////
         /// \brief Fetches the bool, then sets it to true
         ///
         /// \return the bool from before the set to true

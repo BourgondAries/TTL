@@ -34,6 +34,14 @@ namespace ttl
     }
 
     ////////////////////////////////////////////////////////////
+    BatchWorker::BatchWorker(const std::size_t worker_count)
+    :
+        m_actively_working(0)
+    {
+        setWorkerCount(worker_count);
+    }
+
+    ////////////////////////////////////////////////////////////
     BatchWorker::~BatchWorker()
     {}
 
