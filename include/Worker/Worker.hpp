@@ -33,9 +33,9 @@ namespace ttl
     ////////////////////////////////////////////////////////////
     /// \brief A thread waiting for a task
     ///
-    /// This class is mainly used internally by the threadpool.
+    /// This class is mainly used internally by the BatchWorker.
     /// This Worker thread is easily extended, as one could pass
-    /// any function into issueWork. For example; in ThreadPool
+    /// any function into issueWork. For example; in BatchWorker
     /// this class is used, and a function that encapsulates
     /// both thread management and the actual work itself will
     /// be sent into the Worker from within ThreadPool.

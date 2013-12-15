@@ -93,6 +93,65 @@ namespace ttl
         ////////////////////////////////////////////////////////////
         void wait();
 
+        ////////////////////////////////////////////////////////////
+        /// \brief A simple interface for performing parallel fors
+        /// over standard-compliant iteratable containers.
+        ///
+        /// Applies a specified function to [begin, end) elements.
+        ///
+        /// \param begin The start iterator.
+        /// \param end The last iterator.
+        /// \param function the function that accepts a
+        /// dereferenced iterator as its parameter (which is a
+        /// reference).
+        ///
+        ////////////////////////////////////////////////////////////
+        template <typename ITERATOR, typename FUNCTION>
+        void fer(ITERATOR begin, ITERATOR end, FUNCTION fun)
+        {
+            std::size_t thread_pool_size(m_thread_pool.size());
+            for (std::size_t i(0); i < thread_pool_size; ++i)
+            {
+                this->issueWork
+                (
+                    [thread_pool_size, i, begin, end, fun]() -> void
+                    {
+                        ITERATOR current(begin);
+                        if (std::distance(current, end) > i)
+                        {
+                            std::advance(current, i);
+                            fun(*current);
+                            while (std::distance(current, end) > thread_pool_size)
+                            {
+                                std::advance(current, thread_pool_size);
+                                fun(*current);
+                            }
+                        }
+                    },
+                    i
+                );
+            }
+            this->wait();
+        }
+
+        ////////////////////////////////////////////////////////////
+        /// \brief A simple interface for performing parallel fors
+        /// over standard-compliant iteratable containers.
+        ///
+        /// \param container The container to iterate over
+        /// Requires CONTAINER::begin() and CONTAINER::end()
+        /// which have an operator++(int) methods.
+        /// \param function the function that accepts a
+        /// dereferenced iterator as its parameter (which is a
+        /// reference).
+        ///
+        ////////////////////////////////////////////////////////////
+        template <typename CONTAINER, typename FUNCTION>
+        void fer(CONTAINER container, FUNCTION function)
+        {
+            fer(container.begin(), container.end(), function);
+        }
+
     private:
 
         std::vector<std::unique_ptr<Worker>> m_thread_pool; ///< Collection of workers
