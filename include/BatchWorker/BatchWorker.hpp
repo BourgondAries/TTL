@@ -101,17 +101,31 @@ namespace ttl
 
     private:
 
+        template<typename T, typename = void>
+        struct is_iterator
+        {
+           static constexpr bool value = false;
+        };
+
+        template<typename T>
+        struct is_iterator<T, typename std::enable_if<!std::is_same<typename std::iterator_traits<T>::value_type, void>::value>::type>
+        {
+           static constexpr bool value = true;
+        };
+
+
         // Type-dependent iterator.
-        template <typename T, bool IS_CLASS>
+        template <typename T, bool ITERATOR>
         class Citerator;
 
         // If we are supplied an int, char,... , we must create an iterator around it.
         template <typename TYPE>
-        class Citerator<TYPE, false> : public std::iterator<std::input_iterator_tag, TYPE>
+        class Citerator<TYPE, false> : public std::iterator<std::input_iterator_tag, TYPE> // Change to random_access_iterator_tag in the future...
         {
         public:
 
-            Citerator(TYPE iterator):m_raw_iterator(iterator){}
+            Citerator():m_raw_iterator(TYPE()){}
+            Citerator(const TYPE &value):m_raw_iterator(value){}
             Citerator(const Citerator &iterator):m_raw_iterator(iterator.m_raw_iterator){}
             Citerator &operator=(const Citerator &iterator){m_raw_iterator = iterator.m_raw_iterator; return *this;}
 
@@ -122,7 +136,27 @@ namespace ttl
             TYPE &operator->(){return m_raw_iterator;}
 
             Citerator &operator++(){++m_raw_iterator; return *this;}
-            Citerator &operator++(int){m_raw_iterator++; return *this;}
+            Citerator operator++(int){Citerator ret(*this); ++(*this); return ret;}
+
+            Citerator &operator--(){--m_raw_iterator; return *this;}
+            Citerator operator--(int){Citerator ret(*this); --(*this); return ret;}
+
+            Citerator operator+(const Citerator<TYPE, false> &rhs){Citerator ret(*this); ret += rhs; return ret;}
+            Citerator operator+(const std::size_t &rhs){Citerator ret(*this); ret.m_raw_iterator += rhs; return ret;}
+            typename std::iterator<std::random_access_iterator_tag, TYPE>::difference_type operator-(const Citerator<TYPE, false> &rhs){Citerator ret(*this); ret -= rhs; return ret.m_raw_iterator;}
+            typename std::iterator<std::random_access_iterator_tag, TYPE>::difference_type operator-(const std::size_t &rhs){Citerator ret(*this); ret.m_raw_iterator -= rhs; return ret.m_raw_iterator;}
+
+            bool operator<(const Citerator &rhs){return m_raw_iterator < rhs.m_raw_iterator;}
+            bool operator>(const Citerator &rhs){return m_raw_iterator > rhs.m_raw_iterator;}
+            bool operator<=(const Citerator &rhs){return m_raw_iterator <= rhs.m_raw_iterator;}
+            bool operator>=(const Citerator &rhs){return m_raw_iterator >= rhs.m_raw_iterator;}
+
+            Citerator &operator+=(const Citerator &rhs){m_raw_iterator += rhs.m_raw_iterator;}
+            Citerator &operator+=(const std::size_t &rhs){m_raw_iterator += rhs;}
+            Citerator &operator-=(const Citerator &rhs){m_raw_iterator -= rhs.m_raw_iterator;}
+            Citerator &operator-=(const std::size_t &rhs){m_raw_iterator -= rhs;}
+
+            TYPE &operator[](const std::size_t index){return *(m_raw_iterator + index);}
 
             TYPE &get(){return m_raw_iterator;}
 
@@ -132,22 +166,24 @@ namespace ttl
 
         };
 
-//        // If we are provided an iterator, we inherit from it.
-//        template <typename TYPE>
-//        class Citerator<TYPE, true> : public TYPE
-//        {
-//        public:
-//            using TYPE::TYPE;
-//            TYPE &get(){return *this;}
-//        };
-//
-//        // The iterator that wraps around both integers and other iterators.
-//        template <typename TYPE, bool IS_CLASS = std::is_class<TYPE>::value>
-//        class Iterator : public Citerator<TYPE, IS_CLASS>
-//        {
-//        public:
-//            using Citerator<TYPE, IS_CLASS>::Citerator;
-//        };
+
+        // If we are provided an iterator, we inherit from it.
+        template <typename TYPE>
+        class Citerator<TYPE, true> : public TYPE
+        {
+        public:
+            Citerator(const TYPE &iterator):TYPE(iterator){}
+            using TYPE::TYPE;
+            TYPE &get(){return *this;}
+        };
+
+        // The iterator that wraps around both integers and other iterators.
+        template <typename TYPE, bool ITERATOR = std::is_class<TYPE>::value>
+        class Iterator : public Citerator<TYPE, ITERATOR>
+        {
+        public:
+            using Citerator<TYPE, ITERATOR>::Citerator;
+        };
 
     public:
 
@@ -169,6 +205,10 @@ namespace ttl
         template <typename ITERATOR, typename FUNCTION>
         void fir(ITERATOR begin, ITERATOR end, FUNCTION fun, sti advance = 1)
         {
+            if (begin == end)
+            {
+                return;
+            }
             sti thread_pool_size(m_thread_pool.size());
             for (sti i(0); i < thread_pool_size; ++i)
             {
@@ -178,7 +218,7 @@ namespace ttl
                     {
                         sti advanceperi = i * advance;
 
-                        Citerator<ITERATOR, false> current(begin), death(end);
+                        Iterator<ITERATOR> current(begin), death(end);
                         if (std::distance(current, death) > advanceperi)
                         {
                             std::advance(current, advanceperi);
@@ -220,65 +260,6 @@ namespace ttl
         /// \brief A simple interface for performing parallel fors
         /// over standard-compliant iteratable containers.
         ///
-        /// Applies a specified function to [begin, end) elements.
-        ///
-        /// \param begin The start iterator.
-        /// \param end The last iterator.
-        /// \param function the function that accepts a
-        /// dereferenced iterator as its parameter (which is a
-        /// reference).
-        ///
-        ////////////////////////////////////////////////////////////
-//        template <typename ITERATOR, typename FUNCTION>
-//        void fir(ITERATOR begin, ITERATOR end, FUNCTION fun)
-//        {
-//            sti thread_pool_size(m_thread_pool.size());
-//            for (sti i(0); i < thread_pool_size; ++i)
-//            {
-//                this->issueWork
-//                (
-//                    [i, &thread_pool_size, &begin, &end, &fun]() -> void
-//                    {
-//                        Iterator<ITERATOR> current(begin), death(end);
-//                        if (std::distance(current, death) > i)
-//                        {
-//                            std::advance(current, i);
-//                            fun(current.get());
-//                            while (std::distance(current, death) > thread_pool_size)
-//                            {
-//                                std::advance(current, thread_pool_size);
-//                                fun(current.get());
-//                            }
-//                        }
-//                    },
-//                    i
-//                );
-//            }
-//            this->wait();
-//        }
-
-        ////////////////////////////////////////////////////////////
-        /// \brief A simple interface for performing parallel fors
-        /// over standard-compliant iteratable containers.
-        ///
-        /// \param container The container to iterate over
-        /// Requires CONTAINER::begin() and CONTAINER::end()
-        /// which have an operator++(int) methods.
-        /// \param function the function that accepts a
-        /// dereferenced iterator as its parameter (which is a
-        /// reference).
-        ///
-        ////////////////////////////////////////////////////////////
-        template <typename CONTAINER, typename FUNCTION>
-        void fir(CONTAINER container, FUNCTION function)
-        {
-            fir(container.begin(), container.end(), function);
-        }
-
-        ////////////////////////////////////////////////////////////
-        /// \brief A simple interface for performing parallel fors
-        /// over standard-compliant iteratable containers.
-        ///
         /// \param container The container to iterate over
         /// Requires CONTAINER::begin() and CONTAINER::end()
         /// which have an operator++(int) methods.
@@ -289,7 +270,7 @@ namespace ttl
         ///
         ////////////////////////////////////////////////////////////
         template <typename CONTAINER, typename FUNCTION>
-        void fir(CONTAINER container, FUNCTION function, sti advance)
+        void fir(CONTAINER container, FUNCTION function, sti advance = 1)
         {
             fir(container.begin(), container.end(), function, advance);
         }
