@@ -74,7 +74,7 @@ namespace ttl
         /// the latest update.
         ////////////////////////////////////////////////////////////
         template <typename T>
-        void issueWork(T function)
+        void issueWork(const T function)
         {
             m_work = function;
             m_work_available.notify();
