@@ -256,6 +256,61 @@ namespace ttl
             this->wait();
         }
 
+        template <typename ITERATOR, typename FUNCTION>
+        void fer(ITERATOR begin, ITERATOR end, FUNCTION fun, sti advance = 1)
+        {
+            if (begin == end)
+            {
+                return;
+            }
+            sti thread_pool_size(m_thread_pool.size());
+            for (sti i(0); i < thread_pool_size; ++i)
+            {
+                this->issueWork
+                (
+                    [i, &thread_pool_size, &begin, &end, &fun, &advance]() -> void
+                    {
+                        const sti tid = i;
+                        sti advanceperi = i * advance;
+
+                        Iterator<ITERATOR> current(begin), death(end);
+                        if (std::distance(current, death) > advanceperi)
+                        {
+                            std::advance(current, advanceperi);
+                            fun(/*const_cast<const ITERATOR &>( */current.get() /*)*/, tid);
+
+                            sti advancepertps = (thread_pool_size + 1) * advance;
+                            while (std::distance(current, death) > advancepertps)
+                            {
+                                std::advance(current, advancepertps);
+                                fun(/*const_cast<const ITERATOR &>( */current.get() /*)*/, tid);
+                            }
+                        }
+                    },
+                    i
+                );
+            }
+            [&thread_pool_size, &begin, &end, &fun, &advance]() -> void
+            {
+                sti advanceperi = (thread_pool_size) * advance;
+
+                Citerator<ITERATOR, false> current(begin), death(end);
+                if (std::distance(current, death) > advanceperi)
+                {
+                    std::advance(current, advanceperi);
+                    fun(/*const_cast<const ITERATOR &>( */current.get() /*)*/, thread_pool_size);
+
+                    sti advancepertps = (thread_pool_size + 1) * advance;
+                    while (std::distance(current, death) > advancepertps)
+                    {
+                        std::advance(current, advancepertps);
+                        fun(/*const_cast<const ITERATOR &>( */current.get() /*)*/, thread_pool_size);
+                    }
+                }
+            }();
+            this->wait();
+        }
+
         ////////////////////////////////////////////////////////////
         /// \brief A simple interface for performing parallel fors
         /// over standard-compliant iteratable containers.
@@ -273,6 +328,13 @@ namespace ttl
         void fir(CONTAINER container, FUNCTION function, sti advance = 1)
         {
             fir(container.begin(), container.end(), function, advance);
+        }
+
+
+        template <typename CONTAINER, typename FUNCTION>
+        void fer(CONTAINER container, FUNCTION function, sti advance = 1)
+        {
+            fer(container.begin(), container.end(), function, advance);
         }
 
     private:
