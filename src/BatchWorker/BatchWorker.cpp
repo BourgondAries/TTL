@@ -43,7 +43,15 @@ namespace ttl
 
     ////////////////////////////////////////////////////////////
     BatchWorker::~BatchWorker()
-    {}
+    {
+        m_threads_done.wait();
+        m_actively_working += getWorkerCount();
+        for (std::size_t i = 0; i < getWorkerCount(); ++i)
+        {
+            issueWorkManualIncrement(nullptr, i);
+        }
+        m_threads_done.wait();
+    }
 
     ////////////////////////////////////////////////////////////
     void BatchWorker::setWorkerCount(const sti workers)

@@ -26,6 +26,8 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 #include "Ttldef/Ttldef.hpp"
 #include <atomic>
 #include <vector>
+#include <cassert>
+#include <iostream>
 #include <TTL/Flare/Flare.hpp>
 #include <TTL/Worker/Worker.hpp>
 
@@ -77,6 +79,11 @@ namespace ttl
         /// Work must be within the range [0, getWorkerCount() - 1]
         /// No checks are performed to assure this, it is up to you.
         ///
+        /// DEEP BUG:
+        /// One can issue some work, which CAN finish before anything
+        /// : thereby signalling the flare. This can cause a batch
+        /// to partially process. Disasterous results!
+        ///
         ////////////////////////////////////////////////////////////
         template <typename T>
         void issueWork(const T t, const sti thread)
@@ -103,238 +110,90 @@ namespace ttl
 
         template<typename T, typename = void>
         struct is_iterator
-        {
-           static constexpr bool value = false;
-        };
+        {static constexpr bool value = false;};
 
         template<typename T>
         struct is_iterator<T, typename std::enable_if<!std::is_same<typename std::iterator_traits<T>::value_type, void>::value>::type>
+        {static constexpr bool value = true;};
+
+        ////////////////////////////////////////////////////////////
+        /// \brief Send work to a specified worker
+        ///
+        /// Work must be within the range [0, getWorkerCount() - 1]
+        /// No checks are performed to assure this, it is up to you.
+        ///
+        ////////////////////////////////////////////////////////////
+        template <typename T>
+        void issueWorkManualIncrement(const T t, const sti thread)
         {
-           static constexpr bool value = true;
-        };
-
-
-        // Type-dependent iterator.
-        template <typename T, bool ITERATOR>
-        class Citerator;
-
-        // If we are supplied an int, char,... , we must create an iterator around it.
-        template <typename TYPE>
-        class Citerator<TYPE, false> : public std::iterator<std::input_iterator_tag, TYPE> // Change to random_access_iterator_tag in the future...
-        {
-        public:
-
-            Citerator():m_raw_iterator(TYPE()){}
-            Citerator(const TYPE &value):m_raw_iterator(value){}
-            Citerator(const Citerator &iterator):m_raw_iterator(iterator.m_raw_iterator){}
-            Citerator &operator=(const Citerator &iterator){m_raw_iterator = iterator.m_raw_iterator; return *this;}
-
-            bool operator==(const Citerator &citerator){return m_raw_iterator == citerator.m_raw_iterator;}
-            bool operator!=(const Citerator &citerator){return m_raw_iterator != citerator.m_raw_iterator;}
-
-            TYPE &operator*(){return m_raw_iterator;}
-            TYPE &operator->(){return m_raw_iterator;}
-
-            Citerator &operator++(){++m_raw_iterator; return *this;}
-            Citerator operator++(int){Citerator ret(*this); ++(*this); return ret;}
-
-            Citerator &operator--(){--m_raw_iterator; return *this;}
-            Citerator operator--(int){Citerator ret(*this); --(*this); return ret;}
-
-            Citerator operator+(const Citerator<TYPE, false> &rhs){Citerator ret(*this); ret += rhs; return ret;}
-            Citerator operator+(const std::size_t &rhs){Citerator ret(*this); ret.m_raw_iterator += rhs; return ret;}
-            typename std::iterator<std::random_access_iterator_tag, TYPE>::difference_type operator-(const Citerator<TYPE, false> &rhs){Citerator ret(*this); ret -= rhs; return ret.m_raw_iterator;}
-            typename std::iterator<std::random_access_iterator_tag, TYPE>::difference_type operator-(const std::size_t &rhs){Citerator ret(*this); ret.m_raw_iterator -= rhs; return ret.m_raw_iterator;}
-
-            bool operator<(const Citerator &rhs){return m_raw_iterator < rhs.m_raw_iterator;}
-            bool operator>(const Citerator &rhs){return m_raw_iterator > rhs.m_raw_iterator;}
-            bool operator<=(const Citerator &rhs){return m_raw_iterator <= rhs.m_raw_iterator;}
-            bool operator>=(const Citerator &rhs){return m_raw_iterator >= rhs.m_raw_iterator;}
-
-            Citerator &operator+=(const Citerator &rhs){m_raw_iterator += rhs.m_raw_iterator;}
-            Citerator &operator+=(const std::size_t &rhs){m_raw_iterator += rhs;}
-            Citerator &operator-=(const Citerator &rhs){m_raw_iterator -= rhs.m_raw_iterator;}
-            Citerator &operator-=(const std::size_t &rhs){m_raw_iterator -= rhs;}
-
-            TYPE &operator[](const std::size_t index){return *(m_raw_iterator + index);}
-
-            TYPE &get(){return m_raw_iterator;}
-
-        private:
-
-            TYPE m_raw_iterator;
-
-        };
-
-
-        // If we are provided an iterator, we inherit from it.
-        template <typename TYPE>
-        class Citerator<TYPE, true> : public TYPE
-        {
-        public:
-            Citerator(const TYPE &iterator):TYPE(iterator){}
-            using TYPE::TYPE;
-            TYPE &get(){return *this;}
-        };
-
-        // The iterator that wraps around both integers and other iterators.
-        template <typename TYPE, bool ITERATOR = std::is_class<TYPE>::value>
-        class Iterator : public Citerator<TYPE, ITERATOR>
-        {
-        public:
-            using Citerator<TYPE, ITERATOR>::Citerator;
-        };
+            m_thread_pool[thread]->issueWork
+            (
+                [t, this]()
+                {
+                    t();
+                    if (m_actively_working.fetch_sub(1) == 1)
+                        m_threads_done.notify();
+                }
+            );
+        }
 
     public:
 
-        ////////////////////////////////////////////////////////////
-        /// \brief A simple interface for performing parallel fors
-        /// over any range
-        ///
-        /// Applies a specified function to [begin, end) elements.
-        ///
-        /// \param begin The start iterator.
-        /// \param end The last iterator.
-        /// \param advance The unsigned type that species how many
-        /// steps each movement should take.
-        /// \param function the function that accepts a
-        /// dereferenced iterator as its parameter (which is a
-        /// reference).
-        ///
-        ////////////////////////////////////////////////////////////
         template <typename ITERATOR, typename FUNCTION>
-        void fir(ITERATOR begin, ITERATOR end, FUNCTION fun, sti advance = 1)
+        void fur(ITERATOR begin, ITERATOR end, const FUNCTION fun, /*bool main_contribute = true, bool wait_for_all = true, */const sti advance = 1)
         {
+            static_assert(is_iterator<ITERATOR>::value, "Arguments begin and end are not valid iterators.");
             if (begin == end)
             {
                 return;
             }
-            sti thread_pool_size(m_thread_pool.size());
+            const sti thread_pool_size(m_thread_pool.size());
+            m_actively_working += thread_pool_size;
             for (sti i(0); i < thread_pool_size; ++i)
             {
-                this->issueWork
+                this->issueWorkManualIncrement
                 (
-                    [i, &thread_pool_size, &begin, &end, &fun, &advance]() -> void
+                    [i, &thread_pool_size, &begin, &end, &fun, advance]() -> void
                     {
                         sti advanceperi = i * advance;
 
-                        Iterator<ITERATOR> current(begin), death(end);
-                        if (std::distance(current, death) > advanceperi)
+                        ITERATOR start(begin);
+                        if (std::distance(start, end) > advanceperi)
                         {
-                            std::advance(current, advanceperi);
-                            fun(const_cast<const ITERATOR &>( current.get() ));
+                            std::advance(start, advanceperi);
+                            fun( start , i );
 
                             sti advancepertps = (thread_pool_size + 1) * advance;
-                            while (std::distance(current, death) > advancepertps)
+                            while (std::distance(start, end) > advancepertps)
                             {
-                                std::advance(current, advancepertps);
-                                fun(const_cast<const ITERATOR &>( current.get() ));
+                                std::advance(start, advancepertps);
+                                fun( start , i );
                             }
                         }
                     },
                     i
                 );
             }
-            [&thread_pool_size, &begin, &end, &fun, &advance]() -> void
+//            [&thread_pool_size, begin, end, &fun, advance]() -> void
             {
                 sti advanceperi = (thread_pool_size) * advance;
 
-                Citerator<ITERATOR, false> current(begin), death(end);
-                if (std::distance(current, death) > advanceperi)
+                ITERATOR start(begin);
+                if (std::distance(start, end) > advanceperi)
                 {
-                    std::advance(current, advanceperi);
-                    fun(const_cast<const ITERATOR &>( current.get() ));
+                    std::advance(start, advanceperi);
+                    fun( start, thread_pool_size );
 
                     sti advancepertps = (thread_pool_size + 1) * advance;
-                    while (std::distance(current, death) > advancepertps)
+                    while (std::distance(start, end) > advancepertps)
                     {
-                        std::advance(current, advancepertps);
-                        fun(const_cast<const ITERATOR &>( current.get() ));
+                        std::advance(start, advancepertps);
+                        fun( start, thread_pool_size );
                     }
                 }
-            }();
-            this->wait();
-        }
-
-        template <typename ITERATOR, typename FUNCTION>
-        void fer(ITERATOR begin, ITERATOR end, FUNCTION fun, sti advance = 1)
-        {
-            if (begin == end)
-            {
-                return;
             }
-            sti thread_pool_size(m_thread_pool.size());
-            for (sti i(0); i < thread_pool_size; ++i)
-            {
-                this->issueWork
-                (
-                    [i, &thread_pool_size, &begin, &end, &fun, &advance]() -> void
-                    {
-                        const sti tid = i;
-                        sti advanceperi = i * advance;
-
-                        Iterator<ITERATOR> current(begin), death(end);
-                        if (std::distance(current, death) > advanceperi)
-                        {
-                            std::advance(current, advanceperi);
-                            fun(/*const_cast<const ITERATOR &>( */current.get() /*)*/, tid);
-
-                            sti advancepertps = (thread_pool_size + 1) * advance;
-                            while (std::distance(current, death) > advancepertps)
-                            {
-                                std::advance(current, advancepertps);
-                                fun(/*const_cast<const ITERATOR &>( */current.get() /*)*/, tid);
-                            }
-                        }
-                    },
-                    i
-                );
-            }
-            [&thread_pool_size, &begin, &end, &fun, &advance]() -> void
-            {
-                sti advanceperi = (thread_pool_size) * advance;
-
-                Citerator<ITERATOR, false> current(begin), death(end);
-                if (std::distance(current, death) > advanceperi)
-                {
-                    std::advance(current, advanceperi);
-                    fun(/*const_cast<const ITERATOR &>( */current.get() /*)*/, thread_pool_size);
-
-                    sti advancepertps = (thread_pool_size + 1) * advance;
-                    while (std::distance(current, death) > advancepertps)
-                    {
-                        std::advance(current, advancepertps);
-                        fun(/*const_cast<const ITERATOR &>( */current.get() /*)*/, thread_pool_size);
-                    }
-                }
-            }();
+//            ();
             this->wait();
-        }
-
-        ////////////////////////////////////////////////////////////
-        /// \brief A simple interface for performing parallel fors
-        /// over standard-compliant iteratable containers.
-        ///
-        /// \param container The container to iterate over
-        /// Requires CONTAINER::begin() and CONTAINER::end()
-        /// which have an operator++(int) methods.
-        /// \param advance the amount to advance each iteration.
-        /// \param function the function that accepts a
-        /// dereferenced iterator as its parameter (which is a
-        /// reference).
-        ///
-        ////////////////////////////////////////////////////////////
-        template <typename CONTAINER, typename FUNCTION>
-        void fir(CONTAINER container, FUNCTION function, sti advance = 1)
-        {
-            fir(container.begin(), container.end(), function, advance);
-        }
-
-
-        template <typename CONTAINER, typename FUNCTION>
-        void fer(CONTAINER container, FUNCTION function, sti advance = 1)
-        {
-            fer(container.begin(), container.end(), function, advance);
         }
 
     private:

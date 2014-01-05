@@ -20,6 +20,7 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 
 // Headers
 #include "Worker/Worker.hpp"
+#include <iostream>
 
 
 namespace ttl
