@@ -35,6 +35,7 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
     #include "Rit/Rit.hpp"
     #include "Rtc/Rtc.hpp"
     #include "Runnable/Runnable.hpp"
+    #include "Siterator/Siterator.hpp"
     #include "Singleton/Singleton.hpp"
     #include "ScopedFunction/ScopedFunction.hpp"
     #include "Sleep/Sleep.hpp"
