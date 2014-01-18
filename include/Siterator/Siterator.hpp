@@ -417,7 +417,7 @@ namespace ttl
         return Siterator<T>(n - it[0]);
     }
 
-    typedef Siterator<sti> Sit; ///< A typedef for the most common Siterator, of std::size_t: the largest indicible value.
+    typedef Siterator<Sti_t> Sit; ///< A typedef for the most common Siterator, of std::size_t: the largest indicible value.
 
 }
 

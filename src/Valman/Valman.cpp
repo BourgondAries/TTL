@@ -316,7 +316,7 @@ namespace ttl
             m_command.insert(insert_location, pure.begin(), pure.end());
 
             // Then we remove our first shortcut ||
-            sti first_of(m_command.find_first_of(shortcut));
+            Sti_t first_of(m_command.find_first_of(shortcut));
             m_command.erase(m_command.begin() + first_of, m_command.begin() + first_of + 2);
         }
 

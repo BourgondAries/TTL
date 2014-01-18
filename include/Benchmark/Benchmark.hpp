@@ -64,7 +64,7 @@ namespace ttl
         /// \param iterations The amount of calls to benchmark
         ///
         ////////////////////////////////////////////////////////////
-        Benchmark(const char *title = "Unnamed benchmark", const sti iterations = 1);
+        Benchmark(const char *title = "Unnamed benchmark", const Sti_t iterations = 1);
 
         ////////////////////////////////////////////////////////////
         /// \brief Constructor
@@ -73,7 +73,7 @@ namespace ttl
         /// \param iterations The amount of calls to benchmark
         ///
         ////////////////////////////////////////////////////////////
-        explicit Benchmark(const std::string &title, const sti iterations = 1);
+        explicit Benchmark(const std::string &title, const Sti_t iterations = 1);
 
         ////////////////////////////////////////////////////////////
         /// \brief Constructor
@@ -81,7 +81,7 @@ namespace ttl
         /// \param iterations The amount of calls to benchmark
         ///
         ////////////////////////////////////////////////////////////
-        Benchmark(const sti iterations = 1);
+        Benchmark(const Sti_t iterations = 1);
 
         ////////////////////////////////////////////////////////////
         /// \brief Copy constructor
@@ -141,11 +141,11 @@ namespace ttl
             auto fnc = std::bind(/*fnc, */std::forward<Args>(args)...);
             before = hre::now();
 
-            for (sti i = 0; i < m_iterations; ++i)
+            for (Sti_t i = 0; i < m_iterations; ++i)
     //            fnc(std::forward<Args>(args)...); // Does not work with methods
                 fnc(); // Works with methods
             after = hre::now();
-            m_average = ns(static_cast<sti>(((std::chrono::duration_cast<ns>(m_average).count() + std::chrono::duration_cast<ns>(after - before).count() / static_cast<float>(m_iterations))) / 2.f));
+            m_average = ns(static_cast<Sti_t>(((std::chrono::duration_cast<ns>(m_average).count() + std::chrono::duration_cast<ns>(after - before).count() / static_cast<float>(m_iterations))) / 2.f));
         }
 
         ////////////////////////////////////////////////////////////
@@ -158,7 +158,7 @@ namespace ttl
         /// \brief Set the amount of iterations per benchmark
         ///
         ////////////////////////////////////////////////////////////
-        void setIterations(const sti amount);
+        void setIterations(const Sti_t amount);
 
         ////////////////////////////////////////////////////////////
         /// \brief Get the average running time per benchmark
@@ -183,7 +183,7 @@ namespace ttl
 
     private:
 
-        sti m_iterations; ///< Iterations per run
+        Sti_t m_iterations; ///< Iterations per run
         std::chrono::nanoseconds m_average; ///< Average running time per call
         std::string m_name; ///< Title of this benchmark
     };

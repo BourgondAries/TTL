@@ -26,7 +26,13 @@ namespace ttl
 {
 
     ////////////////////////////////////////////////////////////
-    const std::string &Argument::getOperand(const sti id) const
+    const std::string &Argument::getOperand(const Sti_t id) const
+    {
+        return m_operands[id];
+    }
+
+    ////////////////////////////////////////////////////////////
+    std::string &Argument::getOperand(const Sti_t id)
     {
         return m_operands[id];
     }

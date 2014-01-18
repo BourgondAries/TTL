@@ -22,6 +22,7 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 #include <string>
 #include <fstream>
 #include <sstream>
+#include <stdexcept>
 
 
 namespace ttl
@@ -31,6 +32,8 @@ namespace ttl
     std::string file2str(const std::string &filename)
     {
         std::fstream input_file(filename.data(), std::ios::in);
+        if (!input_file.is_open())
+            throw std::runtime_error("File can not be found");
         std::stringstream ss;
         ss << input_file.rdbuf();
         return ss.str();

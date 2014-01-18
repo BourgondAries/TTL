@@ -28,7 +28,7 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 namespace ttl
 {
 
-    typedef std::size_t sti;
+    typedef std::size_t Sti_t;
 
 } // Namespace ttl
 

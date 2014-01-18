@@ -28,7 +28,10 @@ namespace ttl
     ////////////////////////////////////////////////////////////
     bool Argument::isPassed(const std::string &argument) const
     {
-        return (m_flags_and_parameters.find(argument) != m_flags_and_parameters.end());
+        std::string tmp = argument;
+        tmp.insert(0, "--");
+
+        return (m_flags_and_parameters.find(tmp) != m_flags_and_parameters.end());
     }
 
     ////////////////////////////////////////////////////////////
@@ -36,7 +39,8 @@ namespace ttl
     {
         std::string tmp("-");
         tmp.push_back(argument);
-        return this->isPassed(tmp);
+
+        return (m_flags_and_parameters.find(tmp) != m_flags_and_parameters.end());
     }
 
 } // Namespace ttl

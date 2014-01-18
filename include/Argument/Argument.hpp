@@ -54,7 +54,7 @@ namespace ttl
         /// \param argv The array of C-strings.
         ///
         ////////////////////////////////////////////////////////////
-        Argument(const sti argc, char **argv);
+        Argument(const Sti_t argc, char **argv);
 
         ////////////////////////////////////////////////////////////
         /// \brief Constructor taking a string, separated entries
@@ -78,7 +78,7 @@ namespace ttl
         /// \param argv The array of C-strings.
         ///
         ////////////////////////////////////////////////////////////
-        void pass(const sti argc, char **argv);
+        void pass(const Sti_t argc, char **argv);
 
         ////////////////////////////////////////////////////////////
         /// \brief For passing arguments into the parser.
@@ -177,7 +177,16 @@ namespace ttl
         /// \return the string containing the operand.
         ///
         ////////////////////////////////////////////////////////////
-        const std::string &getOperand(const sti id) const;
+        const std::string &getOperand(const Sti_t id) const;
+
+        ////////////////////////////////////////////////////////////
+        /// \brief Fetch the operand according to ID-number.
+        ///
+        /// \param id The index in the operand array.
+        /// \return the string containing the operand.
+        ///
+        ////////////////////////////////////////////////////////////
+        std::string &getOperand(const Sti_t id);
 
         ////////////////////////////////////////////////////////////
         /// \brief Get the current operand population.
@@ -185,7 +194,7 @@ namespace ttl
         /// \return The current operand population.
         ///
         ////////////////////////////////////////////////////////////
-        sti getOperandCount() const;
+        Sti_t getOperandCount() const;
 
         ////////////////////////////////////////////////////////////
         /// \brief Argument dumping output.
@@ -226,7 +235,7 @@ namespace ttl
         std::string parseEqualArgument
         (
             const std::string &argument,
-            sti x
+            Sti_t x
         );
 
         void parseEqualArgument
@@ -240,6 +249,16 @@ namespace ttl
             const std::string &argument,
             TheUnset &unset_flags
         );
+
+    public:
+
+        ////////////////////////////////////////////////////////////
+        /// \brief Get an iterator to the flags paired with their parameters.
+        ///
+        /// \return the iterator to the flags paired with their parameters.
+        ///
+        ////////////////////////////////////////////////////////////
+        auto getFlagsAndParameters() const -> const decltype(m_flags_and_parameters) &;
 
     };
 

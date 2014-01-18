@@ -97,7 +97,7 @@ namespace ttl
         /// \return the amount of readers currently reading the data.
         ///
         ////////////////////////////////////////////////////////////
-        sti getReaderCount() const
+        Sti_t getReaderCount() const
         {
             return m_synch.readers.load();
         }

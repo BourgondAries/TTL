@@ -55,7 +55,7 @@ namespace ttl
         /// \brief Constructor with worker count initialization
         ///
         ////////////////////////////////////////////////////////////
-        BatchWorker(const sti worker_count);
+        BatchWorker(const Sti_t worker_count);
 
         ////////////////////////////////////////////////////////////
         /// \brief Destructor
@@ -67,20 +67,20 @@ namespace ttl
         /// \brief Set the amount of workers
         ///
         ////////////////////////////////////////////////////////////
-        void setWorkerCount(const sti workers);
+        void setWorkerCount(const Sti_t workers);
 
         ////////////////////////////////////////////////////////////
         /// \brief Get the amount of workers
         ///
         ////////////////////////////////////////////////////////////
-        sti getWorkerCount() const;
+        Sti_t getWorkerCount() const;
 
         ////////////////////////////////////////////////////////////
         /// \brief Parallel for with thread IDs.
         ///
         ////////////////////////////////////////////////////////////
         template <typename ITERATOR, typename FUNCTION>
-        void fir(ITERATOR begin, ITERATOR end, FUNCTION fun, bool wait_for_all = true, bool main_contribute = true, const sti advance = 1)
+        void fir(ITERATOR begin, ITERATOR end, FUNCTION fun, bool wait_for_all = true, bool main_contribute = true, const Sti_t advance = 1)
         {
             static_assert(is_iterator<ITERATOR>::value, "Arguments begin and end are not valid iterators.");
             if (begin == end)
@@ -88,7 +88,7 @@ namespace ttl
                 return;
             }
 
-            const sti thread_pool_size(m_thread_pool.size());
+            const Sti_t thread_pool_size(m_thread_pool.size());
             if (m_has_waited.fetchAndSet(wait_for_all) == false)
             {
                 this->wait();
@@ -96,13 +96,13 @@ namespace ttl
             m_actively_working += thread_pool_size;
             if (wait_for_all == false) // Then main can exit the function, descoping the references
             {
-                for (sti i(0); i < thread_pool_size; ++i)
+                for (Sti_t i(0); i < thread_pool_size; ++i)
                 {
                     this->issueWorkManualIncrement
                     (
                         [i, thread_pool_size, begin, end, fun, advance, main_contribute]() -> void
                         {
-                            sti advanceperi = i * advance;
+                            Sti_t advanceperi = i * advance;
 
                             ITERATOR start(begin);
                             if (std::distance(start, end) > advanceperi)
@@ -110,7 +110,7 @@ namespace ttl
                                 std::advance(start, advanceperi);
                                 fun( *start, i );
 
-                                sti advancepertps = (thread_pool_size + (main_contribute ? 1 : 0)) * advance;
+                                Sti_t advancepertps = (thread_pool_size + (main_contribute ? 1 : 0)) * advance;
                                 while (std::distance(start, end) > advancepertps)
                                 {
                                     std::advance(start, advancepertps);
@@ -124,13 +124,13 @@ namespace ttl
             }
             else // We can rest assured; and take references.
             {
-                for (sti i(0); i < thread_pool_size; ++i)
+                for (Sti_t i(0); i < thread_pool_size; ++i)
                 {
                     this->issueWorkManualIncrement
                     (
                         [i, &thread_pool_size, &begin, &end, &fun, &advance, &main_contribute]() -> void
                         {
-                            sti advanceperi = i * advance;
+                            Sti_t advanceperi = i * advance;
 
                             ITERATOR start(begin);
                             if (std::distance(start, end) > advanceperi)
@@ -138,7 +138,7 @@ namespace ttl
                                 std::advance(start, advanceperi);
                                 fun( *start, i );
 
-                                sti advancepertps = (thread_pool_size + (main_contribute ? 1 : 0)) * advance;
+                                Sti_t advancepertps = (thread_pool_size + (main_contribute ? 1 : 0)) * advance;
                                 while (std::distance(start, end) > advancepertps)
                                 {
                                     std::advance(start, advancepertps);
@@ -152,7 +152,7 @@ namespace ttl
             }
             if (main_contribute)
             {
-                sti advanceperi = (thread_pool_size) * advance;
+                Sti_t advanceperi = (thread_pool_size) * advance;
 
                 ITERATOR start(begin);
                 if (std::distance(start, end) > advanceperi)
@@ -160,7 +160,7 @@ namespace ttl
                     std::advance(start, advanceperi);
                     fun( *start, thread_pool_size );
 
-                    sti advancepertps = (thread_pool_size + 1) * advance;
+                    Sti_t advancepertps = (thread_pool_size + 1) * advance;
                     while (std::distance(start, end) > advancepertps)
                     {
                         std::advance(start, advancepertps);
@@ -180,7 +180,7 @@ namespace ttl
         ///
         ////////////////////////////////////////////////////////////
         template <typename ITERATOR, typename FUNCTION>
-        void fer(ITERATOR begin, ITERATOR end, FUNCTION fun, bool wait_for_all = true, bool main_contribute = true, const sti advance = 1)
+        void fer(ITERATOR begin, ITERATOR end, FUNCTION fun, bool wait_for_all = true, bool main_contribute = true, const Sti_t advance = 1)
         {
             static_assert(is_iterator<ITERATOR>::value, "Arguments begin and end are not valid iterators.");
             if (begin == end)
@@ -188,7 +188,7 @@ namespace ttl
                 return;
             }
 
-            const sti thread_pool_size(m_thread_pool.size());
+            const Sti_t thread_pool_size(m_thread_pool.size());
             if (m_has_waited.fetchAndSet(wait_for_all) == false)
             {
                 this->wait();
@@ -196,13 +196,13 @@ namespace ttl
             m_actively_working += thread_pool_size;
             if (wait_for_all == false) // Then main can exit the function, descoping the references
             {
-                for (sti i(0); i < thread_pool_size; ++i)
+                for (Sti_t i(0); i < thread_pool_size; ++i)
                 {
                     this->issueWorkManualIncrement
                     (
                         [i, thread_pool_size, begin, end, fun, advance, main_contribute]() -> void
                         {
-                            sti advanceperi = i * advance;
+                            Sti_t advanceperi = i * advance;
 
                             ITERATOR start(begin);
                             if (std::distance(start, end) > advanceperi)
@@ -210,7 +210,7 @@ namespace ttl
                                 std::advance(start, advanceperi);
                                 fun( *start );
 
-                                sti advancepertps = (thread_pool_size + (main_contribute ? 1 : 0)) * advance;
+                                Sti_t advancepertps = (thread_pool_size + (main_contribute ? 1 : 0)) * advance;
                                 while (std::distance(start, end) > advancepertps)
                                 {
                                     std::advance(start, advancepertps);
@@ -224,13 +224,13 @@ namespace ttl
             }
             else // We can rest assured; and take references.
             {
-                for (sti i(0); i < thread_pool_size; ++i)
+                for (Sti_t i(0); i < thread_pool_size; ++i)
                 {
                     this->issueWorkManualIncrement
                     (
                         [i, &thread_pool_size, &begin, &end, &fun, &advance, &main_contribute]() -> void
                         {
-                            sti advanceperi = i * advance;
+                            Sti_t advanceperi = i * advance;
 
                             ITERATOR start(begin);
                             if (std::distance(start, end) > advanceperi)
@@ -238,7 +238,7 @@ namespace ttl
                                 std::advance(start, advanceperi);
                                 fun( *start );
 
-                                sti advancepertps = (thread_pool_size + (main_contribute ? 1 : 0)) * advance;
+                                Sti_t advancepertps = (thread_pool_size + (main_contribute ? 1 : 0)) * advance;
                                 while (std::distance(start, end) > advancepertps)
                                 {
                                     std::advance(start, advancepertps);
@@ -252,7 +252,7 @@ namespace ttl
             }
             if (main_contribute)
             {
-                sti advanceperi = (thread_pool_size) * advance;
+                Sti_t advanceperi = (thread_pool_size) * advance;
 
                 ITERATOR start(begin);
                 if (std::distance(start, end) > advanceperi)
@@ -260,7 +260,7 @@ namespace ttl
                     std::advance(start, advanceperi);
                     fun( *start );
 
-                    sti advancepertps = (thread_pool_size + 1) * advance;
+                    Sti_t advancepertps = (thread_pool_size + 1) * advance;
                     while (std::distance(start, end) > advancepertps)
                     {
                         std::advance(start, advancepertps);
@@ -288,7 +288,7 @@ namespace ttl
 
         ////////////////////////////////////////////////////////////
         template <typename T>
-        void issueWorkManualIncrement(const T t, const sti thread)
+        void issueWorkManualIncrement(const T t, const Sti_t thread)
         {
             m_thread_pool[thread]->issueWork
             (
@@ -308,7 +308,7 @@ namespace ttl
 
         ////////////////////////////////////////////////////////////
         std::vector<std::unique_ptr<Worker>> m_thread_pool; ///< Collection of workers
-        std::atomic<sti> m_actively_working; ///< Counter of actively working workers
+        std::atomic<Sti_t> m_actively_working; ///< Counter of actively working workers
         ttl::Flare m_threads_done; ///< Notified when all threads have finished.
         Bool m_has_waited;
 

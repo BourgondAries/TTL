@@ -31,7 +31,7 @@ namespace ttl
     }
 
 
-    Argument::Argument(const sti argc, char *argv[])
+    Argument::Argument(const Sti_t argc, char *argv[])
     {
         this->pass(argc, argv);
     }

@@ -28,19 +28,19 @@ namespace ttl
 {
 
     ////////////////////////////////////////////////////////////
-    void sleep(const sti sec)
+    void sleep(const Sti_t sec)
     {
         std::this_thread::sleep_for(std::chrono::seconds(sec));
     }
 
     ////////////////////////////////////////////////////////////
-    void msleep(const sti msec)
+    void msleep(const Sti_t msec)
     {
         std::this_thread::sleep_for(std::chrono::milliseconds(msec));
     }
 
     ////////////////////////////////////////////////////////////
-    void usleep(const sti usec)
+    void usleep(const Sti_t usec)
     {
         std::this_thread::sleep_for(std::chrono::microseconds(usec));
     }

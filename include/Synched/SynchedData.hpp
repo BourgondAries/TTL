@@ -42,7 +42,7 @@ namespace ttl
 
         std::mutex  entry_mutex;
         ttl::Flare  writer_activation;
-        std::atomic<sti> readers;
+        std::atomic<Sti_t> readers;
     };
 
 } // Namespace ttl

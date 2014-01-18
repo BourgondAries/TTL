@@ -26,21 +26,21 @@ namespace ttl
 {
 
     ////////////////////////////////////////////////////////////
-    Benchmark::Benchmark(const char *title, const sti iterations)
+    Benchmark::Benchmark(const char *title, const Sti_t iterations)
     :
         m_iterations(iterations),
         m_average(0),
         m_name(title){}
 
     ////////////////////////////////////////////////////////////
-    Benchmark::Benchmark(const std::string &title, const sti iterations)
+    Benchmark::Benchmark(const std::string &title, const Sti_t iterations)
     :
         m_iterations(iterations),
         m_average(0),
         m_name(title){}
 
     ////////////////////////////////////////////////////////////
-    Benchmark::Benchmark(const sti iterations)
+    Benchmark::Benchmark(const Sti_t iterations)
     :
         m_iterations(iterations),
         m_average(0),
@@ -99,7 +99,7 @@ namespace ttl
     }
 
     ////////////////////////////////////////////////////////////
-    void Benchmark::setIterations(const sti amount)
+    void Benchmark::setIterations(const Sti_t amount)
     {
         m_iterations = amount;
     }

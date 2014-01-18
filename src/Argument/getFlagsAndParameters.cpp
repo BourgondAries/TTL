@@ -18,31 +18,17 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 
-#ifndef SLEEP_HPP_INCLUDED
-#define SLEEP_HPP_INCLUDED
-
 // Headers
-#include "Ttldef/Ttldef.hpp"
+#include "Argument/Argument.hpp"
 
 
 namespace ttl
 {
 
     ////////////////////////////////////////////////////////////
-    /// \brief sleep for specified seconds
-    ////////////////////////////////////////////////////////////
-    extern void sleep(Sti_t sec);
-
-    ////////////////////////////////////////////////////////////
-    /// \brief sleep for specified milliseconds
-    ////////////////////////////////////////////////////////////
-    extern void msleep(Sti_t msec);
-
-    ////////////////////////////////////////////////////////////
-    /// \brief sleep for specified microseconds
-    ////////////////////////////////////////////////////////////
-    extern void usleep(Sti_t usec);
+    auto Argument::getFlagsAndParameters() const -> const decltype(m_flags_and_parameters) &
+    {
+        return m_flags_and_parameters;
+    }
 
 } // Namespace ttl
-
-#endif // SLEEP_HPP_INCLUDED

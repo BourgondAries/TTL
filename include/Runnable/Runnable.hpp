@@ -63,13 +63,13 @@ namespace ttl
                     {
                         if (runnable)
                         {
-                            sti cycle_count = 0;
+                            Sti_t cycle_count = 0;
                             std::unique_ptr<Runnable> holder;
                             system_log << Timestamp << "Created temporary\n";
 
                             do
                             {
-                                if (cycle_count == std::numeric_limits<sti>::max())
+                                if (cycle_count == std::numeric_limits<Sti_t>::max())
                                 {
                                     cycle_count = 0;
                                     system_log << Timestamp << "Cycle count resetted\n";
