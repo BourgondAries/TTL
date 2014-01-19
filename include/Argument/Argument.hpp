@@ -206,6 +206,8 @@ namespace ttl
         ////////////////////////////////////////////////////////////
         friend ::std::ostream &operator<<(::std::ostream &out, const ttl::Argument &argument);
 
+
+
     private:
 
         std::string m_path; ///< Holds the path string (argv[0]).
@@ -219,6 +221,8 @@ namespace ttl
         typedef
             std::stack<InsertReturn>
             TheUnset;
+
+        const std::string &getArgumentInternal(const std::string &flag) const;
 
         void setArgumentOfUnsetUninertFlag
         (

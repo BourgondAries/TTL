@@ -28,7 +28,9 @@ namespace ttl
     ////////////////////////////////////////////////////////////
     const std::string &Argument::getArgument(const std::string &flag) const
     {
-        return m_flags_and_parameters.find(flag)->second;
+        std::string tmp("--");
+        tmp.append(flag);
+        return this->getArgumentInternal(tmp);
     }
 
     ////////////////////////////////////////////////////////////
@@ -36,7 +38,7 @@ namespace ttl
     {
         std::string tmp("-");
         tmp.push_back(flag);
-        return this->getArgument(tmp);
+        return this->getArgumentInternal(tmp);
     }
 
 } // Namespace ttl
