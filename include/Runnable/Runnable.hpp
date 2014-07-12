@@ -1,5 +1,5 @@
 /*
-Copyright 2013 Kevin Robert Stravers
+Copyright 2013, 2014 Kevin Robert Stravers
 
 This file is part of TTL.
 
@@ -23,8 +23,8 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 
 // Headers
 #include <memory>
-#include <TTL/Logger/Logger.hpp>
-#include "Ttldef/Ttldef.hpp"
+#include <../include/Logger/Logger.hpp>
+#include "../include/Ttldef/Ttldef.hpp"
 
 
 namespace ttl

@@ -1,5 +1,5 @@
 /*
-Copyright 2013 Kevin Robert Stravers
+Copyright 2013, 2014 Kevin Robert Stravers
 
 This file is part of TTL.
 
@@ -24,8 +24,8 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 // Headers
 #include <mutex>
 #include <atomic>
-#include <TTL/Flare/Flare.hpp>
-#include "Ttldef/Ttldef.hpp"
+#include <../include/Flare/Flare.hpp>
+#include "../include/Ttldef/Ttldef.hpp"
 
 
 namespace ttl

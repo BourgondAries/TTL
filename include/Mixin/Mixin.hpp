@@ -1,5 +1,5 @@
 /*
-Copyright 2013 Kevin Robert Stravers
+Copyright 2013, 2014 Kevin Robert Stravers
 
 This file is part of TTL.
 
@@ -22,7 +22,7 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 #define MIXIN_HPP_INCLUDED
 
 // Headers
-#include "Ttldef/Ttldef.hpp"
+#include "../include/Ttldef/Ttldef.hpp"
 #include <tuple>
 #include <type_traits>
 #include <utility>

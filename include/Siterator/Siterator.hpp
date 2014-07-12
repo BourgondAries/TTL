@@ -1,5 +1,5 @@
 /*
-Copyright 2013-2014 Kevin Robert Stravers
+Copyright 2013, 2014-2014 Kevin Robert Stravers
 
 This file is part of TTL.
 
@@ -23,7 +23,7 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 // Headers
 #include <iterator>
 #include <utility>
-#include <Ttldef/Ttldef.hpp>
+#include <../include/Ttldef/Ttldef.hpp>
 
 
 namespace ttl
