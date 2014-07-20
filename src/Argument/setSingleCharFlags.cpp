@@ -50,7 +50,7 @@ namespace ttl
                     + argument[x], ""
                 )
             );
-            if (!isInert(std::string("-") + argument[x]))
+            if (!isInert(argument[x]))
             {
                 unset_flags.push
                 (

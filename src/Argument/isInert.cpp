@@ -27,15 +27,15 @@ namespace ttl
 
     bool Argument::isInert(const std::string &flag) const
     {
-        return (m_inert_flags.find(flag) != m_inert_flags.end());
+        return (m_inert_flags.find("--" + flag) != m_inert_flags.end());
     }
 
 
     bool Argument::isInert(const char flag) const
     {
-        std::string tmp;
-        tmp.push_back(flag);
-        return this->isInert(tmp);
+        std::string tmp = "-";
+        tmp += flag;
+        return (m_inert_flags.find(tmp) != m_inert_flags.end());
     }
 
 } // Namespace ttl

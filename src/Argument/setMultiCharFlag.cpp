@@ -70,6 +70,7 @@ namespace ttl
                     tmp, ""
                 )
             );
+            tmp.erase(0, 2); // Erase the starting --
             if (!isInert(tmp))
             {
                 unset_flags.push

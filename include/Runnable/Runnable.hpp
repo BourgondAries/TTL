@@ -24,7 +24,7 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 // Headers
 #include <memory>
 #include <TTL/Logger/Logger.hpp>
-#include "Ttldef/Ttldef.hpp"
+#include "TTL/Ttldef/Ttldef.hpp"
 
 
 namespace ttl

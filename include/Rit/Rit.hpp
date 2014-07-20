@@ -22,7 +22,7 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 #define RIT_HPP_INCLUDED
 
 // Headers
-#include "Ttldef/Ttldef.hpp"
+#include "TTL/Ttldef/Ttldef.hpp"
 
 
 namespace ttl

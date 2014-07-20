@@ -23,8 +23,8 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 
 // Headers
 #include <thread>
-#include "Ttldef/Ttldef.hpp"
-#include "Sleep/Sleep.hpp"
+#include <TTL/Ttldef/Ttldef.hpp>
+#include <TTL/Sleep/Sleep.hpp>
 #include <atomic>
 #include <vector>
 #include <cassert>
@@ -175,6 +175,7 @@ namespace ttl
 
         }
 
+
         ////////////////////////////////////////////////////////////
         /// \brief Parallel for.
         ///
@@ -264,6 +265,105 @@ namespace ttl
                     while (std::distance(start, end) > advancepertps)
                     {
                         std::advance(start, advancepertps);
+                        fun( *start );
+                    }
+                }
+            }
+            if (wait_for_all)
+            {
+                this->wait();
+            }
+        }
+
+        ////////////////////////////////////////////////////////////
+        /// \brief Parallel for.
+        ///
+        ////////////////////////////////////////////////////////////
+        template <typename ITERATOR, typename FUNCTION>
+        void fer2(ITERATOR begin, ITERATOR end, FUNCTION fun, bool wait_for_all = true, bool main_contribute = true, const Sti_t advance = 1)
+        {
+            static_assert(is_iterator<ITERATOR>::value, "Arguments begin and end are not valid iterators.");
+            if (begin == end)
+            {
+                return;
+            }
+
+            const Sti_t thread_pool_size(m_thread_pool.size());
+            if (m_has_waited.fetchAndSet(wait_for_all) == false)
+            {
+                this->wait();
+            }
+            m_actively_working += thread_pool_size;
+            if (wait_for_all == false) // Then main can exit the function, descoping the references
+            {
+                for (Sti_t i(0); i < thread_pool_size; ++i)
+                {
+                    this->issueWorkManualIncrement
+                    (
+                        [i, thread_pool_size, begin, end, fun, advance, main_contribute]() -> void
+                        {
+                            Sti_t advanceperi = i * advance;
+
+                            ITERATOR start(begin);
+                            if (std::distance(start, end) > advanceperi)
+                            {
+                                start += advanceperi;
+                                fun( *start );
+
+                                Sti_t advancepertps = (thread_pool_size + (main_contribute ? 1 : 0)) * advance;
+                                while (std::distance(start, end) > advancepertps)
+                                {
+                                    start += advancepertps;
+                                    fun( *start );
+                                }
+                            }
+                        },
+                        i
+                    );
+                }
+            }
+            else // We can rest assured; and take references.
+            {
+                for (Sti_t i(0); i < thread_pool_size; ++i)
+                {
+                    this->issueWorkManualIncrement
+                    (
+                        [i, &thread_pool_size, &begin, &end, &fun, &advance, &main_contribute]() -> void
+                        {
+                            Sti_t advanceperi = i * advance;
+
+                            ITERATOR start(begin);
+                            if (std::distance(start, end) > advanceperi)
+                            {
+                                start += advanceperi;
+                                fun( *start );
+
+                                Sti_t advancepertps = (thread_pool_size + (main_contribute ? 1 : 0)) * advance;
+                                while (std::distance(start, end) > advancepertps)
+                                {
+                                    start += advancepertps;
+                                    fun( *start );
+                                }
+                            }
+                        },
+                        i
+                    );
+                }
+            }
+            if (main_contribute)
+            {
+                Sti_t advanceperi = (thread_pool_size) * advance;
+
+                ITERATOR start(begin);
+                if (std::distance(start, end) > advanceperi)
+                {
+                    start += advanceperi;
+                    fun( *start );
+
+                    Sti_t advancepertps = (thread_pool_size + 1) * advance;
+                    while (std::distance(start, end) > advancepertps)
+                    {
+                        start += advancepertps;
                         fun( *start );
                     }
                 }

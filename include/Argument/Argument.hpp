@@ -27,7 +27,7 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 #include <set>
 #include <vector>
 #include <stack>
-#include "Ttldef/Ttldef.hpp"
+#include "TTL/Ttldef/Ttldef.hpp"
 
 
 namespace ttl
@@ -89,17 +89,17 @@ namespace ttl
         void pass(const std::string &argument);
 
         ////////////////////////////////////////////////////////////
-        /// \brief Query whether a flag is passed.
+        /// \brief Query whether a multi-character flag is passed.
         ///
         /// \param flag The flag to check.
-        /// MUST prepend - or -- depending on the argument.
+        /// MUST be a multi-char flag (no need to prepend --).
         /// \return whether it is passed or not.
         ///
         ////////////////////////////////////////////////////////////
         bool isPassed(const std::string &flag) const;
 
         ////////////////////////////////////////////////////////////
-        /// \brief Query whether a flag is passed.
+        /// \brief Query whether a single-character flag is passed.
         ///
         /// \param flag The flag to check.
         /// \return whether it is passed or not.
@@ -150,6 +150,22 @@ namespace ttl
         ///
         ////////////////////////////////////////////////////////////
         void setInert(const char flag);
+
+        ////////////////////////////////////////////////////////////
+        /// \brief Specify which flags are inert.
+        ///
+        /// \param flags The flags to inertify.
+        ///
+        ////////////////////////////////////////////////////////////
+        void setInert(const std::initializer_list<const char> flags);
+
+        ////////////////////////////////////////////////////////////
+        /// \brief Specify which flags are inert.
+        ///
+        /// \param flags The flags to inertify.
+        ///
+        ////////////////////////////////////////////////////////////
+        void setInert(const std::initializer_list<const std::string> flags);
 
         ////////////////////////////////////////////////////////////
         /// \brief Query whether a flag is inert.
@@ -207,7 +223,6 @@ namespace ttl
         friend ::std::ostream &operator<<(::std::ostream &out, const ttl::Argument &argument);
 
 
-
     private:
 
         std::string m_path; ///< Holds the path string (argv[0]).
@@ -253,6 +268,12 @@ namespace ttl
             const std::string &argument,
             TheUnset &unset_flags
         );
+
+        void internalSetInert
+        (
+            const std::string &flag
+        );
+
 
     public:
 

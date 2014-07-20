@@ -26,7 +26,7 @@ namespace ttl
 {
 
     ////////////////////////////////////////////////////////////
-    void Argument::setInert(const std::string &flag)
+    void Argument::internalSetInert(const std::string &flag)
     {
         const Sti_t sz = flag.size();
         if (sz > 0)
@@ -39,14 +39,18 @@ namespace ttl
                 }
                 else
                 {
-                    for (Sti_t i = 1; i < sz; ++i)
-                    {
-                        m_inert_flags.insert(std::string("-") + flag[i]);
-                    }
+                    m_inert_flags.insert(std::string("-") + flag[1]);
                 }
             }
         }
+    }
 
+    ////////////////////////////////////////////////////////////
+    void Argument::setInert(const std::string &flag)
+    {
+        std::string tmp("--");
+        tmp += flag;
+        m_inert_flags.insert(tmp);
     }
 
     ////////////////////////////////////////////////////////////
@@ -54,7 +58,21 @@ namespace ttl
     {
         std::string tmp("-");
         tmp.push_back(flag);
-        this->setInert(tmp);
+        m_inert_flags.insert(tmp);
+    }
+
+    ////////////////////////////////////////////////////////////
+    void Argument::setInert(const std::initializer_list<const char> flags)
+    {
+        for (auto &x : flags)
+            setInert(x);
+    }
+
+    ////////////////////////////////////////////////////////////
+    void Argument::setInert(const std::initializer_list<const std::string> flags)
+    {
+        for (auto &x : flags)
+            setInert(x);
     }
 
 } // Namespace ttl
