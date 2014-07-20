@@ -1,5 +1,5 @@
 /*
-Copyright 2013 Kevin Robert Stravers
+Copyright 2013, 2014 Kevin Robert Stravers
 
 This file is part of TTL.
 
@@ -22,7 +22,7 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 #define RTC_HPP_INCLUDED
 
 // Headers
-#include "TTL/Debug/Debug.hpp"
+#include "../include/Debug/Debug.hpp"
 
 
 namespace ttl

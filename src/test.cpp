@@ -4,7 +4,7 @@
 #include "TTL/TTL.hpp"
 
 
-TEST_CASE ( "Argument Parser is Tested", "[factorial]" )
+TEST_CASE ( "Argument Parser is Tested", "[Argument]" )
 {
     ttl::Argument arg;
 

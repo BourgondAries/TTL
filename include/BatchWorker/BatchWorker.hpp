@@ -1,5 +1,5 @@
 /*
-Copyright 2013-2014 Kevin Robert Stravers
+Copyright 2013, 2014 Kevin Robert Stravers
 
 This file is part of TTL.
 
@@ -29,9 +29,9 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 #include <vector>
 #include <cassert>
 #include <iostream>
-#include <TTL/Flare/Flare.hpp>
-#include <TTL/Worker/Worker.hpp>
-#include <TTL/Bool/Bool.hpp>
+#include <../include/Flare/Flare.hpp>
+#include <../include/Worker/Worker.hpp>
+#include <../include/Bool/Bool.hpp>
 
 
 namespace ttl

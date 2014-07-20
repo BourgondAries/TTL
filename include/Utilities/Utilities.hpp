@@ -1,5 +1,5 @@
 /*
-Copyright 2013 Kevin Robert Stravers
+Copyright 2013, 2014 Kevin Robert Stravers
 
 This file is part of TTL.
 
@@ -21,8 +21,8 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef UTILITIES_HPP_INCLUDED
 #define UTILITIES_HPP_INCLUDED
 
-#include <TTL/Synched/Synched.hpp>
-#include <TTL/Valman/Valman.hpp>
+#include <../include/Synched/Synched.hpp>
+#include <../include/Valman/Valman.hpp>
 
 namespace ttl
 {

@@ -1,5 +1,5 @@
 /*
-Copyright 2013 Kevin Robert Stravers
+Copyright 2013, 2014 Kevin Robert Stravers
 
 This file is part of TTL.
 
@@ -28,7 +28,7 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 #include <thread>
 #include <sstream>
 #include <chrono>
-#include <TTL/Timestamp/Timestamp.hpp>
+#include <../include/Timestamp/Timestamp.hpp>
 
 
 namespace ttl

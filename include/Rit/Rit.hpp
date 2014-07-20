@@ -1,5 +1,5 @@
 /*
-Copyright 2013 Kevin Robert Stravers
+Copyright 2013, 2014 Kevin Robert Stravers
 
 This file is part of TTL.
 
@@ -176,7 +176,7 @@ namespace ttl
 /// Where r is a ttl::Rit(10, 1) object, and b is a
 /// ttl::Bool(true) object. Putting these in a Mixin
 /// is a very clean solution:
-/// ttl::Mixin<ttl::Bool, ttl::Rit> persisted_distribution;
+/// ttl::Mixin<../include::Bool, ttl::Rit> persisted_distribution;
 /// auto &x = persisted_distribution;
 /// x.ttl::Bool::fetch_and_set(true);
 /// x.ttl::Rit::setDistribution(10, 1);
