@@ -22,7 +22,7 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 #define RIT_HPP_INCLUDED
 
 // Headers
-#include "TTL/Ttldef/Ttldef.hpp"
+#include <TTL/Ttldef/Ttldef.hpp>
 
 
 namespace ttl
@@ -176,7 +176,7 @@ namespace ttl
 /// Where r is a ttl::Rit(10, 1) object, and b is a
 /// ttl::Bool(true) object. Putting these in a Mixin
 /// is a very clean solution:
-/// ttl::Mixin<../include::Bool, ttl::Rit> persisted_distribution;
+/// ttl::Mixin<TTL::Bool, ttl::Rit> persisted_distribution;
 /// auto &x = persisted_distribution;
 /// x.ttl::Bool::fetch_and_set(true);
 /// x.ttl::Rit::setDistribution(10, 1);

@@ -22,7 +22,7 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 #define RTC_HPP_INCLUDED
 
 // Headers
-#include "../include/Debug/Debug.hpp"
+#include <TTL/Debug/Debug.hpp>
 
 
 namespace ttl

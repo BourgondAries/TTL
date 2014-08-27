@@ -28,7 +28,7 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 #include <thread>
 #include <sstream>
 #include <chrono>
-#include <../include/Timestamp/Timestamp.hpp>
+#include <TTL/Timestamp/Timestamp.hpp>
 
 
 namespace ttl

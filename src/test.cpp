@@ -44,16 +44,55 @@ TEST_CASE ( "Argument Parser is Tested", "[Argument]" )
     REQUIRE ( arg.isInert('q') == false );
     REQUIRE ( arg.getArgument('q') == "atom" );
 
+    {
+        std::string str;
+        for (std::size_t i = 0; i < arg.getOperandCount(); ++i)
+        {
+            str += arg.getOperand(i);
+        }
+        REQUIRE ( str == "folder/filenamesystem-pcontroldata" );
+    }
 
-//    SECTION ( "Parsing arguments directly from the command line" )
-//    {
-//        ttl::Argument arguments();
-//        REQUIRE( 1 == 1 );
-//    }
+    ttl::Argument arg2;
+    arg2.pass("a derp \"herp merp\"");
+    REQUIRE ( arg2.getOperandCount() == 2 );
 }
 
 
-TEST_CASE ("This is another case which fails", "[fail]")
+TEST_CASE ("Testing file2str", "[file2str]")
 {
-    REQUIRE ( 1 == 1 );
+    REQUIRE ( ttl::file2str("../../rsc/test_file.txt") == "test\ntext" );
 }
+
+
+TEST_CASE ("Trying to sleep", "[sleep]")
+{
+    ttl::Sti_t now = std::time(nullptr);
+    ttl::msleep(1100);
+    now -= std::time(nullptr);
+    now = -now;
+    REQUIRE ( now >= 1 );
+}
+
+
+TEST_CASE ("Rit binary distribution", "[rit]")
+{
+    ttl::Rit rit;
+    enum {first, second} which = first;
+    for (int i = 0; i < 30; ++i)
+    {
+        if (rit.isFirstReady())
+        {
+            REQUIRE ( which == first );
+            which = second;
+        }
+        else if (rit.isSecondReady())
+        {
+            REQUIRE ( which == second );
+            which = first;
+        }
+    }
+}
+
+
+

@@ -27,7 +27,7 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 #include <set>
 #include <vector>
 #include <stack>
-#include "TTL/Ttldef/Ttldef.hpp"
+#include <TTL/Ttldef/Ttldef.hpp>
 
 
 namespace ttl
@@ -49,6 +49,11 @@ namespace ttl
 
         ////////////////////////////////////////////////////////////
         /// \brief Constructor taking traditional arguments.
+        ///
+        /// Same scheme as the standard int main ( int argc, char *argv[]).
+        /// In this case, a ** is necessary as the language does not allow
+        /// the declaration of an array. Regardless, arrays degenerate
+        /// into pointers.
         ///
         /// \param argc The count of arguments.
         /// \param argv The array of C-strings.

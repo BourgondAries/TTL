@@ -29,9 +29,9 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 #include <vector>
 #include <cassert>
 #include <iostream>
-#include <../include/Flare/Flare.hpp>
-#include <../include/Worker/Worker.hpp>
-#include <../include/Bool/Bool.hpp>
+#include <TTL/Flare/Flare.hpp>
+#include <TTL/Worker/Worker.hpp>
+#include <TTL/Bool/Bool.hpp>
 
 
 namespace ttl

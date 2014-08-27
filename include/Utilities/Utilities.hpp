@@ -21,8 +21,9 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef UTILITIES_HPP_INCLUDED
 #define UTILITIES_HPP_INCLUDED
 
-#include <../include/Synched/Synched.hpp>
-#include <../include/Valman/Valman.hpp>
+#include <TTL/Synched/Synched.hpp>
+#include <TTL/Valman/Valman.hpp>
+
 
 namespace ttl
 {

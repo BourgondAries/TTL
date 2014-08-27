@@ -22,7 +22,7 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 #define MIXIN_HPP_INCLUDED
 
 // Headers
-#include "TTL/Ttldef/Ttldef.hpp"
+#include <TTL/Ttldef/Ttldef.hpp>
 #include <tuple>
 #include <type_traits>
 #include <utility>
