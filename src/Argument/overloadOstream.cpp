@@ -27,47 +27,47 @@ along with schdl.  If not, see <http://www.gnu.org/licenses/>.
 namespace ttl
 {
 
-    std::ostream &operator<<(std::ostream &out, const ttl::Argument &argument)
-    {
-        // Find the longest flag:
-        Sti_t longest_flag = 0;
-        Sti_t longest_argument = 0;
-        for (auto &x : argument.m_flags_and_parameters)
-        {
-            if (longest_flag < x.first.size())
-            {
-                longest_flag = x.first.size();
-            }
-            if (longest_argument < x.second.size())
-            {
-                longest_argument = x.second.size();
-            }
-        }
+	std::ostream &operator<<(std::ostream &out, const ttl::Argument &argument)
+	{
+		// Find the longest flag:
+		Sti_t longest_flag = 0;
+		Sti_t longest_argument = 0;
+		for (auto &x : argument.m_flags_and_parameters)
+		{
+			if (longest_flag < x.first.size())
+			{
+				longest_flag = x.first.size();
+			}
+			if (longest_argument < x.second.size())
+			{
+				longest_argument = x.second.size();
+			}
+		}
 
-        out << "Path: " << argument.m_path << "\n";
-        out
-            << std::setw(longest_flag)
-            << "Flag"
-            << std::setw(8)
-            << "Inertia"
-            << " "
-            << "Argument\n";
-        for (auto &x : argument.m_flags_and_parameters)
-        {
-            out
-                << std::setw(longest_flag) << x.first
-                << std::setw(3) << (argument.isInert(x.first) ? 'X' : ' ' )
-                << "      " << x.second
-                << "\n";
-        }
+		out << "Path: " << argument.m_path << "\n";
+		out
+			<< std::setw(longest_flag)
+			<< "Flag"
+			<< std::setw(8)
+			<< "Inertia"
+			<< " "
+			<< "Argument\n";
+		for (auto &x : argument.m_flags_and_parameters)
+		{
+			out
+				<< std::setw(longest_flag) << x.first
+				<< std::setw(3) << (argument.isInert(x.first) ? 'X' : ' ' )
+				<< "      " << x.second
+				<< "\n";
+		}
 
-        out << "\n" << "Operands\n";
-        for (auto &x : argument.m_operands)
-        {
-            out
-                << " " << x << "\n";
-        }
-        return out;
-    }
+		out << "\n" << "Operands\n";
+		for (auto &x : argument.m_operands)
+		{
+			out
+				<< " " << x << "\n";
+		}
+		return out;
+	}
 
 } // Namespace ttl

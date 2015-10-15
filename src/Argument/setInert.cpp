@@ -25,54 +25,54 @@ along with schdl.  If not, see <http://www.gnu.org/licenses/>.
 namespace ttl
 {
 
-    ////////////////////////////////////////////////////////////
-    void Argument::internalSetInert(const std::string &flag)
-    {
-        const Sti_t sz = flag.size();
-        if (sz > 0)
-        {
-            if (flag[0] == '-')
-            {
-                if (sz > 1 && flag[1] == '-')
-                {
-                    m_inert_flags.insert(flag);
-                }
-                else
-                {
-                    m_inert_flags.insert(std::string("-") + flag[1]);
-                }
-            }
-        }
-    }
+	////////////////////////////////////////////////////////////
+	void Argument::internalSetInert(const std::string &flag)
+	{
+		const Sti_t sz = flag.size();
+		if (sz > 0)
+		{
+			if (flag[0] == '-')
+			{
+				if (sz > 1 && flag[1] == '-')
+				{
+					m_inert_flags.insert(flag);
+				}
+				else
+				{
+					m_inert_flags.insert(std::string("-") + flag[1]);
+				}
+			}
+		}
+	}
 
-    ////////////////////////////////////////////////////////////
-    void Argument::setInert(const std::string &flag)
-    {
-        std::string tmp("--");
-        tmp += flag;
-        m_inert_flags.insert(tmp);
-    }
+	////////////////////////////////////////////////////////////
+	void Argument::setInert(const std::string &flag)
+	{
+		std::string tmp("--");
+		tmp += flag;
+		m_inert_flags.insert(tmp);
+	}
 
-    ////////////////////////////////////////////////////////////
-    void Argument::setInert(const char flag)
-    {
-        std::string tmp("-");
-        tmp.push_back(flag);
-        m_inert_flags.insert(tmp);
-    }
+	////////////////////////////////////////////////////////////
+	void Argument::setInert(const char flag)
+	{
+		std::string tmp("-");
+		tmp.push_back(flag);
+		m_inert_flags.insert(tmp);
+	}
 
-    ////////////////////////////////////////////////////////////
-    void Argument::setInert(const std::initializer_list<const char> flags)
-    {
-        for (auto &x : flags)
-            setInert(x);
-    }
+	////////////////////////////////////////////////////////////
+	void Argument::setInert(const std::initializer_list<const char> flags)
+	{
+		for (auto &x : flags)
+			setInert(x);
+	}
 
-    ////////////////////////////////////////////////////////////
-    void Argument::setInert(const std::initializer_list<const std::string> flags)
-    {
-        for (auto &x : flags)
-            setInert(x);
-    }
+	////////////////////////////////////////////////////////////
+	void Argument::setInert(const std::initializer_list<const std::string> flags)
+	{
+		for (auto &x : flags)
+			setInert(x);
+	}
 
 } // Namespace ttl

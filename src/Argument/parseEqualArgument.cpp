@@ -25,13 +25,13 @@ along with schdl.  If not, see <http://www.gnu.org/licenses/>.
 namespace ttl
 {
 
-    std::string Argument::parseEqualArgument
-    (
-        const std::string &argument,
-        Sti_t x
-    )
-    {
-        return std::string(argument.begin() + x + 1u, argument.end());
-    }
+	std::string Argument::parseEqualArgument
+	(
+		const std::string &argument,
+		Sti_t x
+	)
+	{
+		return std::string(argument.begin() + x + 1u, argument.end());
+	}
 
 } // Namespace ttl

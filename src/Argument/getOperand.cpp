@@ -25,16 +25,16 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 namespace ttl
 {
 
-    ////////////////////////////////////////////////////////////
-    const std::string &Argument::getOperand(const Sti_t id) const
-    {
-        return m_operands[id];
-    }
+	////////////////////////////////////////////////////////////
+	const std::string &Argument::getOperand(const Sti_t id) const
+	{
+		return m_operands[id];
+	}
 
-    ////////////////////////////////////////////////////////////
-    std::string &Argument::getOperand(const Sti_t id)
-    {
-        return m_operands[id];
-    }
+	////////////////////////////////////////////////////////////
+	std::string &Argument::getOperand(const Sti_t id)
+	{
+		return m_operands[id];
+	}
 
 } // Namespace ttl

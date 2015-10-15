@@ -25,10 +25,10 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 namespace ttl
 {
 
-    ////////////////////////////////////////////////////////////
-    const std::string &Argument::getPath() const
-    {
-        return m_path;
-    }
+	////////////////////////////////////////////////////////////
+	const std::string &Argument::getPath() const
+	{
+		return m_path;
+	}
 
 } // Namespace ttl

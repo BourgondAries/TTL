@@ -25,21 +25,21 @@ along with schdl.  If not, see <http://www.gnu.org/licenses/>.
 namespace ttl
 {
 
-    void Argument::setArgumentOfUnsetUninertFlag
-    (
-        const std::string &argument,
-        TheUnset &unset_flags
-    )
-    {
-        if (unset_flags.size() > 0)
-        {
-            unset_flags.top().first->second = argument;
-            unset_flags.pop();
-        }
-        else
-        {
-            m_operands.emplace_back(argument);
-        }
-    }
+	void Argument::setArgumentOfUnsetUninertFlag
+	(
+		const std::string &argument,
+		TheUnset &unset_flags
+	)
+	{
+		if (unset_flags.size() > 0)
+		{
+			unset_flags.top().first->second = argument;
+			unset_flags.pop();
+		}
+		else
+		{
+			m_operands.emplace_back(argument);
+		}
+	}
 
 } // Namespace ttl

@@ -10,7 +10,7 @@ the Free Software Foundation, either version 3 of the License, or
 
 TTL is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
@@ -25,27 +25,27 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 namespace ttl
 {
 
-    Argument::Argument()
-    {
+	Argument::Argument()
+	{
 
-    }
-
-
-    Argument::Argument(const Sti_t argc, char *argv[])
-    {
-        this->pass(argc, argv);
-    }
+	}
 
 
-    Argument::Argument(const std::string &argument)
-    {
-        this->pass(argument);
-    }
+	Argument::Argument(const Sti_t argc, char *argv[])
+	{
+			this->pass(argc, argv);
+	}
 
 
-    Argument::~Argument()
-    {
+	Argument::Argument(const std::string &argument)
+	{
+			this->pass(argument);
+	}
 
-    }
+
+	Argument::~Argument()
+	{
+
+	}
 
 } // Namespace ttl

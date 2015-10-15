@@ -25,17 +25,17 @@ along with schdl.  If not, see <http://www.gnu.org/licenses/>.
 namespace ttl
 {
 
-    bool Argument::isInert(const std::string &flag) const
-    {
-        return (m_inert_flags.find("--" + flag) != m_inert_flags.end());
-    }
+	bool Argument::isInert(const std::string &flag) const
+	{
+		return (m_inert_flags.find("--" + flag) != m_inert_flags.end());
+	}
 
 
-    bool Argument::isInert(const char flag) const
-    {
-        std::string tmp = "-";
-        tmp += flag;
-        return (m_inert_flags.find(tmp) != m_inert_flags.end());
-    }
+	bool Argument::isInert(const char flag) const
+	{
+		std::string tmp = "-";
+		tmp += flag;
+		return (m_inert_flags.find(tmp) != m_inert_flags.end());
+	}
 
 } // Namespace ttl

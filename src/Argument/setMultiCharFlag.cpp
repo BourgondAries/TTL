@@ -25,60 +25,60 @@ along with schdl.  If not, see <http://www.gnu.org/licenses/>.
 namespace ttl
 {
 
-    ////////////////////////////////////////////////////////////
-    void Argument::setMultiCharFlag
-    (
-        const std::string &argument,
-        TheUnset &unset_flags
-    )
-    {
-        std::string tmp("--");
-        for (Sti_t x = 2u; x < argument.size(); ++x)
-        {
-            if (argument[x] == '=')
-            {
-                {
-                    InsertReturn it = m_flags_and_parameters.insert
-                    (
-                        std::make_pair
-                        (
-                            tmp, ""
-                        )
-                    );
-                    if (!isInert(tmp))
-                    {
-                        unset_flags.push
-                        (
-                            it
-                        );
-                    }
-                }
-                setArgumentOfUnsetUninertFlag
-                (
-                    parseEqualArgument(argument, x),
-                    unset_flags
-                );
-                return;
-            }
-            tmp.push_back(argument[x]);
-        }
-        {
-            InsertReturn it = m_flags_and_parameters.insert
-            (
-                std::make_pair
-                (
-                    tmp, ""
-                )
-            );
-            tmp.erase(0, 2); // Erase the starting --
-            if (!isInert(tmp))
-            {
-                unset_flags.push
-                (
-                    it
-                );
-            }
-        }
-    }
+	////////////////////////////////////////////////////////////
+	void Argument::setMultiCharFlag
+	(
+		const std::string &argument,
+		TheUnset &unset_flags
+	)
+	{
+		std::string tmp("--");
+		for (Sti_t x = 2u; x < argument.size(); ++x)
+		{
+			if (argument[x] == '=')
+			{
+				{
+					InsertReturn it = m_flags_and_parameters.insert
+					(
+						std::make_pair
+						(
+							tmp, ""
+						)
+					);
+					if (!isInert(tmp))
+					{
+						unset_flags.push
+						(
+							it
+						);
+					}
+				}
+				setArgumentOfUnsetUninertFlag
+				(
+					parseEqualArgument(argument, x),
+					unset_flags
+				);
+				return;
+			}
+			tmp.push_back(argument[x]);
+		}
+		{
+			InsertReturn it = m_flags_and_parameters.insert
+			(
+				std::make_pair
+				(
+					tmp, ""
+				)
+			);
+			tmp.erase(0, 2); // Erase the starting --
+			if (!isInert(tmp))
+			{
+				unset_flags.push
+				(
+					it
+				);
+			}
+		}
+	}
 
 } // Namespace ttl

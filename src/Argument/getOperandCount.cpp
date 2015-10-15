@@ -25,10 +25,10 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 namespace ttl
 {
 
-    ////////////////////////////////////////////////////////////
-    Sti_t Argument::getOperandCount() const
-    {
-        return m_operands.size();
-    }
+	////////////////////////////////////////////////////////////
+	Sti_t Argument::getOperandCount() const
+	{
+		return m_operands.size();
+	}
 
 } // Namespace ttl

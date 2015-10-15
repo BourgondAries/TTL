@@ -33,264 +33,264 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 namespace ttl
 {
 
-    ////////////////////////////////////////////////////////////
-    /// \brief Argument Parser and Sorter
-    ///
-    ////////////////////////////////////////////////////////////
-    class Argument
-    {
-    public:
+	////////////////////////////////////////////////////////////
+	/// \brief Argument Parser and Sorter
+	///
+	////////////////////////////////////////////////////////////
+	class Argument
+	{
+	public:
 
-        ////////////////////////////////////////////////////////////
-        /// \brief Default constructor.
-        ///
-        ////////////////////////////////////////////////////////////
-        Argument();
+		////////////////////////////////////////////////////////////
+		/// \brief Default constructor.
+		///
+		////////////////////////////////////////////////////////////
+		Argument();
 
-        ////////////////////////////////////////////////////////////
-        /// \brief Constructor taking traditional arguments.
-        ///
-        /// Same scheme as the standard int main ( int argc, char *argv[]).
-        /// In this case, a ** is necessary as the language does not allow
-        /// the declaration of an array. Regardless, arrays degenerate
-        /// into pointers.
-        ///
-        /// \param argc The count of arguments.
-        /// \param argv The array of C-strings.
-        ///
-        ////////////////////////////////////////////////////////////
-        Argument(const Sti_t argc, char **argv);
+		////////////////////////////////////////////////////////////
+		/// \brief Constructor taking traditional arguments.
+		///
+		/// Same scheme as the standard int main ( int argc, char *argv[]).
+		/// In this case, a ** is necessary as the language does not allow
+		/// the declaration of an array. Regardless, arrays degenerate
+		/// into pointers.
+		///
+		/// \param argc The count of arguments.
+		/// \param argv The array of C-strings.
+		///
+		////////////////////////////////////////////////////////////
+		Argument(const Sti_t argc, char **argv);
 
-        ////////////////////////////////////////////////////////////
-        /// \brief Constructor taking a string, separated entries
-        /// by whitespace.
-        ///
-        /// \param argument a parsable string.
-        ///
-        ////////////////////////////////////////////////////////////
-        Argument(const std::string &argument);
+		////////////////////////////////////////////////////////////
+		/// \brief Constructor taking a string, separated entries
+		/// by whitespace.
+		///
+		/// \param argument a parsable string.
+		///
+		////////////////////////////////////////////////////////////
+		Argument(const std::string &argument);
 
-        ////////////////////////////////////////////////////////////
-        /// \brief Destructor.
-        ///
-        ////////////////////////////////////////////////////////////
-        ~Argument();
+		////////////////////////////////////////////////////////////
+		/// \brief Destructor.
+		///
+		////////////////////////////////////////////////////////////
+		~Argument();
 
-        ////////////////////////////////////////////////////////////
-        /// \brief For passing arguments into the parser.
-        ///
-        /// \param argc The count of arguments.
-        /// \param argv The array of C-strings.
-        ///
-        ////////////////////////////////////////////////////////////
-        void pass(const Sti_t argc, char **argv);
+		////////////////////////////////////////////////////////////
+		/// \brief For passing arguments into the parser.
+		///
+		/// \param argc The count of arguments.
+		/// \param argv The array of C-strings.
+		///
+		////////////////////////////////////////////////////////////
+		void pass(const Sti_t argc, char **argv);
 
-        ////////////////////////////////////////////////////////////
-        /// \brief For passing arguments into the parser.
-        ///
-        /// \param argument a parsable string.
-        ///
-        ////////////////////////////////////////////////////////////
-        void pass(const std::string &argument);
+		////////////////////////////////////////////////////////////
+		/// \brief For passing arguments into the parser.
+		///
+		/// \param argument a parsable string.
+		///
+		////////////////////////////////////////////////////////////
+		void pass(const std::string &argument);
 
-        ////////////////////////////////////////////////////////////
-        /// \brief Query whether a multi-character flag is passed.
-        ///
-        /// \param flag The flag to check.
-        /// MUST be a multi-char flag (no need to prepend --).
-        /// \return whether it is passed or not.
-        ///
-        ////////////////////////////////////////////////////////////
-        bool isPassed(const std::string &flag) const;
+		////////////////////////////////////////////////////////////
+		/// \brief Query whether a multi-character flag is passed.
+		///
+		/// \param flag The flag to check.
+		/// MUST be a multi-char flag (no need to prepend --).
+		/// \return whether it is passed or not.
+		///
+		////////////////////////////////////////////////////////////
+		bool isPassed(const std::string &flag) const;
 
-        ////////////////////////////////////////////////////////////
-        /// \brief Query whether a single-character flag is passed.
-        ///
-        /// \param flag The flag to check.
-        /// \return whether it is passed or not.
-        ///
-        ////////////////////////////////////////////////////////////
-        bool isPassed(const char flag) const;
+		////////////////////////////////////////////////////////////
+		/// \brief Query whether a single-character flag is passed.
+		///
+		/// \param flag The flag to check.
+		/// \return whether it is passed or not.
+		///
+		////////////////////////////////////////////////////////////
+		bool isPassed(const char flag) const;
 
-        ////////////////////////////////////////////////////////////
-        /// \brief Get the argument assosciated with the flag.
-        ///
-        /// \param flag The flag to get the assosciated argument from.
-        /// MUST prepend - or -- depending on the argument.
-        /// \return the assosciated argument.
-        ///
-        ////////////////////////////////////////////////////////////
-        const std::string &getArgument(const std::string &flag) const;
+		////////////////////////////////////////////////////////////
+		/// \brief Get the argument assosciated with the flag.
+		///
+		/// \param flag The flag to get the assosciated argument from.
+		/// MUST prepend - or -- depending on the argument.
+		/// \return the assosciated argument.
+		///
+		////////////////////////////////////////////////////////////
+		const std::string &getArgument(const std::string &flag) const;
 
-        ////////////////////////////////////////////////////////////
-        /// \brief Get the argument assosciated with the flag.
-        ///
-        /// \param flag The flag to get the assosciated argument from.
-        /// \return the assosciated argument.
-        ///
-        ////////////////////////////////////////////////////////////
-        const std::string &getArgument(const char flag) const;
+		////////////////////////////////////////////////////////////
+		/// \brief Get the argument assosciated with the flag.
+		///
+		/// \param flag The flag to get the assosciated argument from.
+		/// \return the assosciated argument.
+		///
+		////////////////////////////////////////////////////////////
+		const std::string &getArgument(const char flag) const;
 
-        ////////////////////////////////////////////////////////////
-        /// \brief Get the path (first argument string).
-        ///
-        /// \return The *argv[0], first string entry.
-        ///
-        ////////////////////////////////////////////////////////////
-        const std::string &getPath() const;
+		////////////////////////////////////////////////////////////
+		/// \brief Get the path (first argument string).
+		///
+		/// \return The *argv[0], first string entry.
+		///
+		////////////////////////////////////////////////////////////
+		const std::string &getPath() const;
 
-        ////////////////////////////////////////////////////////////
-        /// \brief Specify which flags are inert.
-        ///
-        /// \param flag The flag to inertify.
-        /// MUST prepend - or -- depending on the argument.
-        ///
-        ////////////////////////////////////////////////////////////
-        void setInert(const std::string &flag);
+		////////////////////////////////////////////////////////////
+		/// \brief Specify which flags are inert.
+		///
+		/// \param flag The flag to inertify.
+		/// MUST prepend - or -- depending on the argument.
+		///
+		////////////////////////////////////////////////////////////
+		void setInert(const std::string &flag);
 
-        ////////////////////////////////////////////////////////////
-        /// \brief Specify which flags are inert.
-        ///
-        /// \param flag The flag to inertify.
-        ///
-        ////////////////////////////////////////////////////////////
-        void setInert(const char flag);
+		////////////////////////////////////////////////////////////
+		/// \brief Specify which flags are inert.
+		///
+		/// \param flag The flag to inertify.
+		///
+		////////////////////////////////////////////////////////////
+		void setInert(const char flag);
 
-        ////////////////////////////////////////////////////////////
-        /// \brief Specify which flags are inert.
-        ///
-        /// \param flags The flags to inertify.
-        ///
-        ////////////////////////////////////////////////////////////
-        void setInert(const std::initializer_list<const char> flags);
+		////////////////////////////////////////////////////////////
+		/// \brief Specify which flags are inert.
+		///
+		/// \param flags The flags to inertify.
+		///
+		////////////////////////////////////////////////////////////
+		void setInert(const std::initializer_list<const char> flags);
 
-        ////////////////////////////////////////////////////////////
-        /// \brief Specify which flags are inert.
-        ///
-        /// \param flags The flags to inertify.
-        ///
-        ////////////////////////////////////////////////////////////
-        void setInert(const std::initializer_list<const std::string> flags);
+		////////////////////////////////////////////////////////////
+		/// \brief Specify which flags are inert.
+		///
+		/// \param flags The flags to inertify.
+		///
+		////////////////////////////////////////////////////////////
+		void setInert(const std::initializer_list<const std::string> flags);
 
-        ////////////////////////////////////////////////////////////
-        /// \brief Query whether a flag is inert.
-        ///
-        /// \param flag The flag to check for inertness.
-        /// MUST prepend - or -- depending on the argument.
-        /// \return whether the flag is inert or not.
-        ///
-        ////////////////////////////////////////////////////////////
-        bool isInert(const std::string &flag) const;
+		////////////////////////////////////////////////////////////
+		/// \brief Query whether a flag is inert.
+		///
+		/// \param flag The flag to check for inertness.
+		/// MUST prepend - or -- depending on the argument.
+		/// \return whether the flag is inert or not.
+		///
+		////////////////////////////////////////////////////////////
+		bool isInert(const std::string &flag) const;
 
-        ////////////////////////////////////////////////////////////
-        /// \brief Query whether a flag is inert.
-        ///
-        /// \param flag The flag to check for inertness.
-        /// \return whether the flag is inert or not.
-        ///
-        ////////////////////////////////////////////////////////////
-        bool isInert(const char flag) const;
+		////////////////////////////////////////////////////////////
+		/// \brief Query whether a flag is inert.
+		///
+		/// \param flag The flag to check for inertness.
+		/// \return whether the flag is inert or not.
+		///
+		////////////////////////////////////////////////////////////
+		bool isInert(const char flag) const;
 
-        ////////////////////////////////////////////////////////////
-        /// \brief Fetch the operand according to ID-number.
-        ///
-        /// \param id The index in the operand array.
-        /// \return the string containing the operand.
-        ///
-        ////////////////////////////////////////////////////////////
-        const std::string &getOperand(const Sti_t id) const;
+		////////////////////////////////////////////////////////////
+		/// \brief Fetch the operand according to ID-number.
+		///
+		/// \param id The index in the operand array.
+		/// \return the string containing the operand.
+		///
+		////////////////////////////////////////////////////////////
+		const std::string &getOperand(const Sti_t id) const;
 
-        ////////////////////////////////////////////////////////////
-        /// \brief Fetch the operand according to ID-number.
-        ///
-        /// \param id The index in the operand array.
-        /// \return the string containing the operand.
-        ///
-        ////////////////////////////////////////////////////////////
-        std::string &getOperand(const Sti_t id);
+		////////////////////////////////////////////////////////////
+		/// \brief Fetch the operand according to ID-number.
+		///
+		/// \param id The index in the operand array.
+		/// \return the string containing the operand.
+		///
+		////////////////////////////////////////////////////////////
+		std::string &getOperand(const Sti_t id);
 
-        ////////////////////////////////////////////////////////////
-        /// \brief Get the current operand population.
-        ///
-        /// \return The current operand population.
-        ///
-        ////////////////////////////////////////////////////////////
-        Sti_t getOperandCount() const;
+		////////////////////////////////////////////////////////////
+		/// \brief Get the current operand population.
+		///
+		/// \return The current operand population.
+		///
+		////////////////////////////////////////////////////////////
+		Sti_t getOperandCount() const;
 
-        ////////////////////////////////////////////////////////////
-        /// \brief Argument dumping output.
-        ///
-        /// \param out the output stream to direct to.
-        /// \param argument the Argument object to read from.
-        /// \return the same std::ostream as put in.
-        ///
-        ////////////////////////////////////////////////////////////
-        friend ::std::ostream &operator<<(::std::ostream &out, const ttl::Argument &argument);
-
-
-    private:
-
-        std::string m_path; ///< Holds the path string (argv[0]).
-        std::map<std::string, std::string> m_flags_and_parameters; ///< Flags paired with parameters.
-        std::vector<std::string> m_operands; ///< Collection of operands.
-        std::set<std::string> m_inert_flags; ///< Collection of inert flags, set for speed of lookup.
-
-        typedef
-            std::pair<decltype(m_flags_and_parameters)::iterator, bool>
-            InsertReturn;
-        typedef
-            std::stack<InsertReturn>
-            TheUnset;
-
-        const std::string &getArgumentInternal(const std::string &flag) const;
-
-        void setArgumentOfUnsetUninertFlag
-        (
-            const std::string &argument,
-            TheUnset &unset_flags
-        );
-
-        void setSingleCharFlags
-        (
-            const std::string &argument,
-            TheUnset &unset_flags
-        );
-
-        std::string parseEqualArgument
-        (
-            const std::string &argument,
-            Sti_t x
-        );
-
-        void parseEqualArgument
-        (
-            const std::string &argument,
-            TheUnset &unset_flags
-        );
-
-        void setMultiCharFlag
-        (
-            const std::string &argument,
-            TheUnset &unset_flags
-        );
-
-        void internalSetInert
-        (
-            const std::string &flag
-        );
+		////////////////////////////////////////////////////////////
+		/// \brief Argument dumping output.
+		///
+		/// \param out the output stream to direct to.
+		/// \param argument the Argument object to read from.
+		/// \return the same std::ostream as put in.
+		///
+		////////////////////////////////////////////////////////////
+		friend ::std::ostream &operator<<(::std::ostream &out, const ttl::Argument &argument);
 
 
-    public:
+	private:
 
-        ////////////////////////////////////////////////////////////
-        /// \brief Get an iterator to the flags paired with their parameters.
-        ///
-        /// \return the iterator to the flags paired with their parameters.
-        ///
-        ////////////////////////////////////////////////////////////
-        auto getFlagsAndParameters() const -> const decltype(m_flags_and_parameters) &;
+		std::string m_path; ///< Holds the path string (argv[0]).
+		std::map<std::string, std::string> m_flags_and_parameters; ///< Flags paired with parameters.
+		std::vector<std::string> m_operands; ///< Collection of operands.
+		std::set<std::string> m_inert_flags; ///< Collection of inert flags, set for speed of lookup.
 
-    };
+		typedef
+				std::pair<decltype(m_flags_and_parameters)::iterator, bool>
+				InsertReturn;
+		typedef
+				std::stack<InsertReturn>
+				TheUnset;
+
+		const std::string &getArgumentInternal(const std::string &flag) const;
+
+		void setArgumentOfUnsetUninertFlag
+		(
+				const std::string &argument,
+				TheUnset &unset_flags
+		);
+
+		void setSingleCharFlags
+		(
+				const std::string &argument,
+				TheUnset &unset_flags
+		);
+
+		std::string parseEqualArgument
+		(
+				const std::string &argument,
+				Sti_t x
+		);
+
+		void parseEqualArgument
+		(
+				const std::string &argument,
+				TheUnset &unset_flags
+		);
+
+		void setMultiCharFlag
+		(
+				const std::string &argument,
+				TheUnset &unset_flags
+		);
+
+		void internalSetInert
+		(
+				const std::string &flag
+		);
+
+
+	public:
+
+		////////////////////////////////////////////////////////////
+		/// \brief Get an iterator to the flags paired with their parameters.
+		///
+		/// \return the iterator to the flags paired with their parameters.
+		///
+		////////////////////////////////////////////////////////////
+		auto getFlagsAndParameters() const -> const decltype(m_flags_and_parameters) &;
+
+	};
 
 } // Namespace ttl
 

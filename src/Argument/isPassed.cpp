@@ -25,22 +25,22 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 namespace ttl
 {
 
-    ////////////////////////////////////////////////////////////
-    bool Argument::isPassed(const std::string &argument) const
-    {
-        std::string tmp = argument;
-        tmp.insert(0, "--");
+	////////////////////////////////////////////////////////////
+	bool Argument::isPassed(const std::string &argument) const
+	{
+		std::string tmp = argument;
+		tmp.insert(0, "--");
 
-        return (m_flags_and_parameters.find(tmp) != m_flags_and_parameters.end());
-    }
+		return (m_flags_and_parameters.find(tmp) != m_flags_and_parameters.end());
+	}
 
-    ////////////////////////////////////////////////////////////
-    bool Argument::isPassed(const char argument) const
-    {
-        std::string tmp("-");
-        tmp.push_back(argument);
+	////////////////////////////////////////////////////////////
+	bool Argument::isPassed(const char argument) const
+	{
+		std::string tmp("-");
+		tmp.push_back(argument);
 
-        return (m_flags_and_parameters.find(tmp) != m_flags_and_parameters.end());
-    }
+		return (m_flags_and_parameters.find(tmp) != m_flags_and_parameters.end());
+	}
 
 } // Namespace ttl

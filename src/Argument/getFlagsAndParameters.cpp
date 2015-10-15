@@ -25,10 +25,10 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 namespace ttl
 {
 
-    ////////////////////////////////////////////////////////////
-    auto Argument::getFlagsAndParameters() const -> const decltype(m_flags_and_parameters) &
-    {
-        return m_flags_and_parameters;
-    }
+	////////////////////////////////////////////////////////////
+	auto Argument::getFlagsAndParameters() const -> const decltype(m_flags_and_parameters) &
+	{
+		return m_flags_and_parameters;
+	}
 
 } // Namespace ttl

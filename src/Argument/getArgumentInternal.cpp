@@ -24,10 +24,10 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 namespace ttl
 {
 
-    ////////////////////////////////////////////////////////////
-    const std::string &Argument::getArgumentInternal(const std::string &flag) const
-    {
-        return m_flags_and_parameters.find(flag)->second;
-    }
+	////////////////////////////////////////////////////////////
+	const std::string &Argument::getArgumentInternal(const std::string &flag) const
+	{
+		return m_flags_and_parameters.find(flag)->second;
+	}
 
 } // Namespace ttl

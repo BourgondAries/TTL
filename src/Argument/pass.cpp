@@ -29,61 +29,61 @@ along with TTL.  If not, see <http://www.gnu.org/licenses/>.
 namespace ttl
 {
 
-    ////////////////////////////////////////////////////////////
-    void Argument::pass(const Sti_t argc, char *argv[])
-    {
-        m_path = argv[0];
+	////////////////////////////////////////////////////////////
+	void Argument::pass(const Sti_t argc, char *argv[])
+	{
+		m_path = argv[0];
 
-        std::stack<std::pair<decltype(m_flags_and_parameters)::iterator, bool>> unset_flags;
+		std::stack<std::pair<decltype(m_flags_and_parameters)::iterator, bool>> unset_flags;
 
-        Sti_t i = 1;
+		Sti_t i = 1;
 
-        for (; i < argc; ++i)
-        {
-            if (argv[i][0] == '-')
-            {
-                if (argv[i][1] == '-')
-                {
-                    if (argv[i][2] == '\0') // An end of flags flag
-                    {
-                        ++i; break;
-                    }
-                    else // A multi-char flag
-                    {
-                        setMultiCharFlag(argv[i], unset_flags);
-                    }
-                }
-                else // A single-char flag
-                {
-                    setSingleCharFlags(argv[i], unset_flags);
-                }
-            }
-            else // A normal argument
-            {
-                setArgumentOfUnsetUninertFlag(argv[i], unset_flags);
-            }
-        } // Loop that counts flags
+		for (; i < argc; ++i)
+		{
+			if (argv[i][0] == '-')
+			{
+				if (argv[i][1] == '-')
+				{
+					if (argv[i][2] == '\0') // An end of flags flag
+					{
+						++i; break;
+					}
+					else // A multi-char flag
+					{
+						setMultiCharFlag(argv[i], unset_flags);
+					}
+				}
+				else // A single-char flag
+				{
+					setSingleCharFlags(argv[i], unset_flags);
+				}
+			}
+			else // A normal argument
+			{
+				setArgumentOfUnsetUninertFlag(argv[i], unset_flags);
+			}
+		} // Loop that counts flags
 
-        for (; i < argc; ++i)
-        {
-            m_operands.emplace_back(argv[i]);
-        } // Loop that accumulates all other arguments
-    }
+		for (; i < argc; ++i)
+		{
+			m_operands.emplace_back(argv[i]);
+		} // Loop that accumulates all other arguments
+	}
 
-    ////////////////////////////////////////////////////////////
-    void Argument::pass(const std::string &argument)
-    {
-        std::stringstream ss;
-        ss << argument;
-        std::vector<std::string> all;
-        std::vector<char *> el;
-        while (ss.good())
-        {
-            all.emplace_back();
-            ss >> all.back();
-            el.push_back(const_cast<char *>(all.back().data()));
-        }
-        this->pass(all.size(), &el[0]);
-    }
+	////////////////////////////////////////////////////////////
+	void Argument::pass(const std::string &argument)
+	{
+		std::stringstream ss;
+		ss << argument;
+		std::vector<std::string> all;
+		std::vector<char *> el;
+		while (ss.good())
+		{
+			all.emplace_back();
+			ss >> all.back();
+			el.push_back(const_cast<char *>(all.back().data()));
+		}
+		this->pass(all.size(), &el[0]);
+	}
 
 } // Namespace ttl

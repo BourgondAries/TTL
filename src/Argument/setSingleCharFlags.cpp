@@ -25,39 +25,39 @@ along with schdl.  If not, see <http://www.gnu.org/licenses/>.
 namespace ttl
 {
 
-    void Argument::setSingleCharFlags
-    (
-        const std::string &argument,
-        TheUnset &unset_flags
-    )
-    {
-        for (int x = 1, y = argument.size(); x < y; ++x)
-        {
-            if (argument[x] == '=')
-            {
-                setArgumentOfUnsetUninertFlag
-                (
-                    parseEqualArgument(argument, x),
-                    unset_flags
-                );
-                return;
-            }
-            InsertReturn it = m_flags_and_parameters.insert
-            (
-                std::make_pair
-                (
-                    std::string("-")
-                    + argument[x], ""
-                )
-            );
-            if (!isInert(argument[x]))
-            {
-                unset_flags.push
-                (
-                    it
-                );
-            }
-        }
-    }
+	void Argument::setSingleCharFlags
+	(
+		const std::string &argument,
+		TheUnset &unset_flags
+	)
+	{
+		for (int x = 1, y = argument.size(); x < y; ++x)
+		{
+			if (argument[x] == '=')
+			{
+				setArgumentOfUnsetUninertFlag
+				(
+					parseEqualArgument(argument, x),
+					unset_flags
+				);
+				return;
+			}
+			InsertReturn it = m_flags_and_parameters.insert
+			(
+				std::make_pair
+				(
+					std::string("-")
+					+ argument[x], ""
+				)
+			);
+			if (!isInert(argument[x]))
+			{
+				unset_flags.push
+				(
+					it
+				);
+			}
+		}
+	}
 
 } // Namespace ttl
